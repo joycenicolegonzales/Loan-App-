@@ -1,7 +1,7 @@
 <?php
-
-
+session_start();
 ?>
+
 <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -22,102 +22,123 @@
   </head>
 
   <body>    
-    
-    <div class="container mt-3">
-        <form action="apply.php" method="POST" id="application_form">
-          <div class="row jumbotron box8">
-            <div class="col-sm-12 mx-t3 mb-4">
-              <h2 class="text-center text-info">Application Form for Loan</h2>
-            </div>
-            <div class="col-sm-4 form-group">
-              <label for="fname">First Name</label>
-              <input type="text" placeholder="Enter First Name" name="firstname" id="firstname" required>
-            </div>
-            <div class="col-sm-4 form-group">
-                <label for="mname">Middle Name</label>
-                <input type="text" placeholder="Enter Middle Name" name="middlename" id="middlename" required>
-            <div class="col-sm-4 form-group">
-              <label for="lname">Last name</label>
-              <input type="text" placeholder="Enter Last Name" name="lastname" id="lastname" required>
-            </div>
-            <div class="col-sm-6 form-group">
-              <label for="address">Present Address</label>
-              <input type="text" placeholder="Enter Present Address" name="presentaddress" id="presentaddress" required>
-            </div>
-            <div class="col-sm-6 form-group">
-              <label for="dprtmnt">Department</label>
-              <input type="text" placeholder="Enter Department" name="department" id="department" required>
-            <div class="col-sm-5 form-group">
-              <label for="Status">Employee Status</label>
-              <input type="text" placeholder="Enter Status" name="employeestatus" id="employeestatus" required>
-            </div>
-            <div class="col-sm-4 form-group">
-              <label for="pos">Position</label>
-              <input type="text" placeholder="Enter Position" name="position" id="position" required>
-            </div>
-            <div class="col-sm-3 form-group">
-                <label for="agee">Age</label>
-                <input type="text" placeholder="Enter Age" name="age" id="age" required>
-              </div>
-            <div class="col-sm-6 form-group">
-              <label for="salary">Monthly Salary</label>
-              <select id ="monthlysalary" class="form-control custom-select browser-default">
-                <option value="P5000-P10,000"> P5000-P10,000</option>
-                <option value="P10,000-P15,000">P10,000-P15,000</option>
-                <option value="P15,000-P20,000">P15,000-P20,000</option>
-                <option value="P20,000-P25,000">P20,000-P25,000</option>
-              </select>
-            </div>
-            <div class="col-sm-6 form-group">
-              <label for="birthdate">Date Of Birth</label>
-              <input type="text" placeholder="Enter Birthdate" name="dateofbirth" id="dateofbirth" required>
-            </div>
-            <div class="col-sm-5 form-group">
-              <label for="status">Civil Status</label>
-              <select id="civilstatus" class="form-control browser-default custom-select">
-                <option value="single">Single</option>
-                <option value="married">Married</option>
-                <option value="live-in-partner">Live-in Partner</option>
-                <option value="widowed">Widowed</option>
-                <option value="separated">Separated</option>
-              </select>
-            </div>
-           <div class="col-sm-3 form-group">
-              <label for="tin">TIN Number</label>
-              <input type="text" placeholder="Enter TIN Number" name="tinnumber" id="tinnumber" required>
-            </div>
-            <div class="col-sm-4 form-group">
-              <label for="cntctno">Contact No</label>
-              <input type="text" placeholder="Enter Contact No." name="contactno" id="contactno" required>
-            </div>
-            <!-- <div class="col-sm-12">
-              <input type="checkbox" class="form-check d-inline" id="chb" required><label for="chb" class="form-check-label">&nbsp;I accept all terms and conditions.
-              </label>
-            </div> -->  
-      
-            <div class="col-sm-12 form-group mb-0">
-            <button type ="submit" class="submitbtn">Submit</button>
-            </div>
-      
-          </div>
-        </form>
-      </div>
 
-      <style>
-        label {
+    <div class="container mt-5">
+
+        <?php include('message.php'); ?>
+
+        <!-- <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Loan Application Form
+                            <a href="index.php" class="btn btn-danger float-end">BACK</a>
+                        </h4>
+                    </div> -->
+
+                    <div class="container mt-3">
+                 <form action="apply.php" method="POST">>
+                    <div class="row jumbotron box8">
+                      <div class="col-sm-12 mx-t3 mb-4">
+                        <h4>Loan Application Form
+                            <a href="index.php" class="btn btn-danger float-end">BACK</a>
+                        </h4>
+                    
+                      </div>
+                        <div class="col-sm-4 form-group" >
+                                <label>First Name</label>
+                                <input type="text" name="firstname" class="form-control">
+                            </div>
+                            <div class="col-sm-4 form-group" >
+                                <label>Middle Name</label>
+                                <input type="text" name="middlename" class="form-control">
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <label>Last Name</label>
+                                <input type="text" name="lastname" class="form-control">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Present Address</label>
+                                <input type="text" name="presentaddress" class="form-control">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Department</label>
+                                <input type="text" name="department" class="form-control">
+                            </div>
+                            <div class="col-sm-5 form-group">
+                                <label>Employee Status</label>
+                                <input type="text" name="employeestatus" class="form-control">
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <label>Position</label>
+                                <input type="text" name="position" class="form-control">
+                            </div>
+                            <div class="col-sm-3 form-group">
+                                <label>Age</label>
+                                <input type="text" name="age" class="form-control">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Monthly Salary</label>
+                                <select name ="monthlysalary" class="form-control">
+                                  <option value="P5000-P10,000"> P5000-P10,000</option>
+                                  <option value="P10,000-P15,000">P10,000-P15,000</option>
+                                  <option value="P15,000-P20,000">P15,000-P20,000</option>
+                                  <option value="P20,000-P25,000">P20,000-P25,000</option>
+                                </select>
+                              </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Date of Birth</label>
+                                <input type="Date" name="dateofbirth" class="form-control">
+                            </div>
+                            <div class="col-sm-5 form-group">
+                                <label>Civil Status</label>
+                                <select name="civilstatus" class="form-control">
+                                <option value="">--Select Civil Status--</option>
+                                  <option value="single">Single</option>
+                                  <option value="married">Married</option>
+                                  <option value="live-in-partner">Live-in Partner</option>
+                                  <option value="widowed">Widowed</option>
+                                  <option value="separated">Separated</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 form-group">
+                                <label>TIN Number</label>
+                                <input type="text" name="tinnumber" class="form-control">
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <label>Contact No.</label>
+                                <input type="text" name="contactno" class="form-control">
+                            </div>
+                            <div class="col-sm-9 form-group">
+                                <button type="submit" name="save_member" class="btn btn-primary">Save Member</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+    label {
     font-weight: 600;
     color: #666;
-}
-body {
-  background: #f1f1f1;
-}
-.box8{
-  box-shadow: 0px 0px 5px 1px #999;
-}
-.mx-t3{
-  margin-top: -3rem;
-}
-</style>
+    }
+    body {
+      background: #f1f1f1;
+    }
+    .box8{
+      box-shadow: 0px 0px 5px 1px #999;
+    }
+    .mx-t3{
+      margin-top: -3rem;
+    }
+      </style>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
