@@ -110,7 +110,7 @@ session_start();
                                 <input type="text" name="contactno" class="form-control">
                             </div>
                             <div class="col-sm-9 form-group">
-                                <button type="submit" name="save_member" class="btn btn-primary">Save Member</button>
+                                <button type="submit" name="save_member" class="btn btn-primary">Submit</button>
                             </div>
 
                         </form>

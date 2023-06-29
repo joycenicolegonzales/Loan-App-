@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Loan Requirements</title>
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href='https://fonts.googleapis.com/css?family=Archivo Black' rel='stylesheet'>
+      <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      
+  </head>
+
+  
+  <body>
+
+    <style>
+        body{
+              overflow-x: hidden !important;
+              
+          }
+        .navbar{
+        background-color: #1165AE;
+        font-family: 'Archivo Black';
+        padding: 10px;
+      }
+      .navbar-nav a {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .navbar-light .navbar-brand {
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+      .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+        color: #FFDE59;
+      }
+      .navbar-light .navbar-nav .nav-link {
+        color: #FFDE59;
+        font-family: 'Archivo Black';
+      }
+      .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+        color: #FFDE59;
+      }
+      .w-100 {
+        height: 100vh;
+      }
+      .navbar-toggler {
+        padding: 1px 5px;
+        font-size: 18px;
+        line-height: 0.3;
+        color: #FFDE59;
+      }
+      .navbar-light .navbar-toggler {
+        color: black;
+        border-color: transparent;
+        background:transparent;
+        margin-right: 20px;
+        border: none;
+        outline: none;
+      }
+      .navbar-light .navbar-toggler:focus{
+          outline: none;
+          box-shadow: none;
+        }
+      .navbar-nav {
+        text-align: center;    
+      }
+      .navbar-collapse {
+        background: transparent;
+      }
+      .navbar-collapse .nav-link {
+        color: #FFDE59 !important;
+      }
+        /** carousel **/
+        .carousel-item {
+          height: 65vh;
+        }
+        .carousel-caption {
+          top: 60px;
+          z-index: 2;/
+        }
+        .carousel-caption h5 {
+          font-size: 58px;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          margin-bottom: 60px;
+        }
+        .carousel-caption p{
+          font-size: 30px;
+          letter-spacing: 1px;
+          font-family: 'Courier New', Courier, monospace;
+        }
+        .carousel-inner:before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.1);
+          z-index: 1;
+        }
+        .c-item {
+          height: 480px;
+        }
+        .c-img {
+          height: 100%;
+          object-fit: cover;
+          filter: brightness(0.8);
+        }
+      </style>
+
+            <nav class="navbar navbar-expand-lg navbar-light " >
+                <img src="/SourceCode/images/logoo.jpg" style="width: 60px; height: 60px;">
+            <h1 style="color: #FFDE59;font-family: 'Archivo Black';margin-left: 10px;">NMEMPC</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fa-solid fa-bars" style="color: #FFDE59;"></i></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="color: #FFDE59;">
+                        <li class="nav-item" ><a class="nav-link" href="">HOME</a></li>
+                        <li class="nav-item" ><a class="nav-link"  href="">MEMBERSHIP</a></li>
+                        <li class="nav-item" ><a class="nav-link" href="">SERVICES</a></li>
+                        <li class="nav-item" ><a class="nav-link" href="">ABOUT US</a></li>
+                        <li class="nav-item" ><a class="nav-link" href="">CONTACT</a></li>
+                    </ul>
+                    </div>
+            </nav>
+            <style>
+                .button {
+                  border: none;
+                  color: white;
+                  padding: 10px 32px;
+                  text-align: center;
+                  text-decoration: none;
+                  display: inline-block;
+                  font-size: 16px;
+                  margin-left: 20px;
+                  transition-duration: 0.4s;
+                  cursor: pointer;
+                  border-radius: 20px;
+                }
+                .button1 {
+                background-color: transparent;
+                color: black;
+                border: 2px solid #1165AE;
+                }
+
+                .button1:hover {
+                background-color: #1165AE;
+                color: white;
+                }
+
+                .button2 {
+                background-color: transparent;
+                color: black; 
+                border: 2px solid #1165AE;
+                }
+
+                .button2:hover {
+                background-color: #1165AE;
+                color: white;
+                }
+
+                .button3 {
+                background-color: transparent;
+                color: black; 
+                border: 2px solid #1165AE;
+                }
+
+                .button3:hover {
+                background-color: #1165AE;
+                color: white;
+                }
+                .first{
+                    width: 100%;
+                    background-color: white;
+                    display: inline-block;
+                    padding: 25px;
+                    
+                }
+            </style>
+
+        <div class="first">
+            <h1 class="text-center" style="color: #1165AE; font-size: 60px;"><b>LOAN REQUIREMENTS</b></h1>
+                </div>
+                
+        <div class="container py-5">
+                          
+            <a href="#" class="button button1" style="width: 15%; margin-left: 20%;">E-LOAN PROCESS</a>
+            <a href="e-loan.html" class="button button2" style="width: 15%;">LOAN PRODUCTS</a>
+            <a href="#" class="button button3" style="width: 22%; height: 47px;">AMORTIZATION CALCULATOR</a>
+       
+
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+    
+                <div class="col" style="margin-left: 21%;">
+                    <div class="card" >
+                       
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center; text-transform: uppercase; margin-bottom: 7%;"><b>General Requirements</b></h5>
+                            <p class="card-text" style="font-size: 13px; text-align: justify;">
+                            1. (2) recent ID picture (1×1) or (2×2)
+                            <br>2. (2) photocopy of valid ID<br>3.Barangay Certification (for Loan Purposes)<br>
+                            4. Photocopy of Land Title or Deed of Sale or Award or Certificate of Residency<br>
+                            5. Original Copy of Meralco and Water Bill<br>
+                            6. Picture of Business <br>
+                            7. Photocopy of Business Permit<br>
+                            8. Spouse Valid ID<br>
+                            9. Sketch/ Location Map<br>
+                            10. Photocopy of Birth Certificate/ Marriage Contract<br>
+                            11. Proof of Remittance (if any)<br>
+                            12. Submit the Original Certificate of Employment and latest Payslip (if employed)</p>
+                        </div>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+  
+<style>
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+        background-color: #f9f8f7;
+}
+
+.card{
+    border-radius: 30px;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px; */
+    box-shadow: 0px 0px 5px;
+    padding: 20px;
+    height: 350px;
+    width: 680px;
+}
+.card-body{
+    padding: 10px;
+    margin-top: -15px;
+}
+.btn-primary{
+    border-radius: 50px;
+    width: 120px;
+    background-color: #1165AE;
+}
+.btn-primary:hover{
+    background-color: #0e3456;
+    border: none;
+}
+h3,h5{
+    color: #1165AE;
+}
+  </style>
+
+   <script src="https://kit.fontawesome.com/1c020da525.js" crossorigin="anonymous"></script>   
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+   crossorigin="anonymous"></script>
+
+
+  </body>
+  </html>
