@@ -23,6 +23,89 @@ session_start();
 
   <body>    
 
+
+  
+  <style>
+      body{
+            overflow-x: hidden !important;
+            
+        }
+      .navbar{
+      background-color: #1165AE;
+      font-family: 'Archivo Black';
+      padding: 10px;
+    }
+    .navbar-nav a {
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .navbar-light .navbar-brand {
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+      color: #FFDE59;
+    }
+    .navbar-light .navbar-nav .nav-link {
+      color: #FFDE59;
+      font-family: 'Archivo Black';
+    }
+    .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+      color: #FFDE59;
+    }
+    .w-100 {
+      height: 100vh;
+    }
+    .navbar-toggler {
+      padding: 1px 5px;
+      font-size: 18px;
+      line-height: 0.3;
+      color: #FFDE59;
+    }
+    .navbar-light .navbar-toggler {
+      color: black;
+      border-color: transparent;
+      background:transparent;
+      margin-right: 20px;
+      border: none;
+      outline: none;
+    }
+    .navbar-light .navbar-toggler:focus{
+        outline: none;
+        box-shadow: none;
+      }
+    .navbar-nav {
+      text-align: center;    
+    }
+    .navbar-collapse {
+      background: transparent;
+    }
+    .navbar-collapse .nav-link {
+      color: #FFDE59 !important;
+    }
+  
+    </style>
+
+          <nav class="navbar navbar-expand-lg navbar-light " >
+              <img src="/SourceCode/images/logoo.jpg" style="width: 60px; height: 60px;">
+          <h1 style="color: #FFDE59;font-family: 'Archivo Black';margin-left: 10px;">NMEMPC</h1>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span><i class="fa-solid fa-bars" style="color: #FFDE59;"></i></span>
+          </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="color: #FFDE59;">
+                      <li class="nav-item" ><a class="nav-link" href="">HOME</a></li>
+                      <li class="nav-item" ><a class="nav-link"  href="">MEMBERSHIP</a></li>
+                      <li class="nav-item" ><a class="nav-link" href="">SERVICES</a></li>
+                      <li class="nav-item" ><a class="nav-link" href="">ABOUT US</a></li>
+                      <li class="nav-item" ><a class="nav-link" href="">CONTACT</a></li>
+                  </ul>
+                  </div>
+          </nav>
+          
     <div class="container mt-5">
 
         <?php include('message.php'); ?>
@@ -37,11 +120,11 @@ session_start();
                     </div> -->
 
                     <div class="container mt-3">
-                 <form action="apply.php" method="POST">>
+                 <form action="apply.php" method="POST">
                     <div class="row jumbotron box8">
                       <div class="col-sm-12 mx-t3 mb-4">
-                        <h4>Loan Application Form
-                            <a href="index.php" class="btn btn-danger float-end">BACK</a>
+                        <h4 style="margin-top: 2%; font-size:25px;">Loan Application Form
+                            <a href="index.php" class="btn btn-danger float-end"  style="float:right;">BACK</a>
                         </h4>
                     
                       </div>
@@ -131,6 +214,8 @@ session_start();
     }
     .box8{
       box-shadow: 0px 0px 5px 1px #999;
+      width: 95%;
+      margin-left: 5%;
     }
     .mx-t3{
       margin-top: -3rem;
