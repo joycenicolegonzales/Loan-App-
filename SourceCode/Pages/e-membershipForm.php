@@ -213,9 +213,9 @@ session_start();
       background: #f1f1f1;
     }
     .box8{
-      box-shadow: 0px 0px 2px 1px #999;
-      width: 95%;
-      margin-left: 5%;
+      box-shadow: 0px 0px 0px 1px #d7d1d1;
+      width: 100%;
+      margin-left: 2%;
     }
     .mx-t3{
       margin-top: -3rem;
