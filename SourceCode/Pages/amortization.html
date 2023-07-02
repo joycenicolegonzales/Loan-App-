@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Amortization Calculator</title>
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href='https://fonts.googleapis.com/css?family=Archivo Black' rel='stylesheet'>
+      <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      
+  </head>
+
+  
+  <body>
+
+    <div id="container">
+
+        <h2>Loan Installment Calculator</h2>
+        <div id="loan_src"> <!---loan form-->
+            <form name="loan_form">
+                <table style="margin: 10px;">
+                    <tr>
+                        <td>Loan Amount: </td>
+                        <td><input type="text" name="loan_amt" size="10" value="a"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>Number of Months: </td>
+                        <td><input type="text" name="months" size="10" value="a"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>Annual Interest Rate: <br/><span style="font-size: 80%;">(ex. 4.5% = 4.5)</span></td>
+                        <td><input type="text" name="rate" size="10" value="a"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>Extra Monthly Payment: </td>
+                        <td><input type="text" name="extra" size="10" value="a"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="button" onclick="validate()" value="Calculate" /></td>
+                        <td><input type="button" onclick="startOver()" value="Start Over" /></td>
+                    </tr>
+                
+                </table>
+            </form>
+        </div>
+
+        <div id="loan_info"><!-----loan info-->
+                loan info
+        </div>
+
+
+        <div id="table_header">
+                table header
+        </div>
+
+        <div id="table">
+                table
+        </div>
+    </div>
+
+<style>
+    #container{
+        width: 650px;
+        height: 600px;
+        margin: 0px auto;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid black;
+    }
+    #loan_src {
+        float: left;
+        width: 280px;
+        height: 220px;
+        margin-bottom: 10px;
+        border: 1px solid blue ;
+    }
+    #loan_info{
+        float: right;
+        width: 300px;
+        height: 230px;
+        margin-bottom: 10px;
+        border: 1px solid orange;
+    }
+
+    #table_header{
+        clear: both;
+        width: 600px;
+        height: 50px;
+        border: 1px solid black;
+    }
+
+    #table {
+        overflow: auto;
+        width: 600px;
+        height: 200px;
+    }
+
+    table {
+        align:center;
+        font-family: sans-serif;
+        font-size: 13px;
+    }
+</style>
+
+<script>
+    function startOver(){
+        document.loan_form.loan_amt.value="";
+        document.loan_form.months.value="";
+        document.loan_form.rate.value="";
+        document.loan_form.extra.value="0";
+
+        document.getElementById("loan_info").innerHTML="";
+        document.getElementById("table").innerHTML="";
+    }
+
+    function validate(){
+        var loan_amt = document.loan_form.loan_amt.value;
+        var months = document.loan_form.months.value;
+
+    }
+</script>
+  </body>
+  </html>
