@@ -19,47 +19,49 @@
 
   <body>
 
+
+    
     <div class="container mt-3">
         <form>
           <div class="row jumbotron box8">
             <div class="col-sm-12 mx-t3 mb-4">
               <h2 class="text-center text-info">Application Form for Loan</h2>
             </div>
-            <div class="col-sm-4 form-group">
-              <label for="name-f">First Name</label>
-              <input type="text" class="form-control" name="fname" id="name-f" placeholder="Enter your first name." required>
+            <div class="col-sm-4 form-group" >
+              <label for="fname">First Name</label>
+              <input type="text" placeholder="Enter First Name" name="firstname" id="firstname" class="form-control" required>
             </div>
             <div class="col-sm-4 form-group">
-                <label for="name-m">Middle Name</label>
-                <input type="text" class="form-control" name="mname" id="name-m" placeholder="Enter your middle name." required>
+              <label for="mname">Middle Name</label>
+              <input type="text" placeholder="Enter Middle Name" name="middlename" id="middlename" class="form-control" required>
               </div>
             <div class="col-sm-4 form-group">
-              <label for="name-l">Last name</label>
-              <input type="text" class="form-control" name="lname" id="name-l" placeholder="Enter your last name." required>
+              <label for="lname">Last name</label>
+              <input type="text" placeholder="Enter Last Name" name="lastname" id="lastname" class="form-control" required>
             </div>
             <div class="col-sm-6 form-group">
-              <label for="presentAddress">Present Address</label>
-              <input type="presentAddress" class="form-control" name="presentAddress" id="presentAddress" placeholder="Enter your permanent address." required>
+              <label for="address">Present Address</label>
+              <input type="text" placeholder="Enter Present Address" name="presentaddress" id="presentaddress" class="form-control" required>
             </div>
             <div class="col-sm-6 form-group">
-              <label for="department">Department</label>
-              <input type="department" class="form-control" name="department" id="department" placeholder="Department." required>
+              <label for="dprtmnt">Department</label>
+              <input type="text" placeholder="Enter Department" name="department" id="department" class="form-control" required>
             </div>
             <div class="col-sm-5 form-group">
-              <label for="employeeStatus">Employee Status</label>
-              <input type="employeeStatus" class="form-control" name="employeeStatus" id="employeeStatus" placeholder="Employee Status." required>
+              <label for="Status">Employee Status</label>
+              <input type="text" placeholder="Enter Status" name="employeestatus" id="employeestatus" class="form-control" required>
             </div>
             <div class="col-sm-4 form-group">
-              <label for="Position">Position</label>
-              <input type="position" class="form-control" name="Position" id="Position" placeholder="Enter your position." required>
+              <label for="pos">Position</label>
+              <input type="text" placeholder="Enter Position" name="position" id="position" class="form-control" required>
             </div>
             <div class="col-sm-3 form-group">
-                <label for="Age">Age</label>
-                <input type="Age" class="form-control" name="Age" id="Age" placeholder="Enter your age." required>
+              <label for="agee">Age</label>
+              <input type="text" placeholder="Enter Age" name="age" id="age" class="form-control" required>
               </div>
             <div class="col-sm-6 form-group">
-              <label for="Country">Monthly Salary</label>
-              <select class="form-control custom-select browser-default">
+              <label for="salary">Monthly Salary</label>
+              <select id ="monthlysalary" class="form-control custom-select browser-default">
                 <option value="P5000-P10,000"> P5000-P10,000</option>
                 <option value="P10,000-P15,000">P10,000-P15,000</option>
                 <option value="P15,000-P20,000">P15,000-P20,000</option>
@@ -68,11 +70,11 @@
             </div>
             <div class="col-sm-6 form-group">
               <label for="Date">Date Of Birth</label>
-              <input type="Date" name="dob" class="form-control" id="Date" placeholder="" required>
+              <input type="Date" placeholder="Enter Birthdate" name="dateofbirth" id="dateofbirth" class="form-control" required>
             </div>
             <div class="col-sm-5 form-group">
-              <label for="sex">Civil Status</label>
-              <select id="sex" class="form-control browser-default custom-select">
+              <label for="status">Civil Status</label>
+              <select id="civilstatus" class="form-control browser-default custom-select">
                 <option value="single">Single</option>
                 <option value="married">Married</option>
                 <option value="unspesified">Live-in Partner</option>
@@ -81,20 +83,21 @@
               </select>
             </div>
            <div class="col-sm-3 form-group">
-              <label for="tin">TIN Number</label>
-              <input type="tin" name="tin-number" class="form-control" id="tin" placeholder="Enter your TIN Number." required>
+            <label for="tin">TIN Number</label>
+            <input type="text" placeholder="Enter TIN Number" name="tinnumber" id="tinnumber" class="form-control" required>
             </div>
             <div class="col-sm-4 form-group">
-              <label for="contactno">Contact No</label>
-              <input type="contactno" name="contact-number" class="form-control" id="contactno" placeholder="Enter your Contact Number." required>
+              <label for="cntctno">Contact No</label>
+              <input type="text" placeholder="Enter Contact No." name="contactno" id="contactno" class="form-control" required>
             </div>
-            <div class="col-sm-12">
+            <!-- <div class="col-sm-12">
               <input type="checkbox" class="form-check d-inline" id="chb" required><label for="chb" class="form-check-label">&nbsp;I accept all terms and conditions.
               </label>
-            </div>
+            </div> -->
       
             <div class="col-sm-12 form-group mb-0">
-              <button class="btn btn-primary float-right">Submit</button>
+              <button class="btn btn-primary float-right" name="save_member" type="submit">Submit</button>
+              
             </div>
       
           </div>
