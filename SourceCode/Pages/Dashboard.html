@@ -323,6 +323,37 @@
     display: none;
   }
 }
+
+/* ========= TABLE ========== */
+.mem-tab{
+  /* background-color: #1165AE; */
+  background-color: #1165AE;
+  color: white;
+}
+.mem-list > a {
+  text-decoration: none;
+  color: white;
+  /* color: white; */
+}
+.mem-list > a:hover {
+  text-decoration: none;
+  background-color: #4c91ce;
+  color: white;
+}
+/* .mem-list > a.active {
+  text-decoration: none;
+  background-color: violet;
+  color: white;
+} */
+.mem-item.mem-item.active {
+  background-color:#4c91ce  ;
+      color: white;
+      transform: translateY(2px);
+  }
+
+  .view-btn{
+    height:40px;
+  }
 </style>
 
 
@@ -337,12 +368,14 @@
         <div class="menu-icon" onclick="openSidebar()">
           <span class="material-icons-outlined" style="color: black;">menu</span>
         </div>
+        
         <div class="header-left">
-          
+        
         </div>
-        <div class="header-right " >
-         <img src="/SourceCode/images/user.jpg" alt="" class="image-fluid" style=" border-radius: 50px ;">
+        <div class="header-right" >
+         <img src="/SourceCode/images/user.jpg" alt="" class="image-fluid" style="width: 40px; height: 40px; border-radius: 50px ;">
         </div>
+
       </header>
       <!-- End Header -->
 
@@ -355,28 +388,11 @@
           <span class="material-icons-outlined ps-1" onclick="closeSidebar()">close</span>
         </div>
         <ul class="nav nav-pills  d-block">
+          <h3>Home</h3>
           <li class=" nav-item  nav_list">
-            <!-- <a class="nav-link active cat-item " id="dash-tab" data-bs-toggle="tab" data-bs-target="#dash-tab" href="#" > <i class="fa-solid fa-house "></i> Dashboard</a> -->
-            <a class="nav-link active cat-item" id="dash-tab" data-bs-toggle="pill" data-bs-target="#dash" type="button" role="tab" aria-controls="dash" aria-selected="true"><i class="fa-solid fa-house "></i> Dashboard</a>
-   
+            <a class="nav-link active cat-item" id="dash-tab" data-bs-toggle="pill" data-bs-target="#dash" type="button" role="tab" aria-controls="dash" aria-selected="true"><i class="fa-solid fa-table"></i> Dashboard</a>
           </li>
-<!--           
-          <li class=" nav-item  nav_list">
-            <a class="nav-link  text-white cat-item"  href="#" role="button" data-bs-toggle="collapse" data-bs-toggle="tab"   data-bs-target="#collapseExample"><i class="fa-solid fa-users "></i> Members</a>
-            <div id="collapseExample" class="collapse">
-                <ul class="nav nav-pills d-block ">
-
-                  <li class="nav-item nav_list ">
-                    <a class="nav-link cat-item" id="memList-tab" data-bs-toggle="pill" data-bs-target="#memList" type="button" role="tab" aria-controls="memList" aria-selected="true"><i class="fa-solid fa-user"></i> Member List</a>
-                  </li>
-
-                  <li class="nav-item  nav_list ">
-                    <a class="nav-link cat-item" id="memApp-tab" data-bs-toggle="pill" data-bs-target="#memApp" type="button" role="tab" aria-controls="memApp" aria-selected="true"><i class="fa-solid fa-user-check"></i> Membership Approval</a>
-                  </li>
-
-                </ul>
-              </div>
-          </li> -->
+          <h3>Home</h3> 
           <li class=" nav-item  nav_list">
             <a class="nav-link cat-item" id="memApp-tab" data-bs-toggle="pill" data-bs-target="#memApp" type="button" role="tab" aria-controls="memApp" aria-selected="true"><i class="fa-solid fa-users "></i> Members</a>
           </li>
@@ -386,6 +402,30 @@
           <li class=" nav-item  nav_list ">
             <a class="nav-link cat-item" id="reports-tab" data-bs-toggle="pill" data-bs-target="#reports" type="button" role="tab" aria-controls="reports" aria-selected="true"><i class="fa-solid fa-newspaper "></i> Reports</a>
           
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link cat-item" id="reports-tab" data-bs-toggle="pill" data-bs-target="#reports" type="button" role="tab" aria-controls="reports" aria-selected="true"><i class="fa-solid fa-newspaper "></i> Reports</a>
+          
+              <span class="me-2"><i class="bi bi-layout-split"></i></span>
+              <span>Layouts</span>
+              <span class="ms-auto">
+                <span class="right-icon">
+                  <i class="bi bi-chevron-down"></i>
+                </span>
+              </span>
+            </a>
+            <div class="collapse" id="layouts">
+              <ul class="navbar-nav ps-3">
+                <li>
+                  <a href="#" class="nav-link px-3">
+                    <span class="me-2"
+                      ><i class="bi bi-speedometer2"></i
+                    ></span>
+                    <span>Dashboard</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </aside>
@@ -455,241 +495,153 @@
         </div>
         <!--=============== END DASHBOARD ===============-->
         
-        <!--=============== MEMBER LIST ===============-->
-        <!-- <div class="tab-pane fade" id="memList" role="tabpanel" aria-labelledby="memList-tab">
-          <div class="px-1 pt-3">
-            <div class="container" style="overflow-x: scroll; overflow-y: hidden ;">
-              <h2 class="mt-2" style="color: black">List Of Members</h2>
-            </div>
 
-            <div class="container  " >
-              <div class="row my-3">
-                <div>
-                  <button class="btn btn-primary float-end"> <i class="fa-solid fa-plus"></i> Add Member</button>
-                </div>
-            
-            
-            </div>
-            <div class="row mx-1 ">
-              <div class="div bg-light " style="max-height:450px ; overflow-y: scroll;">
-                <div class="table-responsive">
-                  <table class="table">
-                   
-                    <thead  >
-                      <tr >
-                        <th style="width: 20%;">#</th>
-                        <th style="width: 60%;">Name</th>
-                        <th style="width: 20%;">Action</th>
-                        
-                      </tr>
-                    </thead>
-                    <style>
-                      .view-btn{
-                        border-radius: 10px;
-                      }
-                    </style>
-                    <tbody >
-                      <tr class="justify-content-around">
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td><button class="view-btn btn-primary ju">View Details</button></td>
-                      </tr>
-                      <tr class="justify-content-around">
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td><button class="view-btn btn-primary">View Details</button></td>
-                      </tr>
-                      <tr class="justify-content-around">
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td><button class="view-btn btn-primary">View Details</button></td>
-                      </tr>
-                      <tr class="justify-content-around">
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td><button class="view-btn btn-primary">View Details</button></td>
-                      </tr>
-                    
-                     
-                    </tbody>
-                  </table>
-                </div>
-                
-              </div>
-            </div>
-            
-  <div class="container mt-2">
-    <div class="row">
-      <div class="col">
-        
-        
-        <nav aria-label="Page navigation ">
-          <ul class="pagination justify-content-end">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li class="page-item active" aria-current="page">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-
-            </div>
-          </div>
-        </div> -->
-        <!--=============== END MEMBER LIST ===============-->
-
-        <!--=============== MEMBER APPROVAL ===============-->
+    
+        <!--=============== MEMBER ===============-->
         <div class="tab-pane fade" id="memApp" role="tabpanel" aria-labelledby="memApp-tab">
           <style>
-            .mem-tab{
-              /* background-color: #1165AE; */
-              background-color: #1165AE;
-              color: white;
-            }
-            .mem-list > a {
-              text-decoration: none;
-              color: white;
-              /* color: white; */
-            }
-            .mem-list > a:hover {
-              text-decoration: none;
-              background-color: #4c91ce;
-              color: white;
-            }
-            /* .mem-list > a.active {
-              text-decoration: none;
-              background-color: violet;
-              color: white;
-            } */
-            .mem-item.mem-item.active {
-              background-color:#4c91ce  ;
-                  color: white;
-                  transform: translateY(2px);
-              }
+           
           </style>
          
-          <ul class="nav nav-pills mem-tab justify-content-center px-2 py-2 ">
-           
-                <li class="nav-item mem-list  w-50 ">                   
-                  <a class="nav-link mem-item text-center active mx-1" id="" data-bs-toggle="pill" data-bs-target="#" type="button" role="tab" aria-controls="" aria-selected=""><i class="fa-solid fa-user"></i> List of Members</a>
-                </li>
-             
-          
-              <li class="nav-item  mem-list  w-50">
-                <a class="nav-link text-center mem-item  mx-1" id="" data-bs-toggle="pill" data-bs-target="#" type="button" role="tab" aria-controls="loans" aria-selected=""><i class="fa-solid fa-credit-card"></i> Membership Approval</a>
-              </li>
-           
-          
-            
-          </ul>
-          <div class="tab-pane fade" id="memList" role="tabpanel" aria-labelledby="memList-tab">
-            <div class="px-1 pt-3">
-              <div class="container" style="overflow-x: scroll; overflow-y: hidden ;">
-                <h2 class="mt-2" style="color: black">List Of Members</h2>
-              </div>
-  
-              <div class="container  " >
-                <div class="row my-3">
-                  <div>
-                    <button class="btn btn-primary float-end"> <i class="fa-solid fa-plus"></i> Add Member</button>
-                  </div>
-              
-              
-              </div>
-              <div class="row mx-1 ">
-                <div class="div bg-light " style="max-height:450px ; overflow-y: scroll;">
-                  <div class="table-responsive">
-                    <table class="table">
-                     
-                      <thead  >
-                        <tr >
-                          <th style="width: 20%;">#</th>
-                          <th style="width: 60%;">Name</th>
-                          <th style="width: 20%;">Action</th>
-                          
-                        </tr>
-                      </thead>
-                      <style>
-                        .view-btn{
-                          border-radius: 10px;
-                        }
-                      </style>
-                      <tbody >
-                        <tr class="justify-content-around">
-                          <td>1</td>
-                          <td>John Doe</td>
-                          <td><button class="view-btn btn-primary ju">View Details</button></td>
-                        </tr>
-                        <tr class="justify-content-around">
-                          <td>1</td>
-                          <td>John Doe</td>
-                          <td><button class="view-btn btn-primary">View Details</button></td>
-                        </tr>
-                        <tr class="justify-content-around">
-                          <td>1</td>
-                          <td>John Doe</td>
-                          <td><button class="view-btn btn-primary">View Details</button></td>
-                        </tr>
-                        <tr class="justify-content-around">
-                          <td>1</td>
-                          <td>John Doe</td>
-                          <td><button class="view-btn btn-primary">View Details</button></td>
-                        </tr>
-                      
-                       
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                </div>
-              </div>
-              
-    <div class="container mt-2">
-      <div class="row">
-        <div class="col">
-          
-          
-          <nav aria-label="Page navigation ">
-            <ul class="pagination justify-content-end">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-              </li>
-              <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
+
+          <ul class="nav nav-pills nav-ul mem-tab" sty>
+                            
+            <li class="nav-item  mem-list py-1 my-2 rounded w-50 " role="presentation">
+              <a class="nav-link  mem-item text-center active mx-1" id="mem-list-tab" data-bs-toggle="tab" data-bs-target="#memList" href="#" style="color: black;"><i class="fa-solid fa-user"></i> List of Members</a>
+            </li>
+            <li class="nav-item mem-list py-1  my-2 rounded w-50 " role="presentation">
+              <a class="nav-link text-center mem-item  mx-1 " id="mem-app-tab" data-bs-toggle="tab" data-bs-target="#memApp" href="#" style="color: black;"><i class="fa-solid fa-user-check"></i> Membership Approval</a>
+            </li>
             </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-  
+            
+            <div class="tab-content" id="tabContent" >
+            <!-- ========== LIST OF MEMBERS ========== -->
+              <div class="tab-pane fade show active" id="memList" role="tabpanel" aria-labelledby="mem-list-tab" >
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
+                    <div class="container  " >
+                      <div class="row my-3">
+                        <div  style="width: 93%;">
+                          <button class="btn btn-primary float-end"> <i class="fa-solid fa-plus"></i> Add Member</button>
+                        </div>
+
+                    </div>
+                    <div class="row  justify-content-center">
+                      <div class="div bg-light " style="max-height:450px ; overflow-y: scroll; width: 85%;">
+                        <div class="table-responsive">
+                          <table class="table" >
+                           
+                            <thead  >
+                              <tr >
+                                <th style="width: 20%;" class="text-center">#</th>
+                                <th style="width: 20%;" class="text-center">Firstname</th>
+                                <th style="width: 20%;" class="text-center">Lastname</th>
+                                <th style="width: 20%;" class="text-center">Department</th>
+                                <th style="width: 20%;" class="text-center">Action</th>
+                                
+                              </tr>
+                            </thead>
+                            <style>
+                            
+                            </style>
+                            <tbody >
+                              <tr class="text-center">
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>Education</td>
+                                <td><button class="btn rounded view-btn btn-primary ju">View Details</button></td>
+                              </tr>
+                              <tr class="text-center">
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>Education</td>
+                                <td><button class="btn rounded view-btn btn-primary ju">View Details</button></td>
+                              </tr>
+                              <tr class="text-center" >
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>Education</td>
+                                <td><button class="btn rounded view-btn btn-primary ju">View Details</button></td>
+                              </tr>
+                              <tr class="text-center">
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>Education</td>
+                                <td><button class="btn rounded view-btn btn-primary ju">View Details</button></td>
+                              </tr>
+                              <tr class="text-center">
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>Education</td>
+                                <td><button class="btn rounded view-btn btn-primary ju">View Details</button></td>
+                              </tr>
+                              <tr class="text-center">
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>Education</td>
+                                <td><button class="btn rounded view-btn btn-primary ju">View Details</button></td>
+                              </tr>
+                              <tr class="text-center">
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>Education</td>
+                                <td><button class="btn rounded view-btn btn-primary ju">View Details</button></td>
+                              </tr>
+                            
+                            
+                            
+                             
+                            </tbody>
+                          </table>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    
+          <div class="container mt-2">
+            <div class="row">
+              <div class="col">
+                
+                
+                <nav aria-label="Page navigation " style="width: 94%;">
+                  <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Next</a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </div>
           </div>
+        
+                    </div>
+                    </div>
+                  </div>
+            </div>
+            <!-- ========== END LIST OF MEMBERS ========== -->
+
+          
         </div>
-      <!--=============== END MEMBER APPROVAL ===============-->
+      <!--=============== END MEMBER  ===============-->
 
       <!--=============== LOANS ===============-->
         <div class="tab-pane fade" id="loans" role="tabpanel" aria-labelledby="loans-tab">
@@ -705,7 +657,7 @@
         </div>
           <!--=============== END REPORTS ===============-->
       </div>
-  </div>
+    </div>
     
     
 
