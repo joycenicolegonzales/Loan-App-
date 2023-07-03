@@ -69,6 +69,7 @@
 /* ---------- SIDEBAR ---------- */
 
 #sidebar {
+  
   grid-area: sidebar;
   height: 100%;
   background-color: #1165AE;
@@ -363,14 +364,15 @@
             <a class="nav-link  text-white cat-item"  href="#" role="button" data-bs-toggle="collapse" data-bs-toggle="tab"   data-bs-target="#collapseExample"><i class="fa-solid fa-users "></i> Members</a>
             <div id="collapseExample" class="collapse">
                 <ul class="nav nav-pills nav-ul ">
-                  <li class="nav-item  nav_list mx-auto ">
+
+                  <li class="nav-item nav_list mx-auto  w-100">
+                    <a class="nav-link cat-item" id="memList-tab" data-bs-toggle="pill" data-bs-target="#memList" type="button" role="tab" aria-controls="memList" aria-selected="true"><i class="fa-solid fa-user"></i> Member List</a>
+                  </li>
+
+                  <li class="nav-item  nav_list mx-auto  w-100">
                     <a class="nav-link cat-item" id="memApp-tab" data-bs-toggle="pill" data-bs-target="#memApp" type="button" role="tab" aria-controls="memApp" aria-selected="true"><i class="fa-solid fa-user-check"></i> Membership Approval</a>
                   </li>
 
-                  <li class="nav-item nav_list mx-auto  ">
-                    <a class="nav-link cat-item" id="memList-tab" data-bs-toggle="pill" data-bs-target="#memList" type="button" role="tab" aria-controls="memList" aria-selected="true"><i class="fa-solid fa-user"></i> Member List</a>
-                 
-                  </li>
                 </ul>
               </div>
           </li>
@@ -385,12 +387,14 @@
       </aside>
       <!-- End Sidebar -->
       
-      <div class="tab-content" id="myTabContent"  >
+      <div class="tab-content " id="myTabContent"  style="overflow-y: scroll ;  "   >
+        <!--=============== DASHBOARD ===============-->
         <div class="tab-pane fade show active" id="dash" role="tabpanel" aria-labelledby="dash-tab">
         
           <main class="main-container">
             <div class="main-title">
-              <p class="font-weight-bold" style="color: black">DASHBOARD</p>
+              <h2 style="color: black">Dashboard</h2>
+              
             </div>
     
             <div class="main-cards">
@@ -445,22 +449,245 @@
           </main>
          
         </div>
+        <!--=============== END DASHBOARD ===============-->
+        
+        <!--=============== MEMBER LISRT ===============-->
+        <div class="tab-pane fade" id="memList" role="tabpanel" aria-labelledby="memList-tab">
+          <div class="px-1 pt-3">
+            <div class="container" style="overflow-x: scroll; overflow-y: hidden ;">
+              <h2 class="mt-2" style="color: black">List Of Members</h2>
+            </div>
+
+            <div class="container  " >
+              <div class="row my-3">
+                <div>
+                  <button class="btn btn-primary float-end"> <i class="fa-solid fa-plus"></i> Add Member</button>
+                </div>
+            
+            
+            </div>
+            <div class="row mx-1 ">
+              <div class="div bg-light " style="max-height:450px ; overflow-y: scroll;">
+                <div class="table-responsive">
+                  <table class="table">
+                   
+                    <thead  >
+                      <tr >
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Jane Smith</td>
+                          <td>jane@example.com</td>
+                          <td>User</td>
+                          <td>1</td>
+                          <td>John Doe</td>
+                          <td>john@example.com</td>
+                          <td>Admin</td>
+                        </tr>
+                        <tr>
+                          <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>User</td>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td>Admin</td>
+                          </tr>
+                          <tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                </div>
+                
+              </div>
+            </div>
+            
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col">
+        
+        
+        <nav aria-label="Page navigation ">
+          <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+            </div>
+          </div>
+        </div>
+        <!--=============== END MEMBER LIST ===============-->
+
+        <!--=============== MEMBER APPROVAL ===============-->
         <div class="tab-pane fade" id="memApp" role="tabpanel" aria-labelledby="memApp-tab">
           <h4>Membership approval</h4>
           <p>Membership approval</p>
         </div>
-        <div class="tab-pane fade" id="memList" role="tabpanel" aria-labelledby="memList-tab">
-          <h4>Members List</h4>
-          <p>Members List</p>
-        </div>
+      <!--=============== END MEMBER APPROVAL ===============-->
+
+      <!--=============== LOANS ===============-->
         <div class="tab-pane fade" id="loans" role="tabpanel" aria-labelledby="loans-tab">
           <h4>Loans</h4>
           <p>Loans</p>
         </div>
+        <!--=============== END LOANS ===============-->
+
+        <!--=============== REPORTS ===============-->
         <div class="tab-pane fade" id="reports" role="tabpanel" aria-labelledby="reports-tab">
           <h4>Reports</h4>
           <p>Reports</p>
         </div>
+          <!--=============== END REPORTS ===============-->
       </div>
   </div>
     
