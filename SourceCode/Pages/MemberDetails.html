@@ -176,8 +176,8 @@
                   <a class="nav-link cat-item" id="reports-tab" data-bs-toggle="pill" data-bs-target="#reports" type="button" role="tab" aria-controls="reports" aria-selected="true"><i class="fa-solid fa-newspaper "></i> Reports</a>
                 
                 </li>
-                <li class="nav-item  nav_list py-1">
-                    <a class="nav-link cat-item px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts" >
+                <li class="nav-item  nav_list mx-3 ">
+                    <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts">
                       <span class="me-2"><i class="bi bi-layout-split"></i></span>
                       <span >Layouts</span>
                       <span class="ms-auto">
@@ -201,6 +201,14 @@
             </nav>
           </div>
         </div>
+
+        <script>
+          $(function() {
+              $(".Reports").click(function() {
+                  $(".reports-tab").removeClass('active');
+              });
+          });
+      </script>
         <!-- offcanvas -->
         <main class="mt-5 pt-3">
           <div class="container-fluid">
