@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="../bootstrap-5.2.2/css/bootstrap.min.css"/>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+      <link href='https://fonts.googleapis.com/css?family=Archivo Black' rel='stylesheet'>
+      <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+      <script src="https://kit.fontawesome.com/1c020da525.js" crossorigin="anonymous"></script>  
+
+      <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'>
+      <link href="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+</head>
+<body> 
+<style>
+    *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    color:#000;
+    background-color: white;
+    background-size:cover;
+}
+.container {
+  position: absolute;
+  max-width: 800px;
+  height: 521px;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} 
+.myRightCtn {
+  position: relative;
+  background-image: linear-gradient(45deg,#4895d9,#1165AE);
+  border-radius: 25px;
+  height: 100%;
+  padding: 30px;
+  color: rgb(192, 192, 192);
+  font-size: 12px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myLeftCtn {
+  position: relative;
+  background: whitesmoke;
+  border-radius: 25px;
+  height: 100%;
+  padding: 25px;
+  padding-left: 50px;
+}
+.myLeftCtn header {
+  color: #1165AE;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.row{
+height: 100%;
+} 
+.myCard {
+  position: relative;
+  background: whitesmoke;
+  height: 100%;
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+} 
+.myRightCtn header {
+  color: #fff;
+  font-size: 35px;
+}
+.box {
+  position: relative;
+  margin: 20px;
+  margin-bottom: 110px;
+} 
+.myLeftCtn .myInput {
+  width: 230px;
+  border-radius: 25px;
+  padding: 10px;
+  padding-left: 50px;
+  border: none;
+  -webkit-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
+}
+.myLeftCtn .myInput:focus {
+  outline: none;
+} 
+.myForm {
+  position: relative;
+  margin-top: 50px;
+} 
+.myLeftCtn .butt {  
+  background: linear-gradient(45deg, #4895d9,#1165AE);
+  color: #fff;
+  width: 230px;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+
+  -webkit-box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+} 
+.myLeftCtn .butt:hover {
+  background: linear-gradient(45deg, #296191,#0e518b);
+}
+.myLeftCtn .butt:focus {
+  outline: none;
+} 
+.myLeftCtn .fas {
+  position: relative;
+  color: #1165AE;
+  left: 36px;
+} 
+.myRightCtn p{
+    font-size: 27px;
+    font-weight: 700;
+    color: #105592;
+    margin-bottom: auto;
+}
+
+.forget-link,.register-link,.login-link
+{
+    
+    color:#000;
+    font-weight:700;
+}
+
+.forget-link:hover,.register-link:hover,.login-link:hover
+{
+    color:#1165AE;
+}
+
+.infinity-social-btn ul
+{
+    display:flex;
+}
+
+.infinity-social-btn ul li
+{
+    position:relative;
+    list-style:none;
+    width:50px;
+    height:50px;
+    top:10px;
+    left:20px;
+    align-items:center;
+    margin-right:20px;
+    background:white;
+    text-align:center;
+    border:4px solid transparent;
+    box-sizing:border-box;
+    border-radius:50%;
+    transition:.5s;
+    overflow:hidden;
+    margin-bottom:10px;
+}
+
+.infinity-social-btn ul li .facebook-f .fab
+{
+    color:#3b5999;
+}
+
+.infinity-social-btn ul li .google .fab
+{
+    color:#dd4b39;
+}
+
+.infinity-social-btn ul li .twitter .fab
+{
+    color:#3cf;
+}
+.infinity-social-btn ul li .instagram .fab
+{
+    color:#FF69B4;
+}
+
+
+.infinity-social-btn ul li:hover:nth-child(1)
+{
+    background-color:#3b5999;
+}
+
+.infinity-social-btn ul li:hover:nth-child(2)
+{
+    background-color:#dd4b39;
+}
+
+.infinity-social-btn ul li:hover:nth-child(3)
+{
+    background-color:#55acee;
+}
+.infinity-social-btn ul li:hover:nth-child(4)
+{
+    background-color:#55acee;
+}
+
+.infinity-social-btn ul li .fab
+{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:24px;
+    color:#2196f3;
+    transition:.5s;
+}
+
+.infinity-social-btn ul li .fab:nth-child(1)
+{
+    left:-50%;
+    opacity:0;
+}
+
+.infinity-social-btn ul li:hover .fab:nth-child(1)
+{   
+    left:50%;
+    opacity:1;
+    color:#fff;
+}
+
+.infinity-social-btn ul li:hover .fab:nth-child(3)
+{
+    left:150%;
+    opacity:0;
+}
+
+.infinity-social-btn ul li:hover .fab:nth-child(4)
+{
+    left:150%;
+    opacity:0;
+}
+
+</style>
+<div class="container">
+        <div class="myCard">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="myLeftCtn"> 
+                        <form class="myForm text-center">
+                            <header>Login into your account</header>
+
+                            <div class="form-group">
+                                <i class="fas fa-envelope"></i>
+                                <input class="myInput" placeholder="Username" type="text" id="username" required> 
+                            </div>
+
+
+                             <div class="form-group">
+                                <i class="fas fa-lock"></i>
+                                <input class ="myInput" type = "password" id="password" placeholder="Enter password" required>
+                            </div>
+
+                            
+                            
+		 
+
+                               
+                             <div class="form-group">
+                                <label>
+
+                                    <input id="check_1" name="check_1"  type="checkbox" required><small>Remember Me</small></input> 
+
+                                <a href="forget.html" class="forget-link">Forgot password?</a>
+                                    <div class="invalid-feedback">You must check the box.</div>
+                                </label>
+                            </div>
+
+
+                          <div class="col-12 px-0 text-center">
+                             <input type="submit" class="butt" value="LOGIN">
+                        </div>
+
+                        <div class="text-center text-sm">or login with</div>
+
+                        <div class="infinity-social-btn text-center">
+                            <ul class="text-center">
+                                <li class="text-center"><a href="#" class="facebook">
+                                        <i class="fab fa-facebook-f fa-lg"></i><i class="fab fa-facebook "></i></a>
+                                </li>
+                                <li class="text-center"><a href="#" class="google">
+                                        <i class="fab fa-google fa-lg"></i><i class="fab fa-google"></i></a>
+                                </li>
+                                <li class="text-center"><a href="#" class="twitter">
+                                        <i class="fab fa-twitter fa-lg"></i><i class="fab fa-twitter"></i></a>
+                                </li>
+                                 <li class="text-center"><a href="#" class="twitter">
+                                        <i class="fab fa-instagram fa-lg "></i><i class="fab fa-instagram"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                            <div class="text-center text-sm">Don't have an account?
+                             <a class="register-link" href="singup page 2.html">Register here</a>
+                             
+                        </form>
+                    </div>
+                    </div>
+                </div> 
+
+                <div class="col-md-6">
+                    <div class="myRightCtn">
+                            <div class="box">
+                                <center>
+                              <img src="/SourceCode/images/logoo.jpg" width="100px" >
+                            </center>
+                       <header> <center>4P's Login</center></header>
+                            <header><center>Form</center></header>
+                            <center>
+                                <br>
+                            <p> Pantawid Pamilyang Pilipino Program </p>   
+                            </div>               
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
