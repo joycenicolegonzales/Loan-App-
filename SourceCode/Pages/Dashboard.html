@@ -97,27 +97,37 @@
   font-weight: 700;
 }
 
-.nav-pills {
+/* .nav-pills {
   padding: 0;
-  /* margin-top: 15px; */
+margin-top: 15px; 
   list-style-type: none;
-}
+} */
 
-.nav_list{
+/* .nav_list{
   padding: 5px 5px 5px 5px;
   color: #FFDE59;
-}
+} */
 
 /* .nav_list:hover {
   background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
 } */
 
-.nav_list > a {
+/* .nav_list > a {
   text-decoration: none;
 
   color: white;
 }
+.nav_list > a:hover {
+  text-decoration: none;
+
+  color: rgb(194, 190, 190);
+}
+.nav_list a.active {
+  text-decoration: none;
+
+  color: white;
+} */
 /* .nav_list > a:hover {
   text-decoration: none;
   color: white;
@@ -126,7 +136,7 @@
 
 
 
- .cat-item.cat-item.active {
+ /* .cat-item.cat-item.active {
     background-color: rgba(255, 255, 255, 0.2);
         color: white;
         transform: translateY(4px);
@@ -135,7 +145,7 @@
 .cat-item.cat-item:hover {
   background-color: rgba(255, 255, 255, 0.2);
         color: white;
-    }
+    } */
 /* .cat-item:active {
   background-color:rgb(191, 213, 245);
         transform: translateY(4px);
@@ -325,26 +335,26 @@
 }
 
 /* ========= TABLE ========== */
-.mem-tab{
-  /* background-color: #1165AE; */
+/* .mem-tab{
+
   background-color: #1165AE;
   color: white;
 }
 .mem-list > a {
   text-decoration: none;
   color: white;
-  /* color: white; */
+
 }
 .mem-list > a:hover {
   text-decoration: none;
   background-color: #4c91ce;
   color: white;
-}
+} */
 /* .mem-list > a.active {
   text-decoration: none;
   background-color: violet;
   color: white;
-} */
+} 
 .mem-item.mem-item.active {
   background-color:#4c91ce  ;
       color: white;
@@ -353,7 +363,7 @@
 
   .view-btn{
     height:40px;
-  }
+  }*/
 </style>
 
 
@@ -387,7 +397,7 @@
           </div>
           <span class="material-icons-outlined ps-1" onclick="closeSidebar()">close</span>
         </div>
-        <ul class="nav nav-pills  d-block">
+        <!-- <ul class="nav nav-pills  d-block">
           <h3>Home</h3>
           <li class=" nav-item  nav_list">
             <a class="nav-link active cat-item" id="dash-tab" data-bs-toggle="pill" data-bs-target="#dash" type="button" role="tab" aria-controls="dash" aria-selected="true"><i class="fa-solid fa-table"></i> Dashboard</a>
@@ -426,6 +436,86 @@
                 </li>
               </ul>
             </div>
+          </li>
+        </ul> -->
+        <style>
+          .nav-a:active{
+            background-color: #206d19;
+            /* transition-delay: 0.5s; */
+          }
+          /* .nav-a:hover{
+            background-color: pink;
+          } */
+        </style>
+        <ul class="navbar-nav">
+          <li >
+            <div class="text-muted small fw-bold text-uppercase px-3">
+              CORE
+            </div>
+          </li>
+          <li class="nav_list">
+            <a href="#" class="nav-link px-3 active nav-a" style="text-decoration: none; color: white;" >
+              <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
+          <li>
+            <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
+              Interface
+            </div>
+          </li>
+          <li class="nav_list">
+            <a
+              class="nav-link px-3 sidebar-link nav-a"
+              data-bs-toggle="collapse"
+              href="#layouts"
+              style="text-decoration: none; color: white;"
+            >
+              <span class="me-2"><i class="bi bi-layout-split"></i></span>
+              <span>Layouts</span>
+              <span class="ms-auto">
+                <span class="right-icon">
+                  <i class="bi bi-chevron-down"></i>
+                </span>
+              </span>
+            </a>
+            <div class="collapse" id="layouts">
+              <ul class="navbar-nav ps-3">
+                <li class="nav_list">
+                  <a href="#" class="nav-link px-3 nav-a"  style="text-decoration: none; color: white;">
+                    <span class="me-2"
+                      ><i class="bi bi-speedometer2"></i
+                    ></span>
+                    <span>Dashboard</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav_list">
+            <a href="#" class="nav-link px-3 nav-a"  style="text-decoration: none; color: white;">
+              <span class="me-2"><i class="bi bi-book-fill"></i></span>
+              <span>Pages</span>
+            </a>
+          </li>
+          <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
+          <li class="nav_list">
+            <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
+              Addons
+            </div>
+          </li>
+          <li class="nav_list">
+            <a href="#" class="nav-link px-3 nav-a"  style="text-decoration: none; color: white;">
+              <span class="me-2"><i class="bi bi-graph-up"></i></span>
+              <span>Charts</span>
+            </a>
+          </li>
+          <li class="nav_list">
+            <a href="#" class="nav-link px-3 nav-a"  style="text-decoration: none; color: white;"> 
+              <span class="me-2"><i class="bi bi-table"></i></span>
+              <span>Tables</span>
+            </a>
           </li>
         </ul>
       </aside>
