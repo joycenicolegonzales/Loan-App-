@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>E-loan2</title>
+    <title>E-loan</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -128,12 +128,6 @@
         .fw-semi-bold {
             font-weight: 600 !important;
         }
-        /* p{
-                font-size: 1rem;
-                color: #1165AE;
-                line-height: 1.625rem;
-            } 
-             */
         
                 </style>
         
@@ -178,8 +172,8 @@
                         <div class="col"></div>
                         <div class="col-md-6">
                             <div class="centered-buttons">
-                                <a href="#" class="button button1" style="font-size: 13px;">E-Loan Process</a>
-                                <a href="#" class="button button2" style="font-size: 13px;">Loan Products</a>
+                                <a href="e-loanProcess.html" class="button button1" style="font-size: 13px;">E-Loan Process</a>
+                                <a href="e-loan.html" class="button button2" style="font-size: 13px;">Loan Products</a>
                                 <a href="#" class="button button3" style="font-size: 13px; padding: 7px;">Amortization Calculator</a>
                             </div>
                         </div>
@@ -735,67 +729,6 @@
         }
     });
     
-    
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-        return false;
-    });
-
-
-    // Facts counter
-    $('[data-toggle="counter-up"]').counterUp({
-        delay: 10,
-        time: 2000
-    });
-
-
-    // Modal Video
-    $(document).ready(function () {
-        var $videoSrc;
-        $('.btn-play').click(function () {
-            $videoSrc = $(this).data("src");
-        });
-        console.log($videoSrc);
-
-        $('#videoModal').on('shown.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-        })
-
-        $('#videoModal').on('hide.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc);
-        })
-    });
-
-
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        margin: 25,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="bi bi-arrow-left"></i>',
-            '<i class="bi bi-arrow-right"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            768:{
-                items:2
-            }
-        }
-    });
     
 })(jQuery);
 
