@@ -87,8 +87,8 @@ if (isset($_SESSION["user"])) {
 		  <select class="form-select form-group mb-3"
 		          name="roles" 
 		          aria-label="Default select example">
-			  <option selected value="user">User</option>
-			  <option value="admin">Admin</option>
+			  <option selected value="admin">Admin</option>
+			  <option value="staff">Staff</option>
 		  </select>
     </div>
             <div class="form-btn">
