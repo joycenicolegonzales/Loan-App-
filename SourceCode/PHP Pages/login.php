@@ -20,6 +20,7 @@ if (isset($_SESSION["user"])) {
         if (isset($_POST["login"])) {
            $email = $_POST["email"];
            $password = $_POST["password"];
+           $roles = $_POST["roles"];
             require_once "database.php";
             $sql = "SELECT * FROM signup WHERE email = '$email'";
             $result = mysqli_query($conn, $sql);
