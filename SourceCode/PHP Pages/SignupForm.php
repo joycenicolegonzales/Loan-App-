@@ -10,7 +10,7 @@ if (isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Registration Form || Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,7 +22,8 @@ if (isset($_SESSION["user"])) {
            $email = $_POST["email"];
            $password = $_POST["password"];
            $passwordRepeat = $_POST["repeat_password"];
-           
+           $roles = $_POST["roles"];
+
            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
            $errors = array();
@@ -52,11 +53,11 @@ if (isset($_SESSION["user"])) {
             }
            }else{
             
-            $sql = "INSERT INTO signup (username, email, password) VALUES ( ?, ?, ? )";
+            $sql = "INSERT INTO signup (username, email, password, roles) VALUES ( ?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
             $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
             if ($prepareStmt) {
-                mysqli_stmt_bind_param($stmt,"sss",$userName, $email, $passwordHash);
+                mysqli_stmt_bind_param($stmt,"ssss",$userName, $email, $passwordHash, $roles);
                 mysqli_stmt_execute($stmt);
                 echo "<div class='alert alert-success'>You are registered successfully.</div>";
             }else{
@@ -80,6 +81,16 @@ if (isset($_SESSION["user"])) {
             <div class="form-group">
                 <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password:">
             </div>
+            <div class="form-group">
+		    <label class="form-label">Select User Type:</label>
+		  
+		  <select class="form-select form-group mb-3"
+		          name="roles" 
+		          aria-label="Default select example">
+			  <option selected value="admin">Admin</option>
+			  <option value="staff">Staff</option>
+		  </select>
+    </div>
             <div class="form-btn">
                 <input type="submit" class="btn btn-primary" value="Register" name="submit">
             </div>
