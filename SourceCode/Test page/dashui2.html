@@ -272,101 +272,7 @@ a:focus {
   }
 }
 
-/* ---------- CHARTS ---------- */
 
-.main-container {
-  grid-area: main;
-  overflow-y: auto;
-  padding: 20px 20px;
-}
-
-.main-title {
-  display: flex;
-  justify-content: space-between;
-}
-
-.main-title > p {
-  font-size: 20px;
-}
-
-.main-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
-  margin: 20px 0;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 25px;
-  background-color: #ffffff;
-  box-sizing: border-box;
-  border: 1px solid #d2d2d3;
-  border-radius: 5px;
-  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-}
-
-.card:first-child {
-  border-left: 7px solid #206d19;
-}
-
-.card:nth-child(2) {
-  border-left: 7px solid #44b453;
-}
-
-.card:nth-child(3) {
-  border-left: 7px solid #206d19;
-}
-
-.card:nth-child(4) {
-  border-left: 7px solid #44b453;
-}
-
-.card > span {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.card-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.card-inner > p {
-  font-size: 18px;
-}
-
-.card-inner > span {
-  font-size: 35px;
-}
-
-.charts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.charts-card {
-  background-color: #ffffff;
-  margin-bottom: 20px;
-  padding: 25px;
-  box-sizing: border-box;
-  -webkit-column-break-inside: avoid;
-  border: 1px solid #d2d2d3;
-  border-radius: 5px;
-  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-}
-
-.chart-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  font-weight: 600;
-}
 
 </style>
 
@@ -379,15 +285,15 @@ a:focus {
         <h2 class="text-white mt-2 ms-1">NMEMPC</h2>
       </div>
       <ul class="sidebar-nav py-3">
-        <li class="active py-1 px-2">
+        <li class=" py-1 px-2">
           <a href="dashiu.htm"><i class="fa-solid fa-table me-2"></i>  Dashboard</a>
         </li>
-        <li class="py-1 px-2">
+        <li class=" active px-2">
           
           <a href="#" role="button" data-bs-toggle="collapse" data-bs-toggle="tab"  class="" data-bs-target="#collapseExample"><i class="fa-solid fa-users me-2 "></i>  Members <i class="fa-solid fa-chevron-down ps-4  ms-5"></i></a>
           <div id="collapseExample" class="collapse">
               <ul class="nav  ">
-                <li class="py-1 px-2 w-100 mx-auto">
+                <li class=" active py-1 px-2  w-100 mx-auto">
                   <a href="dashui2.html"><i class="fa-solid fa-user me-2"></i>  List of Members</a>
                 </li>
              
@@ -407,7 +313,7 @@ a:focus {
       </ul>
     </aside>
   
-    <div id="navbar-wrapper">
+    <div id="navbar-wrapper fixed-top">
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header ">
@@ -419,63 +325,15 @@ a:focus {
       </nav>
     </div>
   
-    <section id="content-wrapper">
+    <section id="content-wrapper px-5" style="background-color: #d9d9d9; height: 100vh;">
         <div class="row">
           <div class="col-lg-12">
-            <h2 style="color: black">Dashboard</h2>
-            <main class="main-container">
-             
-      
-              <div class="main-cards">
-      
-                <div class="card">
-                  <div class="card-inner">
-                    <p class="text-primary">Total Members</p>
-                    <span class="material-icons-outlined text-blue" style="color: #206d19;">people</span>
-                  </div>
-                  <span class="text-primary font-weight-bold">150</span>
-                </div>
-      
-                <div class="card">
-                  <div class="card-inner">
-                    <p class="text-primary">Total Loan Application</p>
-                    <span class="material-icons-outlined text-orange">article</span>
-                  </div>
-                  <span class="text-primary font-weight-bold">83</span>
-                </div>
-      
-                <div class="card">
-                  <div class="card-inner">
-                    <p class="text-primary">Loan Approved</p>
-                    <span class="material-icons-outlined text-green">check</span>
-                  </div>
-                  <span class="text-primary font-weight-bold">79</span>
-                </div>
-      
-                <div class="card">
-                  <div class="card-inner">
-                    <p class="text-primary">Loans Disbursed</p>
-                    <span class="material-icons-outlined text-red">wallet</span>
-                  </div>
-                  <span class="text-primary font-weight-bold">56</span>
-                </div>
-      
-              </div>
-      
-              <div class="charts">
-      
-                <div class="charts-card">
-                  <p class="chart-title">Predicted Revenue</p>
-                  <div id="bar-chart"></div>
-                </div>
-      
-                <div class="charts-card">
-                  <p class="chart-title">dipa alam ilalagay</p>
-                  <div id="area-chart"></div>
-                </div>
-      
-              </div>
-            </main>
+           
+           <div class="container mx-1 mt-4 bg-light">
+            <header>
+              <h2>List of Members</h2>
+            </header>
+           </div>
           </div>
         </div>
     </section>
@@ -491,105 +349,6 @@ $button.addEventListener('click', (e) => {
   $wrapper.classList.toggle('toggled');
 });
 </script>
-<script>
-  
-  // ---------- CHARTS ----------
-  
-  // BAR CHART
-  var barChartOptions = {
-    series: [{
-      data: [10, 8, 6, 4, 2]
-    }],
-    chart: {
-      type: 'bar',
-      height: 350,
-      toolbar: {
-        show: false
-      },
-    },
-    colors: [
-      "#246dec",
-      "#cc3c43",
-      "#367952",
-      "#f5b74f",
-      "#4f35a1"
-    ],
-    plotOptions: {
-      bar: {
-        distributed: true,
-        borderRadius: 4,
-        horizontal: false,
-        columnWidth: '40%',
-      }
-    },
-    dataLabels: {
-      enabled: false
-    },
-    legend: {
-      show: false
-    },
-    xaxis: {
-      categories: ["Laptop", "Phone", "Monitor", "Headphones", "Camera"],
-    },
-    yaxis: {
-      title: {
-        text: "Count"
-      }
-    }
-  };
-  
-  var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
-  barChart.render();
-  
-  
-  // AREA CHART
-  var areaChartOptions = {
-    series: [{
-      name: 'Purchase Orders',
-      data: [31, 40, 28, 51, 42, 109, 100]
-    }, {
-      name: 'Sales Orders',
-      data: [11, 32, 45, 32, 34, 52, 41]
-    }],
-    chart: {
-      height: 350,
-      type: 'area',
-      toolbar: {
-        show: false,
-      },
-    },
-    colors: ["#4f35a1", "#246dec"],
-    dataLabels: {
-      enabled: false,
-    },
-    stroke: {
-      curve: 'smooth'
-    },
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-    markers: {
-      size: 0
-    },
-    yaxis: [
-      {
-        title: {
-          text: 'Purchase Orders',
-        },
-      },
-      {
-        opposite: true,
-        title: {
-          text: 'Sales Orders',
-        },
-      },
-    ],
-    tooltip: {
-      shared: true,
-      intersect: false,
-    }
-  };
-  
-  var areaChart = new ApexCharts(document.querySelector("#area-chart"), areaChartOptions);
-  areaChart.render();
-  </script>
+
   
 </html>
