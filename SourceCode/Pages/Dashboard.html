@@ -97,76 +97,14 @@
   font-weight: 700;
 }
 
-/* .nav-pills {
-  padding: 0;
-margin-top: 15px; 
-  list-style-type: none;
-} */
 
-/* .nav_list{
-  padding: 5px 5px 5px 5px;
-  color: #FFDE59;
-} */
-
-/* .nav_list:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-} */
-
-/* .nav_list > a {
-  text-decoration: none;
-
-  color: white;
-}
-.nav_list > a:hover {
-  text-decoration: none;
-
-  color: rgb(194, 190, 190);
-}
-.nav_list a.active {
-  text-decoration: none;
-
-  color: white;
-} */
-/* .nav_list > a:hover {
-  text-decoration: none;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.2);
-} */
-
-
-
- /* .cat-item.cat-item.active {
-    background-color: rgba(255, 255, 255, 0.2);
-        color: white;
-        transform: translateY(4px);
-    }
-    
-.cat-item.cat-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-        color: white;
-    } */
-/* .cat-item:active {
-  background-color:rgb(191, 213, 245);
-        transform: translateY(4px);
-    } */
-/* .nav-link:a{
-  background-color: #FFDE59;
-} */
 .sidebar-responsive {
   display: inline !important;
   position: absolute;
   z-index: 12 !important;
 }
 /* ---------- SIDEBAR ---------- */
- /* ---------- DASHBOARD CARDS ---------- */
- /* .dash-cards{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
-  margin: 20px 0;
- } */
- /* ---------- END DASHBOARD CARDS ---------- */
+
 /* ---------- CHARTS ---------- */
 
 .main-container {
@@ -334,39 +272,42 @@ margin-top: 15px;
   }
 }
 
-/* ========= TABLE ========== */
-/* .mem-tab{
 
-  background-color: #1165AE;
-  color: white;
-}
-.mem-list > a {
-  text-decoration: none;
-  color: white;
-
-}
-.mem-list > a:hover {
-  text-decoration: none;
-  background-color: #4c91ce;
-  color: white;
-} */
-/* .mem-list > a.active {
-  text-decoration: none;
-  background-color: violet;
-  color: white;
-} 
-.mem-item.mem-item.active {
-  background-color:#4c91ce  ;
-      color: white;
-      transform: translateY(2px);
-  }
-
-  .view-btn{
-    height:40px;
-  }*/
 </style>
 
+<style>
+  .sidebar-nav > li {
+  text-indent: 10px;
+  line-height: 42px;
+}
+.sidebar-nav > li a {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+}
+.sidebar-nav > li > a:hover,
+.sidebar-nav > li.active > a {
+  text-decoration: none;
+  color: #ffff;
+  background: #4884bc ;
+  border-radius: 5px;
+}
+.sidebar-nav > li > a i.fa {
+  font-size: 20px;
+  width: 60px;
+}
 
+.nav > li > a:hover,
+.nav > li.active > a {
+  text-decoration: none;
+  color: #fff;
+  background: #4884bc ;
+  border-radius: 10px;
+
+} 
+</style>
 
 
   <body>
@@ -390,300 +331,76 @@ margin-top: 15px;
       <!-- End Header -->
 
       <!-- Sidebar -->
-      <aside id="sidebar">
+      <!-- <aside id="sidebar">
         <div class="sidebar-title">
           <div class="sidebar-brand pe-2" >
            <img src="/SourceCode/images/logoo.jpg"  style="width: 52px; height: 52px;"alt=""> NMEMPC
           </div>
           <span class="material-icons-outlined ps-1" onclick="closeSidebar()">close</span>
         </div>
-        <!-- <ul class="nav nav-pills  d-block">
-          <h3>Home</h3>
-          <li class=" nav-item  nav_list">
-            <a class="nav-link active cat-item" id="dash-tab" data-bs-toggle="pill" data-bs-target="#dash" type="button" role="tab" aria-controls="dash" aria-selected="true"><i class="fa-solid fa-table"></i> Dashboard</a>
+        <ul class="sidebar-nav py-3">
+          <li class=" py-1 px-2">
+            <a href="dashiu.htm"><i class="fa-solid fa-table me-2"></i>  Dashboard</a>
           </li>
-          <h3>Home</h3> 
-          <li class=" nav-item  nav_list">
-            <a class="nav-link cat-item" id="memApp-tab" data-bs-toggle="pill" data-bs-target="#memApp" type="button" role="tab" aria-controls="memApp" aria-selected="true"><i class="fa-solid fa-users "></i> Members</a>
-          </li>
-          <li class=" nav-item  nav_list">
-            <a class="nav-link cat-item" id="loans-tab" data-bs-toggle="pill" data-bs-target="#loans" type="button" role="tab" aria-controls="loans" aria-selected="true"><i class="fa-solid fa-credit-card"></i> Loans</a>
-          </li>
-          <li class=" nav-item  nav_list ">
-            <a class="nav-link cat-item" id="reports-tab" data-bs-toggle="pill" data-bs-target="#reports" type="button" role="tab" aria-controls="reports" aria-selected="true"><i class="fa-solid fa-newspaper "></i> Reports</a>
-          
-          </li>
-          <li class="nav-item  ">
-            <a class="nav-link cat-item" id="reports-tab" data-bs-toggle="pill" data-bs-target="#reports" type="button" role="tab" aria-controls="reports" aria-selected="true"><i class="fa-solid fa-newspaper "></i> Reports</a>
-          
-              <span class="me-2"><i class="bi bi-layout-split"></i></span>
-              <span>Layouts</span>
-              <span class="ms-auto">
-                <span class="right-icon">
-                  <i class="bi bi-chevron-down"></i>
-                </span>
-              </span>
-            </a>
-            <div class="collapse" id="layouts">
-              <ul class="navbar-nav ps-3">
-                <li>
-                  <a href="#" class="nav-link px-3">
-                    <span class="me-2"
-                      ><i class="bi bi-speedometer2"></i
-                    ></span>
-                    <span>Dashboard</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul> -->
-        <style>
-          .nav-a:active{
-            background-color: #206d19;
-            /* transition-delay: 0.5s; */
-          }
-          /* .nav-a:hover{
-            background-color: pink;
-          } */
-        </style>
-        <!-- <ul class="navbar-nav">
-          <li >
-            <div class="text-muted small fw-bold text-uppercase px-3">
-              CORE
-            </div>
-          </li>
-          <li class="nav_list">
-            <a href="#" class="nav-link px-3 active nav-a" style="text-decoration: none; color: white;" >
-              <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
-          <li>
-            <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
-              Interface
-            </div>
-          </li>
-          <li class="nav_list">
-            <a
-              class="nav-link px-3 sidebar-link nav-a"
-              data-bs-toggle="collapse"
-              href="#layouts"
-              style="text-decoration: none; color: white;"
-            >
-              <span class="me-2"><i class="bi bi-layout-split"></i></span>
-              <span>Layouts</span>
-              <span class="ms-auto">
-                <span class="right-icon">
-                  <i class="bi bi-chevron-down"></i>
-                </span>
-              </span>
-            </a>
-            <div class="collapse" id="layouts">
-              <ul class="navbar-nav ps-3">
-                <li class="nav_list">
-                  <a href="#" class="nav-link px-3 nav-a"  style="text-decoration: none; color: white;">
-                    <span class="me-2"
-                      ><i class="bi bi-speedometer2"></i
-                    ></span>
-                    <span>Dashboard</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav_list">
-            <a href="#" class="nav-link px-3 nav-a"  style="text-decoration: none; color: white;">
-              <span class="me-2"><i class="bi bi-book-fill"></i></span>
-              <span>Pages</span>
-            </a>
-          </li>
-          <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
-          <li class="nav_list">
-            <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
-              Addons
-            </div>
-          </li>
-          <li class="nav_list">
-            <a href="#" class="nav-link px-3 nav-a"  style="text-decoration: none; color: white;">
-              <span class="me-2"><i class="bi bi-graph-up"></i></span>
-              <span>Charts</span>
-            </a>
-          </li>
-          <li class="nav_list">
-            <a href="#" class="nav-link px-3 nav-a"  style="text-decoration: none; color: white;"> 
-              <span class="me-2"><i class="bi bi-table"></i></span>
-              <span>Tables</span>
-            </a>
-          </li>
-        </ul> -->
-        <ul class="metismenu" id="menu">
-					<li class="nav-label first">Main Menu</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-144-layout"></i>
-							<span class="nav-text">Dashboard</span>
-						</a>
-                        <ul aria-expanded="false">
-							<li><a href="index.html">Dashboard Light</a></li>
-							<li><a href="index-2.html">Dashboard Dark</a></li>
-							<li><a href="my-wallets.html">Wallet</a></li>
-							<li><a href="tranasactions.html">Transactions</a></li>
-							<li><a href="coin-details.html">Coin Details</a></li>
-							<li><a href="portofolio.html">Portofolio</a></li>
-							<li><a href="market-capital.html">Market Capital</a></li>
-						</ul>
-
-                    </li>
-					<li class="nav-label">Apps</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-077-menu-1"></i>
-							<span class="nav-text">Apps</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="app-profile.html">Profile</a></li>
-							<li><a href="post-details.html">Post Details</a></li>
-							<li><a href="page-chat.html">Chat<span class="badge badge-xs badge-danger">New</span></a></li>
-							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Project<span class="badge badge-xs badge-danger">New</span></a>
-                                <ul aria-expanded="false">
-                                    <li><a href="project-list.html">Project List</a></li>
-                                    <li><a href="project-card.html">Project Card</a></li>
-                                </ul>
-                            </li>
-							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">User<span class="badge badge-xs badge-danger">New</span></a>
-                                <ul aria-expanded="false">
-                                    <li><a href="user-list-datatable.html">User List</a></li>
-                                    <li><a href="user-list-column.html">User Card</a></li>
-                                </ul>
-                            </li>
-							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Contact<span class="badge badge-xs badge-danger">New</span></a>
-                                <ul aria-expanded="false">
-                                    <li><a href="contact-list.html">Contact List</a></li>
-                                    <li><a href="contact-card.html">Contact Card</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="email-compose.html">Compose</a></li>
-                                    <li><a href="email-inbox.html">Inbox</a></li>
-                                    <li><a href="email-read.html">Read</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="app-calender.html">Calendar</a></li>
-							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="ecom-product-grid.html">Product Grid</a></li>
-									<li><a href="ecom-product-list.html">Product List</a></li>
-									<li><a href="ecom-product-detail.html">Product Details</a></li>
-									<li><a href="ecom-product-order.html">Order</a></li>
-									<li><a href="ecom-checkout.html">Checkout</a></li>
-									<li><a href="ecom-invoice.html">Invoice</a></li>
-									<li><a href="ecom-customers.html">Customers</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-					
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-061-puzzle"></i>
-							<span class="nav-text">Charts</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="chart-flot.html">Flot</a></li>
-                            <li><a href="chart-morris.html">Morris</a></li>
-                            <li><a href="chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="chart-chartist.html">Chartist</a></li>
-                            <li><a href="chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="chart-peity.html">Peity</a></li>
-                        </ul>
-                    </li>
-					<li class="nav-label">components</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-003-diamond"></i>
-							<span class="nav-text">Bootstrap</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="ui-accordion.html">Accordion</a></li>
-                            <li><a href="ui-alert.html">Alert</a></li>
-                            <li><a href="ui-badge.html">Badge</a></li>
-                            <li><a href="ui-button.html">Button</a></li>
-                            <li><a href="ui-modal.html">Modal</a></li>
-                            <li><a href="ui-button-group.html">Button Group</a></li>
-                            <li><a href="ui-list-group.html">List Group</a></li>
-                            <li><a href="ui-media-object.html">Media Object</a></li>
-                            <li><a href="ui-card.html">Cards</a></li>
-                            <li><a href="ui-carousel.html">Carousel</a></li>
-                            <li><a href="ui-dropdown.html">Dropdown</a></li>
-                            <li><a href="ui-popover.html">Popover</a></li>
-                            <li><a href="ui-progressbar.html">Progressbar</a></li>
-                            <li><a href="ui-tab.html">Tab</a></li>
-                            <li><a href="ui-typography.html">Typography</a></li>
-                            <li><a href="ui-pagination.html">Pagination</a></li>
-                            <li><a href="ui-grid.html">Grid</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-053-heart"></i>
-							<span class="nav-text">Plugins</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="uc-select2.html">Select 2</a></li>
-                            <li><a href="uc-nestable.html">Nestedable</a></li>
-                            <li><a href="uc-noui-slider.html">Noui Slider</a></li>
-                            <li><a href="uc-sweetalert.html">Sweet Alert</a></li>
-                            <li><a href="uc-toastr.html">Toastr</a></li>
-                            <li><a href="map-jqvmap.html">Jqv Map</a></li>
-							<li><a href="uc-lightgallery.html">Light Gallery</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
-							<i class="flaticon-381-settings-2"></i>
-							<span class="nav-text">Widget</span>
-						</a>
-					</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-044-file"></i>
-							<span class="nav-text">Forms</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="form-element.html">Form Elements</a></li>
-                            <li><a href="form-wizard.html">Wizard</a></li>
-                            <li><a href="form-editor-summernote.html">Summernote</a></li>
-                            <li><a href="form-pickers.html">Pickers</a></li>
-                            <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-381-network"></i>
-							<span class="nav-text">Table</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-                            <li><a href="table-datatable-basic.html">Datatable</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-049-copy"></i>
-							<span class="nav-text">Pages</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="page-register.html">Register</a></li>
-                            <li><a href="page-login.html">Login</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="page-error-400.html">Error 400</a></li>
-                                    <li><a href="page-error-403.html">Error 403</a></li>
-                                    <li><a href="page-error-404.html">Error 404</a></li>
-                                    <li><a href="page-error-500.html">Error 500</a></li>
-                                    <li><a href="page-error-503.html">Error 503</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="page-lock-screen.html">Lock Screen</a></li>
-                        </ul>
-                    </li>
+          <li class=" active px-2">
+            
+            <a href="#" role="button" data-bs-toggle="collapse" data-bs-toggle="tab"  class="" data-bs-target="#collapseExample"><i class="fa-solid fa-users me-2 "></i>  Members <i class="fa-solid fa-chevron-down ps-4  ms-5"></i></a>
+            <div id="collapseExample" class="collapse">
+                <ul class="nav  ">
+                  <li class=" active py-1 px-2  w-100 mx-auto">
+                    <a href="dashui2.html"><i class="fa-solid fa-user me-2"></i>  List of Members</a>
+                  </li>
+               
+                  <li class="py-1 px-2 w-100">
+                    <a href="dashiu.htm"><i class="fa-solid fa-user-check me-2"></i>  Membership Approval</a>
+                  </li>
                 </ul>
-      </aside>
+              </div>
+          </li>
+          <li class="py-1 px-2">
+            <a href="#"><i class="fa-regular fa-credit-card me-2"></i> Loans</a>
+          </li>
+          <li class="py-1 px-2">
+            <a href="#"><i class="fa-regular fa-file me-2"></i> Reports</a>
+          </li>
+         
+        </ul>
+     
+       
+      </aside> -->
+       <aside id="sidebar-wrapper">
+      <div class="sidebar-brand d-flex   px-2">
+        <img src="/SourceCode/images/logoo.jpg" class="text-center"  style="width: 45px; height: 45px;"alt="">
+        <h2 class="text-white mt-2 ms-1">NMEMPC</h2>
+      </div>
+      <ul class="sidebar-nav py-3">
+        <li class="active py-1 px-2">
+          <a href="dashiu.htm"><i class="fa-solid fa-table me-2"></i>  Dashboard</a>
+        </li>
+        <li class="py-1 px-2">
+          
+          <a href="#" role="button" data-bs-toggle="collapse" data-bs-toggle="tab"  class="" data-bs-target="#collapseExample"><i class="fa-solid fa-users me-2 "></i>  Members <i class="fa-solid fa-chevron-down ps-4  ms-5"></i></a>
+          <div id="collapseExample" class="collapse">
+              <ul class="nav  ">
+                <li class="py-1 px-2 w-100 mx-auto">
+                  <a href="dashui2.html"><i class="fa-solid fa-user me-2"></i>  List of Members</a>
+                </li>
+             
+                <li class="py-1 px-2 w-100">
+                  <a href="dashiu.htm"><i class="fa-solid fa-user-check me-2"></i>  Membership Approval</a>
+                </li>
+              </ul>
+            </div>
+        </li>
+        <li class="py-1 px-2">
+          <a href="#"><i class="fa-regular fa-credit-card me-2"></i> Loans</a>
+        </li>
+        <li class="py-1 px-2">
+          <a href="#"><i class="fa-regular fa-file me-2"></i> Reports</a>
+        </li>
+       
+      </ul>
+    </aside>
       <!-- End Sidebar -->
       
       <div class="tab-content " id="myTabContent"  style="overflow-y: scroll ;  "   >
