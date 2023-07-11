@@ -1,101 +1,351 @@
-  <!-- <main class="main-container">
+<main class="main-container  " style="height: 100vh; background-color: #d9d9d9; overflow-y: scroll;" >
+         
               
-                  <div class="container  " >
-                    <div class="row my-3 d-flex">
-                 
-                        <h3>List of Members</h3>
-                      
-                      <div  style="width: 93%;">
-                        <button class="btn btn-primary float-end"> <i class="fa-solid fa-plus"></i> Add Member</button>
-                      </div>
+                <div class="container  " >
+                  <div class="row my-3 d-flex">
+               
+                      <h3>List of Members</h3>
+                    
+                    <div  style="width: 93%;">
+                      <button class="btn btn-primary float-end"> <i class="fa-solid fa-plus"></i> Add Member</button>
+                    </div>
 
-                  </div>
-                  <div class="row  justify-content-center">
-                    <div class="div bg-light " style="max-height:450px ; overflow-y: scroll; width: 85%;">
-                      <div class="table-responsive">
-                        <table class="table table-bordered py-2" >
-                         
-                          <thead  >
-                            <tr >
-                              <th style="width: 20%;" class="text-center">#</th>
-                              <th style="width: 20%;" class="text-center">Member</th>
-                              <th style="width: 20%;" class="text-center">Current Loan</th>
-                              <th style="width: 20%;" class="text-center">Next Payment Schedule</th>
-                              <th style="width: 20%;" class="text-center">Action</th>
-                              
-                            </tr>
-                          </thead>
-                          <style>
-                          
-                          </style>
-                          <tbody >
-                            <tr class="text-center">
-                              <td>1</td>
-                              <td class="text-start">
-                                  <p>Name :<b class="me-2">Efren Pelo</b></p>
-                                  <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
-                                  <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
-                                  <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
-                               
-                              </td>
-                              <td>None</td>
-                              <td>N/A</td>
-                              <td  >   
-                                <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <i class="fa-solid fa-bars "></i>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
-                                  <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
-                                  <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
-                                </ul>
+                </div>
+                <div class="row  justify-content-center">
+                  <div class="div bg-light " style="max-height:580px ; overflow-y: scroll; width: 85%;">
+                    <div class="table-responsive py-3">
+                      <table class="table table-bordered " id="myTable">
+                       
+                        <thead  >
+                          <tr >
+                            <th style="width: 20%;" class="text-center">#</th>
+                            <th style="width: 20%;" class="text-center">Member</th>
+                            <th style="width: 20%;" class="text-center">Current Loan</th>
+                            <th style="width: 20%;" class="text-center">Next Payment Schedule</th>
+                            <th style="width: 20%;" class="text-center">Action</th>
+                            
+                          </tr>
+                        </thead>
+                        <style>
+                        
+                        </style>
+                        <tbody >
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
                              
-                          
-                                
-                              </td>
-                            </tr>
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                          <tr class="text-center">
+                            <td>1</td>
+                            <td class="text-start">
+                                <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                             
+                            </td>
+                            <td>None</td>
+                            <td>N/A</td>
+                            <td  >   
+                              <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars "></i>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                              </ul>
+                           
+                        
+                              
+                            </td>
+                          </tr>
+                      
+                       
+                        
+                        
+                        
+                        
                         
                          
-                          
-                          
-                          
-                          
-                          
-                           
-                          </tbody>
-                        </table>
-                      </div>
-                      
+                        </tbody>
+                      </table>
                     </div>
+                    
                   </div>
-                  
-        <div class="container mt-2">
-          <div class="row">
-            <div class="col">
-              
-              
-              <nav aria-label="Page navigation " style="width: 94%;">
-                <ul class="pagination justify-content-end">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                  </li>
-                  <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-      
-                  </div>
-                </main> -->
+                </div>
+                
+
+    
+                </div>
+              </main> 
