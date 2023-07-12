@@ -1,3 +1,8 @@
+<?php require_once("database.php");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +30,49 @@
 
 <body>
 
+    <?php
+    if(isset($_POST['form_submit'])){
+        $folder = 'uploads/';
+        $image_file = $_FILES['img']['name'];
+        $file = $_FILES['img']['tmp_name'];
+        $path = $folder.$image_file;
+        $target_file = $folder.basename($image_file);
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+        $signature = $_POST['signature'];
+        $name = $_POST['name'];
+        $address = $_POST['address'];
+        $cellphoneNum = $_POST['cellphoneNum'];
+        $age = $_POST['age'];
+        $birthDate = $_POST['birthdate'];
+        $birthPlace = $_POST['birthPlace'];
+        $civilStatus = $_POST['civilstatus'];
+        $religion = $_POST['religion'];
+        $occupation = $_POST['occupation'];
+        $monthlyIncome = $_POST['monthlyIncome'];
+        $otherIncome = $_POST['otherIncome'];
+        $spouseName = $_POST['spouseName'];
+        $numOfDependents = $_POST['numOfDependents'];
+        $presentEmp = $_POST['numOfDependents'];
+
+
+
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"){
+            $error[] = 'Sorry, only JPG, JPEG, & PNG files are allowed';
+        }
+
+        //move image to the folder
+
+        move_uploaded_file($file, $target_file);
+        $result = mysqli_query($db, "INSERT INTO member(img) VALUES('$img')"
+    );
+    if($result){
+        $image_success=1;
+    }
+    else{
+        echo 'Something went wrong';
+    }
+    }
+    ?>
 
     <div class="container-fluid px-0">
             <div class="row gx-0">
@@ -139,7 +187,7 @@
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: #1165AE; font-weight:700;">Application for Membership</h3>
-              <form>
+              <form action ="" method="post" enctype="multipart/form-data">
   
 
                 <div class="row">
@@ -277,7 +325,7 @@
                   <div class="col-md-4 mb-4 pb-2">
   
                     <div class="form-outline">
-                      <input type="text" id="otherIncome"  name="otherIncome"class="form-control form-control-lg" />
+                      <input type="text" id="otherIncome"  name="otherIncome" class="form-control form-control-lg" />
                       <label class="form-label" for="otherIncome">Other Sources of Income</label>
                     </div>
 
@@ -382,6 +430,7 @@
       </div>
     </div>
   </section>
+
 
   <script>
     function previewImage(event) {
