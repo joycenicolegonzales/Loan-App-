@@ -96,7 +96,7 @@ CREATE TABLE `loan_type` (
 
 CREATE TABLE `member` (
   `Member_ID` int(65) NOT NULL,
-  `Account_ID` int(65) NOT NULL,
+ 
   `Firstname` varchar(255) NOT NULL,
   `Middlename` varchar(255) NOT NULL,
   `Lastname` varchar(255) NOT NULL,
@@ -119,8 +119,8 @@ CREATE TABLE `staff` (
   `Staff_ID` int(65) NOT NULL,
   `Firstname` varchar(255) NOT NULL,
   `Lastname` varchar(255) NOT NULL,
-  `Position` varchar(255) NOT NULL,
-  `Account_ID` int(65) NOT NULL
+  `Position` varchar(255) NOT NULL
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -165,15 +165,15 @@ ALTER TABLE `loan_type`
 -- Indexes for table `member`
 --
 ALTER TABLE `member`
-  ADD PRIMARY KEY (`Member_ID`),
-  ADD KEY `Account_ID` (`Account_ID`);
+  ADD PRIMARY KEY (`Member_ID`);
+  
 
 --
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`Staff_ID`),
-  ADD KEY `Account_ID` (`Account_ID`);
+  ADD PRIMARY KEY (`Staff_ID`);
+
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -242,14 +242,12 @@ ALTER TABLE `loan_schedule`
 --
 -- Constraints for table `member`
 --
-ALTER TABLE `member`
-  ADD CONSTRAINT `member_ibfk_1` FOREIGN KEY (`Account_ID`) REFERENCES `account` (`Account_ID`);
+
 
 --
 -- Constraints for table `staff`
 --
-ALTER TABLE `staff`
-  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`Account_ID`) REFERENCES `account` (`Account_ID`);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
