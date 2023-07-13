@@ -1,16 +1,6 @@
 
 @charset "UTF-8";
-/*!
-* Start Bootstrap - SB Admin v7.0.7 (https://startbootstrap.com/template/sb-admin)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
-*/
-/*!
-* Bootstrap  v5.2.3 (https://getbootstrap.com/)
-* Copyright 2011-2022 The Bootstrap Authors
-* Copyright 2011-2022 Twitter, Inc.
-* Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-*/
+
 :root {
 --bs-blue: #0d6efd;
 --bs-indigo: #6610f2;
@@ -3653,6 +3643,9 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
 .nav-link:hover{
   background-color: #4884bc;
 }
+.nav-link.active{
+  background-color: #4884bc;
+}
 @media (prefers-reduced-motion: reduce) {
 .nav-link {
 transition: none;
@@ -5257,16 +5250,16 @@ margin-left: var(--bs-toast-padding-x);
 padding: var(--bs-toast-padding-x);
 word-wrap: break-word;
 }
-
+/* 
 .modal {
 --bs-modal-zindex: 1055;
---bs-modal-width: 500px;
+--bs-modal-width: 800px;
 --bs-modal-padding: 1rem;
 --bs-modal-margin: 0.5rem;
 --bs-modal-color: ;
 --bs-modal-bg: #fff;
 --bs-modal-border-color: var(--bs-border-color-translucent);
---bs-modal-border-width: 1px;
+--bs-modal-border-width: 100px;
 --bs-modal-border-radius: 0.5rem;
 --bs-modal-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 --bs-modal-inner-border-radius: calc(0.5rem - 1px);
@@ -5423,7 +5416,7 @@ margin-left: auto;
 @media (min-width: 992px) {
 .modal-lg,
 .modal-xl {
---bs-modal-width: 800px;
+--bs-modal-width: 1000px;
 }
 }
 @media (min-width: 1200px) {
@@ -5549,7 +5542,7 @@ border-radius: 0;
 .modal-fullscreen-xxl-down .modal-body {
 overflow-y: auto;
 }
-}
+} */
 .tooltip {
 --bs-tooltip-zindex: 1080;
 --bs-tooltip-max-width: 200px;
