@@ -1,7 +1,7 @@
-<?php require_once("database.php");
+<?php 
+session_start();
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,57 +24,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 </head>
 
 <body>
 
-    <?php
-    if(isset($_POST['form_submit'])){
-        $folder = 'uploads/';
-        $image_file = $_FILES['img']['name'];
-        $file = $_FILES['img']['tmp_name'];
-        $path = $folder.$image_file;
-        $target_file = $folder.basename($image_file);
-        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-        $signature = $_POST['signature'];
-        $name = $_POST['name'];
-        $address = $_POST['address'];
-        $cellphoneNum = $_POST['cellphoneNum'];
-        $age = $_POST['age'];
-        $birthDate = $_POST['birthdate'];
-        $birthPlace = $_POST['birthPlace'];
-        $civilStatus = $_POST['civilstatus'];
-        $religion = $_POST['religion'];
-        $occupation = $_POST['occupation'];
-        $monthlyIncome = $_POST['monthlyIncome'];
-        $otherIncome = $_POST['otherIncome'];
-        $spouseName = $_POST['spouseName'];
-        $numOfDependents = $_POST['numOfDependents'];
-        $presentEmp = $_POST['numOfDependents'];
+  
 
-
-
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"){
-            $error[] = 'Sorry, only JPG, JPEG, & PNG files are allowed';
-        }
-
-        //move image to the folder
-
-        move_uploaded_file($file, $target_file);
-        $result = mysqli_query($db, "INSERT INTO member(img) VALUES('$img')"
-    );
-    if($result){
-        $image_success=1;
-    }
-    else{
-        echo 'Something went wrong';
-    }
-    }
-    ?>
-
+    
     <div class="container-fluid px-0">
+
+
             <div class="row gx-0">
                 <div class="col-lg-3  d-none d-lg-block"  style="background-color: #1165AE;">
                     <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
@@ -179,21 +140,133 @@
         
                 </style>
 
+
+
+
 <!-- 
+  
 <section class="vh-100 gradient-custom"> -->
     <div class="container py-3 " style="margin-top: 2%; margin-bottom: 2%;">
+      <?php 
+
+        if (isset($_POST['submit'])) {
+          $image = $_FILES['image']['name'];
+          $name = $_POST['name'];
+          $address = $_POST['address'];
+          $cellphoneNum = $_POST['cellphoneNum'];
+          $age = $_POST['age'];
+          $birthdate  = $_POST['birthdate'];
+          $birthPlace = $_POST['birthPlace'];
+          $civilstatus  = $_POST['civilstatus'];
+          $religion =$_POST['religion'];
+          $occupation =$_POST['occupation'];
+          $monthlyIncome = $_POST['monthlyIncome'];
+          $otherIncome  = $_POST['otherIncome'];
+          $spouseName = $_POST['spouseName'];
+          $numOfDependents = $_POST['numOfDependents'];
+          $employedCompany = $_POST['employedCompany'];
+          $presentEmp = $_POST['presentEmp'];
+          $emergency =$_POST['emergency'];
+          $address2 = $_POST['address2'];
+          $cellphoneNum2 = $_POST['cellphoneNum2'];
+
+          
+
+          $errors = array();
+
+          // if (empty($name) OR empty($address) OR empty($cellphoneNum)) {
+          //   array_push($errors,"All fields are required");
+          //  }
+
+           require_once "database.php";
+           $sql = "SELECT * FROM member WHERE name = '$name'";
+           $result = mysqli_query($con, $sql);
+           $rowCount = mysqli_num_rows($result);
+ 
+          // $errors = array();
+
+          // if (empty($name) OR empty($address) OR empty($cellphoneNum)) {
+          //   array_push($errors,"All fields are required");
+          //  }
+
+          // require_once "database.php";
+          // $sql = "SELECT * FROM member WHERE name = '$name'";
+          // $result = mysqli_query($con, $sql);
+          // $rowCount = mysqli_num_rows($result);
+       //    if ($rowCount>0) {
+       //     array_push($errors,"Email already exists!");
+       //    }
+          if (count($errors)>0) {
+           foreach ($errors as $error) {
+               echo "<div class='alert alert-danger'>$error</div>";
+           }
+       } 
+          else
+          {
+            // $sql = "INSERT INTO member ( image, name, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion, occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
+            // employedCompany, presentEmp, emergency, address2, cellphoneNum2)  VALUES (  ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            // $stmt = mysqli_stmt_init($con);
+            // $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
+
+            $query = "INSERT INTO member (image, name, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion, occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
+            employedCompany, presentEmp, emergency, address2, cellphoneNum2) VALUES('$image','$name','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion','$occupation',
+           '$monthlyIncome','$otherIncome','$spouseName','$numOfDependents','$employedCompany','$presentEmp','$emergency','$address2','$cellphoneNum2')";
+            $query_run = mysqli_query($con, $query);
+
+            // if ($prepareStmt) {
+            //   mysqli_stmt_bind_param($stmt,"sssssssssssssssssss",$image,$name,$address,$cellphoneNum,$age,$birthdate,$birthPlace,$civilstatus,$religion,$occupation,
+            //   $monthlyIncome,$otherIncome,$spouseName,$numOfDependents,$employedCompany,$presentEmp,$emergency,$address2,$cellphoneNum2);
+            //   mysqli_stmt_execute($stmt);
+            //   echo "<div class='alert alert-success'>You are registered successfully.</div>";
+            // }
+            if($query_run)
+            {
+              move_uploaded_file($_FILES['image']['tmp_name'], 'upload/' .basename($_FILES['image']['tmp_name']));
+              // "upload/".$_FILES["dpt_cate_image"]["name"]);
+              $_SESSION['status'] = "Image Stored Successfully";
+              // header('Location: MembershipForm.php');
+            }
+
+            else{
+              // die("Something went wrong");
+              $_SESSION['status'] = "Image Not Inserted";
+              header('Location: MembershipForm.php');
+           
+            }
+        } 
+}
+?>
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-12 col-lg-9 col-xl-9">
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
+
+                 <?php
+                  if(isset($_SESSION['status']) && $_SESSION != '')
+                  {
+
+                    ?>
+                    
+                    <div class = "alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>Hey!</strong> <?PHP echo $_SESSION['status']; ?>
+                      <button type ="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                    <?php
+                    unset($_SESSION['status']);
+                  }
+                 ?>
+
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: #1165AE; font-weight:700;">Application for Membership</h3>
-              <form action ="" method="post" enctype="multipart/form-data">
+              <form action ="MembershipForm.php" method="post" enctype="multipart/form-data">
   
 
                 <div class="row">
                   <div class="col-md-6 mb-4">
-                    <input type="file" name="img" id="img"  accept="image/*" onchange="previewImage(event)"
-                    data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%;" required/>
+                    <input type="file" name="image" accept=".jpg, .jpeg, .png"  onchange="previewImage(event)"
+                    data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%;" />
                     <label for="image">Your 2x2 Photo with white background</label>
                     </div>
 
@@ -202,28 +275,15 @@
                       <img id="image-preview" src=""  style="width: 200px;">
                     </div>
                     </div>  
-                </div>
+                </div>   
 
-
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <input type="file" name="signature" id="signature" accept="image/*" onchange="previewImage2(event)"
-                    data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%;" required/>
-                    <label for="image">Signature</label>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                      <div style="width: 200px; height: 200px; border: 1px solid black; margin-left: 13%;">
-                      <img id="image-preview2" src="" style="width: 200px;">
-                    </div>
-                    </div>
-                </div>
 
 
                 <div class="row"  style="margin-top: 3%;">
                   <div class="col-md-6 mb-4" >
    
                     <div class="form-outline">
-                      <input type="text" id="name" name="name" class="form-control form-control-lg" required/>
+                      <input type="text" name="name" class="form-control form-control-lg" />
                       <label class="form-label" for="name">Name</label>
                     </div>
   
@@ -232,7 +292,7 @@
                   <div class="col-md-6 mb-4">
   
                     <div class="form-outline">
-                      <input type="text" id="presentAddress" name="address" class="form-control form-control-lg" required/>
+                      <input type="text"  name="address" class="form-control form-control-lg" />
                       <label class="form-label" for="presentAddress">Present Address</label>
                     </div>
   
@@ -245,7 +305,7 @@
                   <div class="col-md-5 mb-4 d-flex align-items-center">
   
                     <div class="form-outline  w-100">
-                      <input type="text" name ="cellphoneNum" class="form-control form-control-lg" id="cellphoneNum" required/>
+                      <input type="text" name ="cellphoneNum" class="form-control form-control-lg"/>
                       <label for="cellphoneNum" class="form-label">Cellphone No. </label>
                     </div>
   
@@ -254,7 +314,7 @@
                   <div class="col-md-3 mb-4 d-flex align-items-center">
   
                     <div class="form-outline  w-100">
-                      <input type="text" name="age" class="form-control form-control-lg" id="age" required/>
+                      <input type="text" name="age" class="form-control form-control-lg"  />
                       <label for="age" class="form-label">Age</label>
                     </div>
   
@@ -263,7 +323,7 @@
                   <div class="col-md-4 mb-4 pb-2">
                     <div class="form-outline">
                       
-                        <input type="date" name="birthdate" class="form-control form-control-lg" id="birthdate" required>
+                        <input type="date" name="birthdate" class="form-control form-control-lg"  >
                         <label for="dob" class="form-label">Birth Date</label>
                         </div>
                   </div>
@@ -273,14 +333,14 @@
                   <div class="col-md-5 mb-4 pb-2">
   
                     <div class="form-outline">
-                      <input type="text" name="birthPlace" id="birthPlace" class="form-control form-control-lg" required/>
+                      <input type="text" name="birthPlace"  class="form-control form-control-lg" />
                       <label class="form-label" for="birthPlace">Birthplace</label>
                     </div>
   
                   </div>
 
                   <div class="col-md-4  mb-4 pb-2">
-                    <select class="select form-control form-control-lg" name="civilstatus" required> 
+                    <select class="select form-control form-control-lg" name="civilstatus" > 
                       <option value=""> -- Select Civil Status -- </option>
                         <option value="single">Single</option>
                         <option value="married">Married</option>
@@ -295,7 +355,7 @@
                   <div class="col-md-3 mb-4 pb-2">
   
                     <div class="form-outline">
-                      <input type="text" id="Religion" name="religion" nameclass="form-control form-control-lg"  required/>
+                      <input type="text"  name="religion" nameclass="form-control form-control-lg" />
                       <label class="form-label" for="Religion">Religion</label>
                     </div>
                 </div>
@@ -305,7 +365,7 @@
                   <div class="col-md-4 mb-4 pb-2">
   
                     <div class="form-outline">
-                      <input type="text" id="occupation" name="occupation" class="form-control form-control-lg" required/>
+                      <input type="text" name="occupation" class="form-control form-control-lg" />
                       <label class="form-label" for="occupation">Occupation</label>
                     </div>
 
@@ -325,7 +385,7 @@
                   <div class="col-md-4 mb-4 pb-2">
   
                     <div class="form-outline">
-                      <input type="text" id="otherIncome"  name="otherIncome" class="form-control form-control-lg" />
+                      <input type="text"   name="otherIncome" class="form-control form-control-lg" />
                       <label class="form-label" for="otherIncome">Other Sources of Income</label>
                     </div>
 
@@ -337,7 +397,7 @@
                     <div class="col-md-6 mb-4 pb-2">
   
                         <div class="form-outline">
-                          <input type="text" id="spouseName" name="spouseName" class="form-control form-control-lg" />
+                          <input type="text" name="spouseName" class="form-control form-control-lg" />
                           <label class="form-label" for="spouseName">Name of Spouse (if married)</label>
                         </div>
     
@@ -348,7 +408,7 @@
 
                   <div class="col-md-6 mb-4 pb-2">
                     <div class="form-outline">
-                      <input type="text" id="numOfDependents"  name="numOfDependents" class="form-control form-control-lg" required />
+                      <input type="text"  name="numOfDependents" class="form-control form-control-lg"  />
                       <label class="form-label" for="numOfDependents">No. of Dependents</label>
                     </div>
                   </div>
@@ -360,7 +420,7 @@
                     <div class="col-md-4 mb-4 pb-2">
   
                         <div class="form-outline">
-                          <input type="text" id="employedCompany"  name="employedCompany" class="form-control form-control-lg" />
+                          <input type="text"   name="employedCompany" class="form-control form-control-lg" />
                           <label class="form-label" for="employedCompany">Name of Company if employed</label>
                         </div>
     
@@ -369,14 +429,14 @@
                 
                   <div class="col-md-4 mb-4 pb-2">
                     <div class="form-outline">
-                      <input type="text" id="presentEmp" name="presentEmp" class="form-control form-control-lg" required />
+                      <input type="text"  name="presentEmp" class="form-control form-control-lg"  />
                       <label class="form-label" for="presentEmp">Present Employment</label>
                     </div>
                   </div>
 
                   <div class="col-md-4 mb-4 pb-2">
                     <div class="form-outline">
-                      <input type="text" id="emergency" name="emergency" class="form-control form-control-lg" required/>
+                      <input type="text"  name="emergency" class="form-control form-control-lg" />
                       <label class="form-label" for="emergency">Person to be contacted in case of emergency</label>
                     </div>
                   </div>
@@ -386,7 +446,7 @@
                     <div class="col-md-6 mb-4 pb-2">
   
                         <div class="form-outline">
-                          <input type="text" id="address2" name="address2" class="form-control form-control-lg" required/>
+                          <input type="text"  name="address2" class="form-control form-control-lg" />
                           <label class="form-label" for="address2">Address</label>
                         </div>
     
@@ -395,7 +455,7 @@
                 
                   <div class="col-md-6 mb-4 pb-2">
                     <div class="form-outline">
-                      <input type="text" id="cellphoneNum2" class="form-control form-control-lg" minlength="11" name="cellphoneNum2" required />
+                      <input type="text"  class="form-control form-control-lg" minlength="11" name="cellphoneNum2" />
                       <div class="invalid-feedback">
                         The number of characters should not be less than the minimum value: 11.
                       </div>
@@ -419,9 +479,12 @@
                         
                       </div>
                 </div> -->
-                
+                <div class="form-btn">
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            </div>
+<!--                 
                 <input class="btn btn-back btn-md" type="submit" value="Back" style="background-color: #0c151d; color: white;" />
-                <input class="btn btn-submit btn-md" type="submit" value="Submit" style="background-color: #1165AE; color: white; float: right;">
+                <input class="btn btn-submit btn-md" type="submit" value="Submit" style="background-color: #1165AE; color: white; float: right;"> -->
                 <!-- <input class="btn btn-submit btn-md" type="submit" value="Submit" style="background-color: #1165AE; color: white; float: right;" /> -->
               </form>
             </div>
@@ -796,3 +859,4 @@ top: 13px;
 
 </body>
 </html>
+
