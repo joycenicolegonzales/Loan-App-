@@ -18,30 +18,31 @@ if (isset($_SESSION["user"])) {
     <div class="container">
         <?php
         if (isset($_POST["login"])) {
-           $email = $_POST["email"];
+           $userName = $_POST["username"];
            $password = $_POST["password"];
-           $roles = $_POST["roles"];
+        //    $roles = $_POST["roles"];
+        
             require_once "database.php";
-            $sql = "SELECT * FROM signup WHERE email = '$email'";
-            $result = mysqli_query($conn, $sql);
-            $signup = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            if ($signup ) {
-                if (password_verify($password, $signup["password"])) {
+            $sql = "SELECT * FROM account WHERE username = '$username'";
+            $result = mysqli_query($con, $sql);
+            $account = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            if ($account) {
+                if (password_verify($password, $account["password"])) {
                     session_start();
-                    $_SESSION["signup"] = "yes";
+                    $_SESSION["account"] = "yes";
                     header("Location: indexHome.php");
                     die();
                 }else{
                     echo "<div class='alert alert-danger'>Password does not match</div>";
                 }
             }else{
-                echo "<div class='alert alert-danger'>Email does not match</div>";
+                echo "<div class='alert alert-danger'>Username does not match</div>";
             }
         }
         ?>
       <form action="login.php" method="post">
         <div class="form-group">
-            <input type="email" placeholder="Enter Email:" name="email" class="form-control">
+            <input type="username" placeholder="Enter Username:" name="username" class="form-control">
         </div>
         <div class="form-group">
             <input type="password" placeholder="Enter Password:" name="password" class="form-control">
