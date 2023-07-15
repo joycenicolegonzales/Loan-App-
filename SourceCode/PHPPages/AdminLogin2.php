@@ -47,26 +47,11 @@
 
 <?php
 
-    // function input_filter($data)
-    // {
-    //     $data=trim($data);
-    //     $data=stripslashes($data);
-    //     $data=htmlspecialchars($data);
-    //     return $data;
-    // }
-
     if(isset($_POST['submit'])){
         $username=$_POST['username'];
         $password=$_POST['password'];
-        $usertype=$_POST['usertype'];
-
-        // $usertype=input_filter($_POST['usertype']);
-
-
-        // $username=mysqli_real_escape_string($con, $username);
-        // $password=mysqli_real_escape_string($con, $password);
-        // $usertype=mysqli_real_escape_string($con, $usertype);
-
+        $usertype=$_POST['usertype'];   
+        
         $select= mysqli_query($con, "SELECT * FROM account WHERE username = '$username' AND password = '$password' AND usertype = '$usertype' ");
 
         $row = mysqli_fetch_array($select);
