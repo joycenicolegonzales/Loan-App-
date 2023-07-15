@@ -1,8 +1,3 @@
-<?php 
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,18 +19,14 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
 
 </head>
 
 <body>
 
-  
 
-    
     <div class="container-fluid px-0">
-
-
             <div class="row gx-0">
                 <div class="col-lg-3  d-none d-lg-block"  style="background-color: #1165AE;">
                     <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
@@ -140,342 +131,82 @@ session_start();
         
                 </style>
 
-
-
+                
 
 <!-- 
-  
 <section class="vh-100 gradient-custom"> -->
     <div class="container py-3 " style="margin-top: 2%; margin-bottom: 2%;">
-      <?php 
-
-        if (isset($_POST['submit'])) {
-          $image = $_FILES['image']['name'];
-          $signature = $_FILES['signature']['name'];
-          $name = $_POST['name'];
-          $address = $_POST['address'];
-          $cellphoneNum = $_POST['cellphoneNum'];
-          $age = $_POST['age'];
-          $birthdate  = $_POST['birthdate'];
-          $birthPlace = $_POST['birthPlace'];
-          $civilstatus  = $_POST['civilstatus'];
-          $religion =$_POST['religion'];
-          $occupation =$_POST['occupation'];
-          $monthlyIncome = $_POST['monthlyIncome'];
-          $otherIncome  = $_POST['otherIncome'];
-          $spouseName = $_POST['spouseName'];
-          $numOfDependents = $_POST['numOfDependents'];
-          $employedCompany = $_POST['employedCompany'];
-          $presentEmp = $_POST['presentEmp'];
-          $emergency =$_POST['emergency'];
-          $address2 = $_POST['address2'];
-          $cellphoneNum2 = $_POST['cellphoneNum2'];
-
-          
-
-          $errors = array();
-
-          // if (empty($name) OR empty($address) OR empty($cellphoneNum)) {
-          //   array_push($errors,"All fields are required");
-          //  }
-
-           require_once "database.php";
-           $sql = "SELECT * FROM member WHERE name = '$name'";
-           $result = mysqli_query($con, $sql);
-           $rowCount = mysqli_num_rows($result);
- 
-          // $errors = array();
-
-          // if (empty($name) OR empty($address) OR empty($cellphoneNum)) {
-          //   array_push($errors,"All fields are required");
-          //  }
-
-          // require_once "database.php";
-          // $sql = "SELECT * FROM member WHERE name = '$name'";
-          // $result = mysqli_query($con, $sql);
-          // $rowCount = mysqli_num_rows($result);
-       //    if ($rowCount>0) {
-       //     array_push($errors,"Email already exists!");
-       //    }
-          if (count($errors)>0) {
-           foreach ($errors as $error) {
-               echo "<div class='alert alert-danger'>$error</div>";
-           }
-       } 
-          else
-          {
-            // $sql = "INSERT INTO member ( image, name, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion, occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
-            // employedCompany, presentEmp, emergency, address2, cellphoneNum2)  VALUES (  ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            // $stmt = mysqli_stmt_init($con);
-            // $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
-
-            $query = "INSERT INTO member (image, signature, name, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion, occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
-            employedCompany, presentEmp, emergency, address2, cellphoneNum2) VALUES('$image', '$signature', '$name','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion','$occupation',
-           '$monthlyIncome','$otherIncome','$spouseName','$numOfDependents','$employedCompany','$presentEmp','$emergency','$address2','$cellphoneNum2')";
-            $query_run = mysqli_query($con, $query);
-
-            // if ($prepareStmt) {
-            //   mysqli_stmt_bind_param($stmt,"sssssssssssssssssss",$image,$name,$address,$cellphoneNum,$age,$birthdate,$birthPlace,$civilstatus,$religion,$occupation,
-            //   $monthlyIncome,$otherIncome,$spouseName,$numOfDependents,$employedCompany,$presentEmp,$emergency,$address2,$cellphoneNum2);
-            //   mysqli_stmt_execute($stmt);
-            //   echo "<div class='alert alert-success'>You are registered successfully.</div>";
-            // }
-            if($query_run)
-            {
-              move_uploaded_file($_FILES['image']['tmp_name'], 'upload/' .basename($_FILES['image']['tmp_name']));
-              move_uploaded_file($_FILES['signature']['tmp_name'], 'upload/' .basename($_FILES['signature']['tmp_name']));
-              // "upload/".$_FILES["dpt_cate_image"]["name"]);
-              $_SESSION['status'] = "Image Stored Successfully";
-              // header('Location: MembershipForm.php');
-            }
-
-            else{
-              // die("Something went wrong");
-              $_SESSION['status'] = "Image Not Inserted";
-              header('Location: MembershipForm.php');
-           
-            }
-        } 
-}
-?>
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-12 col-lg-9 col-xl-9">
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: #1165AE; font-weight:700;">Loan Application Form</h3>
+              <form>
+  
 
-                 <?php
-                  if(isset($_SESSION['status']) && $_SESSION != '')
-                  {
+            <div class="row">
 
-                    ?>
+            <div class="col-md-6 mb-4 pb-2">                 
+                <select class="select form-control form-control-lg" name="monthlysalary">
+                <option value="" disabled selected hidden class="placeholder" >Please select here</option>
+                    <option value="regular">Regular Loan</option>
+                    <option value="salary">Salary Loan</option>
+                    <option value="productive">Productive Loan</option> 
+                    <option value="emergency">Emergency Loan</option>
+                    <option value="Special Assistance">Special Assistance Loan</option>
                     
-                    <div class = "alert alert-warning alert-dismissible fade show" role="alert">
-                      <strong>Hey!</strong> <?PHP echo $_SESSION['status']; ?>
-                      <button type ="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-
-                    <?php
-                    unset($_SESSION['status']);
-                  }
-                 ?>
-
-              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: #1165AE; font-weight:700;">Application for Membership</h3>
-              <form action ="MembershipForm.php" method="post" enctype="multipart/form-data">
-  
-
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <input type="file" name="image" accept=".jpg, .jpeg, .png"  onchange="previewImage(event)"
-                    data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%; border: 2px solid black;" />
-                    <label for="image">Your 2x2 Photo with white background</label>
-                    </div>
-
-                    <div class="col-md-6 mb-4 ">
-                      <div style="width: 200px; height: 200px;  margin-left: 13%;" >
-                      <img id="image-preview" src=""  style="width: 200px;">
-                    </div>
-                    </div>  
-                </div>   
-
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <input type="file" name="signature" accept=".jpg, .jpeg, .png"  onchange="previewImage2(event)"
-                    data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%; border: 2px solid black;" />
-                    <label for="signature">Your e-signature</label>
-                    </div>
-
-                    <div class="col-md-6 mb-4 ">
-                      <div style="width: 200px; height: 200px;  margin-left: 13%;" >
-                      <img id="image-preview2" src=""  style="width: 200px;">
-                    </div>
-                    </div>  
-                </div>   
-
-
-
-                <div class="row"  style="margin-top: 3%;">
-                  <div class="col-md-6 mb-4" >
-   
-                    <div class="form-outline">
-                      <input type="text" name="name" class="form-control form-control-lg" />
-                      <label class="form-label" for="name">Name</label>
-                    </div>
-  
-                  </div>
-
-                  <div class="col-md-6 mb-4">
-  
-                    <div class="form-outline">
-                      <input type="text"  name="address" class="form-control form-control-lg" />
-                      <label class="form-label" for="presentAddress">Present Address</label>
-                    </div>
-  
-                  </div>
-
-                  
+                </select>
+                
+                <label class="form-label select-label">Loan Type</label>
                 </div>
-  
-                <div class="row">
-                  <div class="col-md-5 mb-4 d-flex align-items-center">
-  
-                    <div class="form-outline  w-100">
-                      <input type="text" name ="cellphoneNum" class="form-control form-control-lg"/>
-                      <label for="cellphoneNum" class="form-label">Cellphone No. </label>
-                    </div>
-  
-                  </div>
-           
-                  <div class="col-md-3 mb-4 d-flex align-items-center">
-  
-                    <div class="form-outline  w-100">
-                      <input type="text" name="age" class="form-control form-control-lg"  />
-                      <label for="age" class="form-label">Age</label>
-                    </div>
-  
-                  </div>
 
+
+                <div class="col-md-6 mb-4 pb-2">                 
+                <select class="select form-control form-control-lg" name="monthlysalary">
+                <option value="" disabled selected hidden class="placeholder" >Please select here</option>
+                    <option value="3 months">3 months</option>
+                    <option value="6 months">6 months</option>
+                    <option value="1 year">1 year</option> 
+                    <option value="1 1/2 years">1 1/2 years</option>
+                    <option value="2 years">2 years</option>
+                    <option value="3 years">3 years</option>
+                </select>
+                
+                <label class="form-label select-label">Loan Plan</label>
+                </div>
+
+    </div>
+           
+         <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <input type="email" id="eempStatus" class="form-control form-control-lg" />
+                      <label class="form-label" for="empStatus">Loan Amount</label>
+                    </div>
+             
+
+                  </div>  
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <input type="email" id="eempStatus" class="form-control form-control-lg" />
+                      <label class="form-label" for="empStatus">Loan Balance</label>
+                    </div>
+             
+
+                  </div>  
+    </div>
+
+             <div class="row">
                   <div class="col-md-4 mb-4 pb-2">
                     <div class="form-outline">
                       
-                        <input type="date" name="birthdate" class="form-control form-control-lg"  >
-                        <label for="dob" class="form-label">Birth Date</label>
+                        <input type="date" class="form-control form-control-lg" id="dob">
+                        <label for="dob" class="form-label">Date Released</label>
                         </div>
                   </div>
-                </div>
-  
-                <div class="row">
-                  <div class="col-md-5 mb-4 pb-2">
-  
-                    <div class="form-outline">
-                      <input type="text" name="birthPlace"  class="form-control form-control-lg" />
-                      <label class="form-label" for="birthPlace">Birthplace</label>
-                    </div>
-  
-                  </div>
-
-                  <div class="col-md-4  mb-4 pb-2">
-                    <select class="select form-control form-control-lg" name="civilstatus" > 
-                      <option value=""> -- Select Civil Status -- </option>
-                        <option value="single">Single</option>
-                        <option value="married">Married</option>
-                        <option value="live-in-partner">Live-in Partner</option>
-                        <option value="widowed">Widowed</option>
-                        <option value="separated">Separated</option>
-                      </select>
-                   
-                    <label class="form-label select-label">Civil Status </label>
-                  </div>  
-
-                  <div class="col-md-3 mb-4 pb-2">
-  
-                    <div class="form-outline">
-                      <input type="text"  name="religion" nameclass="form-control form-control-lg" />
-                      <label class="form-label" for="Religion">Religion</label>
-                    </div>
-                </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-4 mb-4 pb-2">
-  
-                    <div class="form-outline">
-                      <input type="text" name="occupation" class="form-control form-control-lg" />
-                      <label class="form-label" for="occupation">Occupation</label>
-                    </div>
-
-                  </div>
-
-                  <div class="col-md-4 mb-4 pb-2">
-                    <select class="select form-control form-control-lg" name="monthlyIncome" required>
-                      <option value="P5000-P10,000">P5000-P10,000</option>
-                      <option value="P10,000-P15,000">P10,000-P15,000</option>
-                      <option value="P15,000-P20,000">P15,000-P20,000</option> 
-                      <option value="P20,000-P25,000">P20,000-P25,000</option>
-                    </select>
-                   
-                    <label class="form-label select-label">Monthly Income</label>
-                  </div>
-
-                  <div class="col-md-4 mb-4 pb-2">
-  
-                    <div class="form-outline">
-                      <input type="text"   name="otherIncome" class="form-control form-control-lg" />
-                      <label class="form-label" for="otherIncome">Other Sources of Income</label>
-                    </div>
-
-                  </div>
                   </div>
 
   
-                <div class="row">
-                    <div class="col-md-6 mb-4 pb-2">
-  
-                        <div class="form-outline">
-                          <input type="text" name="spouseName" class="form-control form-control-lg" />
-                          <label class="form-label" for="spouseName">Name of Spouse (if married)</label>
-                        </div>
-    
-                      </div>
-
-                  <div class="col-md-6 mb-4 pb-2">
-                    <div class="form-outline">
-                      <input type="text"  name="numOfDependents" class="form-control form-control-lg"  />
-                      <label class="form-label" for="numOfDependents">No. of Dependents</label>
-                    </div>
-                  </div>
-
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4 mb-4 pb-2">
-  
-                        <div class="form-outline">
-                          <input type="text"   name="employedCompany" class="form-control form-control-lg" />
-                          <label class="form-label" for="employedCompany">Name of Company if employed</label>
-                        </div>
-    
-                      </div>
-
-                
-                  <div class="col-md-4 mb-4 pb-2">
-                    <div class="form-outline">
-                      <input type="text"  name="presentEmp" class="form-control form-control-lg"  />
-                      <label class="form-label" for="presentEmp">Present Employment</label>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4 mb-4 pb-2">
-                    <div class="form-outline">
-                      <input type="text"  name="emergency" class="form-control form-control-lg" />
-                      <label class="form-label" for="emergency">Person to be contacted in case of emergency</label>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-6 mb-4 pb-2">
-  
-                        <div class="form-outline">
-                          <input type="text"  name="address2" class="form-control form-control-lg" />
-                          <label class="form-label" for="address2">Address</label>
-                        </div>
-    
-                      </div>
-
-                
-                  <div class="col-md-6 mb-4 pb-2">
-                    <div class="form-outline">
-                      <input type="text"  class="form-control form-control-lg" minlength="11" name="cellphoneNum2" />
-                      <div class="invalid-feedback">
-                        The number of characters should not be less than the minimum value: 11.
-                      </div>
-                      <label class="form-label" for="cellphoneNum2">Cellphone No.</label>
-                    </div>
-                  </div>
-                  </div>
                 <!-- <p style="font-weight: 600;color:black;" > Data Privacy Content</p>
                 <p style="font-weight: 300;color:black; text-align: justify;" > "In compliance with the Data Privacy Act (DPA) of 2012 and Credit Information Corporation (CIC), and its Implementing Rules and Regulations, I agree and authorize Tagum Cooperative to use my Personal Information to process any transaction related in the availment of Tagum Cooperative's Products and Services, including the insurance services and administer the benefits as stated in the policy and other service agreements and inform me of future customer campaigns and base its offer using the personal information I shared with the company." *t</p>
                 <p style="font-size: 15px; font-weight: 500;"> Checkbox *</p>
@@ -492,13 +223,8 @@ session_start();
                         
                       </div>
                 </div> -->
-                <div class="form-btn">
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-            </div>
-<!--                 
-                <input class="btn btn-back btn-md" type="submit" value="Back" style="background-color: #0c151d; color: white;" />
-                <input class="btn btn-submit btn-md" type="submit" value="Submit" style="background-color: #1165AE; color: white; float: right;"> -->
-                <!-- <input class="btn btn-submit btn-md" type="submit" value="Submit" style="background-color: #1165AE; color: white; float: right;" /> -->
+                <input class="btn btn-submit btn-md" type="submit" value="Back" style="background-color: #0c151d; color: white;" />
+                <input class="btn btn-submit btn-md" type="submit" value="Submit" style="background-color: #1165AE; color: white; float: right;" />
               </form>
             </div>
           </div>
@@ -506,31 +232,6 @@ session_start();
       </div>
     </div>
   </section>
-
-
-<script>
-    function previewImage(event) {
-      var reader = new FileReader();
-      reader.onload = function() {
-        var output = document.getElementById('image-preview');
-        output.src = reader.result;
-        document.getElementById('image-preview-container').classList.remove('d-none');
-      }
-      reader.readAsDataURL(event.target.files[0]);
-    }
-
-    function previewImage2(event) {
-      var reader = new FileReader();
-      reader.onload = function() {
-        var output = document.getElementById('image-preview2');
-        output.src = reader.result;
-        document.getElementById('image-preview2-container').classList.remove('d-none');
-      }
-      reader.readAsDataURL(event.target.files[0]);
-    }
-
-   
-  </script>
 
   <style>
     /* .gradient-custom {
@@ -555,6 +256,9 @@ top: 13px;
 }
 .card{
   box-shadow: 0px 0px 2px;
+}
+.form-label{
+  font-weight: 600;
 }
   </style>
 
@@ -872,4 +576,3 @@ top: 13px;
 
 </body>
 </html>
-
