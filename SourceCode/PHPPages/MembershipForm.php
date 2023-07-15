@@ -151,6 +151,7 @@ session_start();
 
         if (isset($_POST['submit'])) {
           $image = $_FILES['image']['name'];
+          $signature = $_FILES['signature']['name'];
           $name = $_POST['name'];
           $address = $_POST['address'];
           $cellphoneNum = $_POST['cellphoneNum'];
@@ -208,8 +209,8 @@ session_start();
             // $stmt = mysqli_stmt_init($con);
             // $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
 
-            $query = "INSERT INTO member (image, name, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion, occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
-            employedCompany, presentEmp, emergency, address2, cellphoneNum2) VALUES('$image','$name','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion','$occupation',
+            $query = "INSERT INTO member (image, signature, name, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion, occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
+            employedCompany, presentEmp, emergency, address2, cellphoneNum2) VALUES('$image', '$signature', '$name','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion','$occupation',
            '$monthlyIncome','$otherIncome','$spouseName','$numOfDependents','$employedCompany','$presentEmp','$emergency','$address2','$cellphoneNum2')";
             $query_run = mysqli_query($con, $query);
 
@@ -222,6 +223,7 @@ session_start();
             if($query_run)
             {
               move_uploaded_file($_FILES['image']['tmp_name'], 'upload/' .basename($_FILES['image']['tmp_name']));
+              move_uploaded_file($_FILES['signature']['tmp_name'], 'upload/' .basename($_FILES['signature']['tmp_name']));
               // "upload/".$_FILES["dpt_cate_image"]["name"]);
               $_SESSION['status'] = "Image Stored Successfully";
               // header('Location: MembershipForm.php');
@@ -266,13 +268,27 @@ session_start();
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <input type="file" name="image" accept=".jpg, .jpeg, .png"  onchange="previewImage(event)"
-                    data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%;" />
+                    data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%; border: 2px solid black;" />
                     <label for="image">Your 2x2 Photo with white background</label>
                     </div>
 
                     <div class="col-md-6 mb-4 ">
-                      <div style="width: 200px; height: 200px; border: 1px solid black; margin-left: 13%;" >
+                      <div style="width: 200px; height: 200px;  margin-left: 13%;" >
                       <img id="image-preview" src=""  style="width: 200px;">
+                    </div>
+                    </div>  
+                </div>   
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <input type="file" name="signature" accept=".jpg, .jpeg, .png"  onchange="previewImage2(event)"
+                    data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%; border: 2px solid black;" />
+                    <label for="signature">Your e-signature</label>
+                    </div>
+
+                    <div class="col-md-6 mb-4 ">
+                      <div style="width: 200px; height: 200px;  margin-left: 13%;" >
+                      <img id="image-preview2" src=""  style="width: 200px;">
                     </div>
                     </div>  
                 </div>   
@@ -403,9 +419,6 @@ session_start();
     
                       </div>
 
-                
-                 
-
                   <div class="col-md-6 mb-4 pb-2">
                     <div class="form-outline">
                       <input type="text"  name="numOfDependents" class="form-control form-control-lg"  />
@@ -511,7 +524,7 @@ session_start();
       reader.onload = function() {
         var output = document.getElementById('image-preview2');
         output.src = reader.result;
-        document.getElementById('image-preview-container').classList.remove('d-none');
+        document.getElementById('image-preview2-container').classList.remove('d-none');
       }
       reader.readAsDataURL(event.target.files[0]);
     }
