@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,11 +28,16 @@
 <body>
 
 
+
     <div class="container-fluid px-0">
             <div class="row gx-0">
                 <div class="col-lg-3  d-none d-lg-block"  style="background-color: #1165AE;">
                     <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                        <img src="/SourceCode/images/logoo.jpg" style="width: 60px; height: 60px;"><h1 class="m-0  text-uppercase" style="color: #FFDE59;">NMEMPC</h1>
+                    <?php 
+                        $image_path = '/SourceCode/images/logoo.jpg'; 
+                        echo '<img src="' . $image_path . '" alt="Image">'; 
+                    ?>  
+                        <h1 class="m-0  text-uppercase" style="color: #FFDE59;">NMEMPC</h1>
                     </a>
                 </div>
                 <div class="col-lg-9">
