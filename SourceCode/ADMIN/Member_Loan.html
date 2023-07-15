@@ -87,11 +87,11 @@
                             </a>
                             <div class="sb-sidenav-menu-heading text-white">Member</div>
                             <a class="nav-link  px-2 text-white" href="MemberList.html"><i class="fa-solid fa-user-group  me-2"></i> List of Members</a>
-                            <a class="nav-link active px-2 text-white" href="Member_Approval.html"><i class="fa-solid fa-user-check  me-1"></i>  Membership Approval </a>
+                            <a class="nav-link  px-2 text-white" href="Member_Approval.html"><i class="fa-solid fa-user-check  me-1"></i>  Membership Approval </a>
                 
                        
                             <div class="sb-sidenav-menu-heading text-white">Loans</div>
-                            <a class="nav-link px-2 text-white" href="Member_Loan.html"><i class="fa-solid fa-credit-card  me-2"></i> Member's Loan</a>
+                            <a class="nav-link active px-2 text-white" href="Member_Loan.html"><i class="fa-solid fa-credit-card  me-2"></i> Member's Loan</a>
                             <a class="nav-link px-2 text-white" href="layout-static.html"><i class="fa-solid fa-table me-2"></i> Loan Types</a>
                         
                         </div>
@@ -106,8 +106,8 @@
               
                     <div class="container my-2 bg-light " >
                       <div class="d-flex py-3 justify-content-between">
-                        <h4>Membership Approval</h4>
-                        <!-- <button class="btn btn-primary" data-bs-target="#addMember" data-bs-toggle="modal" data-bs-dismiss="modal"><i class="fa-solid fa-plus"></i> Add New Member</button> -->
+                        <h4>Member's Loan</h4>
+                        <button class="btn btn-primary" data-bs-target="#addMember" data-bs-toggle="modal" data-bs-dismiss="modal"><i class="fa-solid fa-plus"></i> Create New Loan</button>
                         
                       </div>
                     <div class="row my-1 justify-content-center">
@@ -121,9 +121,10 @@
                                   <th style="width: 10%;" class="text-center">Member ID</th>
                                   <th style="width: 20%;" class="text-center">Firstname</th>
                                   <th style="width: 20%;" class="text-center">Lastname</th>
-                                  <th style="width: 20%;" class="text-center">Department</th>
-                                  <th style="width: 20%;" class="text-center">Status</th>
-                                  <th style="width: 10%;" class="text-center">Action</th>
+                                  <th style="width: 15%;" class="text-center">Loan type</th>
+                                  <th style="width: 15%;" class="text-center">Loan plan</th>
+                                  <th style="width: 15%;" class="text-center">Amount</th>
+                                  <th style="width: 5%;" class="text-center">Action</th>
                                 
                               </tr>
                             </thead>
@@ -135,16 +136,17 @@
                               <td>1</td>
                               <td>Efren</td>
                               <td>Pelo</td>
-                              <td >Dswd</td>
-                              <td>For Approval</td>
+                              <td>Regular Loan</td>
+                              <td>12 Months</td>
+                              <td>php 100,000.00</td>
                               <td>
                                 <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                   <i class="fa-solid fa-bars "></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <li></li>
-                                  <li><a class="dropdown-item" href="#"><button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">Approval</button></a></li>
-                                  <!-- <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 "  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li> -->
+                                  <li><a class="dropdown-item" href="#"><button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">View Details</button></a></li>
+                                  <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 "  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li>
                                   <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 " data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button></a></li>
                                 </ul>
                               </td>
@@ -160,7 +162,181 @@
                     </div>
                     </div>
                
+<!-- ========== Add Member ========== -->
+                    <div class="modal fade" id="addMember" aria-hidden="true" aria-labelledby="addMember" tabindex="-1">
+                      <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalToggleLabel">Add New Member</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                              <div class="row mb-2 px-4"  >
+                                <div class="col-md-6 " >
+                    
+                                  <div class="form-outline">
+                                    <label class="form-label select-label">Loan type</label>
+                                    <!-- <select data-live-search="true" class="select form-control form-control-" name="Member" required> 
+                                        <option value="">Select Loan type</optimdon>
+                                        <option value="single">Regular Loan</option>
+                                        <option value="married">Salary Loan</option>
+                                        <option value="live-in-partner">Productive Loan</option>
+                                        <option value="widowed">Emergency Loan</option>
+                                        <option value="separated">Special Assistance</option>
+                                    </select>   -->
+                                    
+                                    <select id="my-select" data-live-search="true">
+                                      <option value=""><input type="text" id="my-search" placeholder="Search..." /></option>
+                                      <option value="1">Option 1</option>
+                                      <option value="2">Option 2</option>
+                                      <option value="3">Option 3</option>
+                                    </select>
+                                    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.form-outline select').selectpicker();
+  })
+</script>
+                                  </div>
+                     
+                                </div>
+                    
+                                <div class="col-md-6 ">
+                    
+                                  <div class="form-outline">
+                                    <label class="form-label select-label">Loan type</label>
+                                    <select class="select form-control form-control-" name="loanType" required> 
+                                        <option value="">Select Loan type</optimdon>
+                                        <option value="single">Regular Loan</option>
+                                        <option value="married">Salary Loan</option>
+                                        <option value="live-in-partner">Productive Loan</option>
+                                        <option value="widowed">Emergency Loan</option>
+                                        <option value="separated">Special Assistance</option>
+                                    </select>  
+                                  </div>
+                                  </div>
+                    
+                                </div>
+                    
+                                
+                              </div>
+                              <div class="row mb-2 px-4"  >
+                                <div class="col-md-6 ">
+                                  <div class="form-outline">
+                                    <label class="form-label" for="presentAddress">Present Address</label>
+                                    <input type="text" id="presentAddress" name="address" class="form-control form-control-md" required/>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6 ">
+                                  <div class="form-outline">
+                                    <label for="cellphoneNum" class="form-label">Cellphone No. </label>
+                                    <input type="text" name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum" required/>
+                                 
+                                  </div>
+                                </div>
+                              </div>
+                    
+                              <div class="row mb-2 px-4">
+                                <div class="col-md-3 d-flex align-items-center">
+                    
+                                  <div class="form-outline  w-100">
+                                    <label for="age" class="form-label">Age</label>
+                                    <input type="text" name="age" class="form-control form-control-md" id="age" required/>
+                                 
+                                  </div>
+                    
+                                </div>
+                         
+                                <div class="col-md-4 d-flex align-items-center">
+                    
+                                  <div class="form-outline  w-100">
+                                    <label for="dob" class="form-label">Birth Date</label>
+                                    <input type="date" name="birthdate" class="form-control form-control-md" id="birthdate" required>
+                                  </div>
+                                </div>
+                    
+                                <div class="col-md-5 pb-2">
+                                  <div class="form-outline">
+                                    <label class="form-label" for="birthPlace">Birthplace</label>
+                                    <input type="text" name="birthPlace" id="birthPlace" class="form-control form-control-md" required/>
+                                      </div>
+                                </div>
+                              </div>
+                    
+                              <div class="row mb-2 px-4">               
+                                <div class="col-md-6   pb-2">
+                                  <label class="form-label select-label">Civil Status </label>
+                                  <select class="select form-control form-control-" name="civilstatus" required> 
+                                    <option value=""> -- Select Civil Status -- </optimdon>
+                                      <option value="single">Single</option>
+                                      <option value="married">Married</option>
+                                      <option value="live-in-partner">Live-in Partner</option>
+                                      <option value="widowed">Widowed</option>
+                                      <option value="separated">Separated</option>
+                                    </select>                                 
+                                 
+                                </div>                     
+                                <div class="col-md-6  pb-2">                 
+                                  <div class="form-outline">
+                                    <label class="form-label" for="Religion">Religion</label>
+                                    <input type="text" id="Religion" name="religion" class="form-control form-control-md"  required/>
+                                    
+                                  </div>
+                              </div>
+                              </div>
+                            </form>
+                            <div class="modal-footer">
+                              <button class="btn btn-primary" id="next1" data-bs-target="#addMember2" data-bs-toggle="modal" data-bs-dismiss="modal">Next </button>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                 
+
+                 
+
+                    <!-- <script>
+               
+                      const Firstname = document.getElementById('Firstname');
+                      const Lastname = document.getElementById('Lastname');
+                      const cellphoneNum = document.getElementById('cellphoneNum');
+                      const age = document.getElementById('age');
+                      const birthdate = document.getElementById('birthdate');
+                      const birthPlace= document.getElementById('birthPlace');
+                      const civilstatus = document.getElementById('civilstatus');
+                      const religion = document.getElementById('religion');
+                      const next1 = document.getElementById('next1');
+                 
+                      Firstname.addEventListener('input', toggleButtonState);
+                      Lastname.addEventListener('input', toggleButtonState);
+                      cellphoneNum.addEventListener('input', toggleButtonState);
+                      age.addEventListener('input', toggleButtonState);
+                      birthdate.addEventListener('input', toggleButtonState);
+                      birthPlace.addEventListener('input', toggleButtonState);
+                      civilstatus.addEventListener('input', toggleButtonState);
+                      religion.addEventListener('input', toggleButtonState);
+                  
+                     
+                      function toggleButtonState() {
+                        if (Firstname.value.trim() !== '' && Lastname.value.trim() !== '' && cellphoneNum.value.trim() !== ''
+                            && age.value.trim() !== '' && birthdate.value.trim() !== '' && birthPlace.value.trim() !== '' &&
+                            civilstatus.value.trim() !== '' && religion.value.trim() !== '' ) {
+                          next1.disabled = false;
+                        } else {
+                          next1.disabled = true;
+                        }
+                      }
+                    </script> -->
+                    
+                   
+                  
+<!-- ========== Add Member ========== -->
 
 
 
@@ -261,28 +437,14 @@
 
                             
                             </div>
-                            <div class="row justify-content-end ">
-                              <div class="col-md-3   pe-4 py-3">
-                                <label class="form-label select-label ">Action</label>
-                                <select class="form-select form-select-md " aria-label=".form-select-sm example">
-                                  <option selected>Pending</option>
-                                  <option value="1">Approved</option>
-                                  <option value="2">Declined</option>
-                         
-                                </select>                              
-                               
-                              </div>   
-                           
                           </div>
-                          <div class="modal-footer d-flex ">
-                            
-                            <button class="btn btn-secondary"  data-bs-dismiss="modal">Cancel</button>
-                            <input class="btn btn-submit btn-primary" type="submit" value="Save" style=" color: white; " />
-                            
-                            </div>
+                          <div class="modal-footer d-flex justify-content-between">
+                            <!-- <button class="btn btn-secondary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
+                            <input class="btn btn-submit btn-primary" type="submit" value="Submit" style=" color: white; " /> -->
+                          
+                          </div>
                         </div>
                       </div>
-                    </div>
                     </div>
 <!-- ========== VIEW DETAILS MODAL ========== -->
 
@@ -403,13 +565,41 @@
 
         });
     </script>
-
+   <!-- --SCRIPT BOOTSTRAP 5-->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>   -->
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <!-- Bootstrap 5 JS CDN Links -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script> -->
 
 
+    <script>
+      function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+          var output = document.getElementById('image-preview');
+          output.src = reader.result;
+          document.getElementById('image-preview-container').classList.remove('d-none');
+        }
+        reader.readAsDataURL(event.target.files[0]);
+      }
+  
+      function previewImage2(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+          var output = document.getElementById('image-preview2');
+          output.src = reader.result;
+          document.getElementById('image-preview-container').classList.remove('d-none');
+        }
+        reader.readAsDataURL(event.target.files[0]);
+      }
+  
+     
+    </script>
 
 </body>
 </html>
