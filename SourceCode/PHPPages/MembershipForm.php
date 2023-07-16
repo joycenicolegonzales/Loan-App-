@@ -150,6 +150,7 @@ session_start();
       <?php 
 
         if (isset($_POST['submit'])) {
+        
           $image = $_FILES['image']['name'];
           $signature = $_FILES['signature']['name'];
           $name = $_POST['name'];
@@ -160,6 +161,7 @@ session_start();
           $birthPlace = $_POST['birthPlace'];
           $civilstatus  = $_POST['civilstatus'];
           $religion =$_POST['religion'];
+          $department =$_POST['department'];
           $occupation =$_POST['occupation'];
           $monthlyIncome = $_POST['monthlyIncome'];
           $otherIncome  = $_POST['otherIncome'];
@@ -184,19 +186,7 @@ session_start();
            $result = mysqli_query($con, $sql);
            $rowCount = mysqli_num_rows($result);
  
-          // $errors = array();
-
-          // if (empty($name) OR empty($address) OR empty($cellphoneNum)) {
-          //   array_push($errors,"All fields are required");
-          //  }
-
-          // require_once "database.php";
-          // $sql = "SELECT * FROM member WHERE name = '$name'";
-          // $result = mysqli_query($con, $sql);
-          // $rowCount = mysqli_num_rows($result);
-       //    if ($rowCount>0) {
-       //     array_push($errors,"Email already exists!");
-       //    }
+         
           if (count($errors)>0) {
            foreach ($errors as $error) {
                echo "<div class='alert alert-danger'>$error</div>";
@@ -204,22 +194,14 @@ session_start();
        } 
           else
           {
-            // $sql = "INSERT INTO member ( image, name, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion, occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
-            // employedCompany, presentEmp, emergency, address2, cellphoneNum2)  VALUES (  ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            // $stmt = mysqli_stmt_init($con);
-            // $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
+          
 
-            $query = "INSERT INTO member (image, signature, name, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion, occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
-            employedCompany, presentEmp, emergency, address2, cellphoneNum2) VALUES('$image', '$signature', '$name','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion','$occupation',
+            $query = "INSERT INTO member ( image, signature, name, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion, department,occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
+            employedCompany, presentEmp, emergency, address2, cellphoneNum2) VALUES('$image', '$signature', '$name','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion', '$department','$occupation',
            '$monthlyIncome','$otherIncome','$spouseName','$numOfDependents','$employedCompany','$presentEmp','$emergency','$address2','$cellphoneNum2')";
             $query_run = mysqli_query($con, $query);
 
-            // if ($prepareStmt) {
-            //   mysqli_stmt_bind_param($stmt,"sssssssssssssssssss",$image,$name,$address,$cellphoneNum,$age,$birthdate,$birthPlace,$civilstatus,$religion,$occupation,
-            //   $monthlyIncome,$otherIncome,$spouseName,$numOfDependents,$employedCompany,$presentEmp,$emergency,$address2,$cellphoneNum2);
-            //   mysqli_stmt_execute($stmt);
-            //   echo "<div class='alert alert-success'>You are registered successfully.</div>";
-            // }
+       
             if($query_run)
             {
               move_uploaded_file($_FILES['image']['tmp_name'], 'upload/' .basename($_FILES['image']['tmp_name']));
@@ -227,6 +209,7 @@ session_start();
               // "upload/".$_FILES["dpt_cate_image"]["name"]);
               $_SESSION['status'] = "Image Stored Successfully";
               // header('Location: MembershipForm.php');
+              
             }
 
             else{
@@ -242,25 +225,21 @@ session_start();
         <div class="col-12 col-lg-9 col-xl-9">
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
-
                  <?php
                   if(isset($_SESSION['status']) && $_SESSION != '')
                   {
-
                     ?>
-                    
                     <div class = "alert alert-warning alert-dismissible fade show" role="alert">
                       <strong>Hey!</strong> <?PHP echo $_SESSION['status']; ?>
                       <button type ="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-
                     <?php
                     unset($_SESSION['status']);
                   }
                  ?>
-
+                 
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: #1165AE; font-weight:700;">Application for Membership</h3>
               <form action ="MembershipForm.php" method="post" enctype="multipart/form-data">
   
