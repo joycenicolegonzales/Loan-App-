@@ -56,7 +56,7 @@
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars" style="color: #FFDE59;"> </i></button>
             <!-- Navbar Search-->
-            <form action = "insertdata.php" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
@@ -113,10 +113,6 @@
                       </div>
                     <div class="row my-1 justify-content-center">
                       <div class="div  py-1" style="max-height:520px ; overflow-y: scroll; ">
-
-              
-
-                            
                         <div class="table-responsive py-1">
                           <table class="table table-bordered my-2" id="myTable">
                            
@@ -166,22 +162,88 @@
                     </div>
                
 <!-- ========== Add Member ========== -->
-                    <div class="modal fade" id="addMember" aria-hidden="true" aria-labelledby="addMember" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal fade" id="addMember" aria-hidden="true" aria-labelledby="addMember" tabindex="-1">
+<?php
+
+$con = mysqli_connect("localhost","root","","loanapp");
+
+if(isset($_POST['submit']))
+{
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $address = $_POST['address'];
+    $cellphoneNum = $_POST['cellphoneNum'];
+    $age = $_POST['age'];
+    $birthdate = $_POST['birthdate'];
+    $birthPlace = $_POST['birthPlace'];
+    $civilstatus = $_POST['civilstatus'];
+    $religion = $_POST['religion'];
+    $occupation = $_POST['occupation'];
+    $monthlyIncome = $_POST['monthlyIncome'];
+    $otherIncome = $_POST['otherIncome'];
+    $spouseName = $_POST['spouseName'];
+    $numOfDependents = $_POST['numOfDependents'];
+    $employedCompany = $_POST['employedCompany'];
+    $presentEmp = $_POST['presentEmp'];
+    $emergency = $_POST['emergency'];
+    $image = $_POST['image'];
+    $signature = $_POST['signature'];
+
+
+
+    // if (empty($name) OR empty($address) OR empty($cellphoneNum)) {
+    //   array_push($errors,"All fields are required");
+    //  }
+
+//      require_once "database.php";
+//      $sql = "SELECT * FROM member WHERE name = '$firstname'";
+//      $result = mysqli_query($con, $sql);
+//      $rowCount = mysqli_num_rows($result);
+
+   
+//     if (count($errors)>0) {
+//      foreach ($errors as $error) {
+//          echo "<div class='alert alert-danger'>$error</div>";
+//      }
+//  } 
+//     else
+//     {
+        
+    $query = "INSERT INTO member (firstname,lastname, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion,occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
+    employedCompany, presentEmp, emergency, address2, cellphoneNum2, image, signature) VALUES( '$firstname', '$lastname','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion','$occupation',
+'$monthlyIncome','$otherIncome','$spouseName','$numOfDependents','$employedCompany','$presentEmp','$emergency','$address2','$cellphoneNum2', '$image', '$signature')";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run)
+    {
+        echo '<script> alert("Data Saved"); </script>';
+        header('Location: MemberList.php');
+    }
+    else
+    {
+        echo '<script> alert("Data Not Saved"); </script>';
+    }
+
+}
+
+
+?>
+                      <div class="modal-dialog modal-dialog-centered modal-fullscreen">
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalToggleLabel">Add New Member</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
+                          
                           <div class="modal-body">
-                            <form>
+                          <form action="MemberList.php" method="POST">
                               <div class="row mb-2 px-4"  >
                                 <div class="col-md-6 " >
                     
                                   <div class="form-outline">
                                     <label class="form-label" for="name">Firstname</label>
-                                    <input type="text" id="name" name="firstname" class="form-control form-control-md" required/>
-                                    
+                                    <input type="text" id="name" name="Firstname" class="form-control form-control-md" />
+                                
                                     
                                    
                                   </div>
@@ -192,7 +254,7 @@
                     
                                   <div class="form-outline">
                                     <label class="form-label" for="name">LastName</label>
-                                    <input type="text" id="name" name="lastname" class="form-control form-control-md" required/>
+                                    <input type="text" id="name" name="Lastname" class="form-control form-control-md"/>
                                   </div>
                     
                                 </div>
@@ -203,14 +265,14 @@
                                 <div class="col-md-6 ">
                                   <div class="form-outline">
                                     <label class="form-label" for="presentAddress">Present Address</label>
-                                    <input type="text" id="presentAddress" name="address" class="form-control form-control-md" required/>
+                                    <input type="text" id="presentAddress" name="address" class="form-control form-control-md"/>
                                   </div>
                                 </div>
 
                                 <div class="col-md-6 ">
                                   <div class="form-outline">
                                     <label for="cellphoneNum" class="form-label">Cellphone No. </label>
-                                    <input type="text" name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum" required/>
+                                    <input type="text" name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum" />
                                  
                                   </div>
                                 </div>
@@ -221,7 +283,7 @@
                     
                                   <div class="form-outline  w-100">
                                     <label for="age" class="form-label">Age</label>
-                                    <input type="text" name="age" class="form-control form-control-md" id="age" required/>
+                                    <input type="text" name="age" class="form-control form-control-md" id="age" />
                                  
                                   </div>
                     
@@ -231,14 +293,14 @@
                     
                                   <div class="form-outline  w-100">
                                     <label for="dob" class="form-label">Birth Date</label>
-                                    <input type="date" name="birthdate" class="form-control form-control-md" id="birthdate" required>
+                                    <input type="date" name="birthdate" class="form-control form-control-md" id="birthdate" >
                                   </div>
                                 </div>
                     
                                 <div class="col-md-5 pb-2">
                                   <div class="form-outline">
                                     <label class="form-label" for="birthPlace">Birthplace</label>
-                                    <input type="text" name="birthPlace" id="birthPlace" class="form-control form-control-md" required/>
+                                    <input type="text" name="birthPlace" id="birthPlace" class="form-control form-control-md" />
                                       </div>
                                 </div>
                               </div>
@@ -246,7 +308,7 @@
                               <div class="row mb-2 px-4">               
                                 <div class="col-md-6   pb-2">
                                   <label class="form-label select-label">Civil Status </label>
-                                  <select class="select form-control form-control-" name="civilstatus" required> 
+                                  <select class="select form-control form-control-" name="civilstatus" > 
                                     <option value=""> -- Select Civil Status -- </optimdon>
                                       <option value="single">Single</option>
                                       <option value="married">Married</option>
@@ -259,215 +321,138 @@
                                 <div class="col-md-6  pb-2">                 
                                   <div class="form-outline">
                                     <label class="form-label" for="Religion">Religion</label>
-                                    <input type="text" id="Religion" name="religion" class="form-control form-control-md"  required/>
+                                    <input type="text" id="Religion" name="religion" class="form-control form-control-md"  />
                                     
                                   </div>
                               </div>
                               </div>
-                            </form>
+
+                              <!--  -->
+                              <div class="row mb-2 px-4">
+                                <div class="col-md-4 pb-2">
+                    
+                                  <div class="form-outline">
+                                    <label class="form-label" for="occupation">Occupation</label>
+                                    <input type="text" id="occupation" name="occupation" class="form-control form-control-md" />
+                                   
+                                  </div>
+                    
+                                </div>
+                    
+                                <div class="col-md-4 pb-2">
+                                  <label class="form-label select-label">Monthly Income</label>
+                                  <select class="select form-control form-control-md" name="monthlyIncome" >
+                                    <option value="P5000-P10,000">P5000-P10,000</option>
+                                    <option value="P10,000-P15,000">P10,000-P15,000</option>
+                                    <option value="P15,000-P20,000">P15,000-P20,000</option> 
+                                    <option value="P20,000-P25,000">P20,000-P25,000</option>
+                                  </select>
+                                 
+                                
+                                </div>
+                    
+                                <div class="col-md-4 pb-2">
+                    
+                                  <div class="form-outline">
+                                    <label class="form-label" for="otherIncome">Other Sources of Income</label>
+                                    <input type="text" id="otherIncome"  name="otherIncome"class="form-control form-control-lg" /> 
+                                  </div>
+                    
+                                </div>
+                                </div>
+                    
+                    
+                              <div class="row mb-2 px-4">
+                                  <div class="col-md-6 pb-2">
+                    
+                                      <div class="form-outline">
+                                        <label class="form-label" for="spouseName">Name of Spouse (if married)</label>
+                                        <input type="text" id="spouseName" name="spouseName" class="form-control form-control-md" />
+                                      
+                                      </div>
+                    
+                                    </div>
+                    
+                              
+                               
+                    
+                                <div class="col-md-6  pb-2">
+                                  <div class="form-outline">
+                                    <label class="form-label" for="numOfDependents">No. of Dependents</label>
+                                    <input type="text" id="numOfDependents"  name="numOfDependents" class="form-control form-control-md"  />
+                                    
+                                  </div>
+                                </div>
+                    
+                    
+                              </div>
+                    
+                              <div class="row mb-2 px-4">
+                                  <div class="col-md-3  pb-2">
+                    
+                                      <div class="form-outline">
+                                        <label class="form-label" for="employedCompany">Name of Company</label>
+                                        <input type="text" id="employedCompany"  name="employedCompany" class="form-control form-control-md" />
+                                     
+                                      </div>
+                    
+                                    </div>
+                    
+                              
+                                <div class="col-md-3  pb-2">
+                                  <div class="form-outline">
+                                    <label class="form-label" for="presentEmp">Present Employment</label>
+                                    <input type="text" id="presentEmp" name="presentEmp" class="form-control form-control-md"  />
+                                   
+                                  </div>
+                                </div>
+                    
+                                <div class="col-md-6  pb-2">
+                                  <div class="form-outline">
+                                    <label class="form-label" for="emergency">Person to be contacted in case of emergency</label>
+                                    <input type="text" id="emergency" name="emergency" class="form-control form-control-md" />
+                                   
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="row mb-2 px-4">
+                                <div class="col-md-6 mx-auto py-5 ">
+                                  <input type="file" name="img" id="img"  accept="image/*" onchange="previewImage(event)"
+                                  data-parsley-trigger="keyup" class="form-control form-control-md"  />
+                                  <label for="image">Your 2x2 Photo with white background</label>
+                                  </div>
+                    
+                                  <div class="col-md-6  d-flex justify-content-center">
+                                    <div style="width: 110px; height: 110px; border: 1px solid black;" >
+                                    <img id="image-preview" src="" class="center-image" style="width:110px;">
+                                  </div>
+                                 
+                                  </div>  
+                              </div>
+                    
+                    
+                              <div class="row mb-1 px-4">
+                                <div class="col-md-6 mx-auto py-5">
+                                  <input type="file" name="signature" id="signature" accept="image/*" onchange="previewImage2(event)"
+                                  data-parsley-trigger="keyup" class="form-control form-control-md"  />
+                                  <label for="image">Signature</label>
+                                  </div>
+                                  <div class="col-md-6  d-flex justify-content-center">
+                                    <div style="width: 180px; height: 110px; border: 1px solid black; ">
+                                    <img id="image-preview2" src="" style="width: 180px;">
+                                  </div>
+                                  </div>
+                              </div>
+                           
                           </div>
                           <div class="modal-footer">
-                            <button class="btn btn-primary"  id="next1" data-bs-target="#addMember2" data-bs-toggle="modal" data-bs-dismiss="modal">Next </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                 
-
-                    <!-- <script>
-               
-                      const Firstname = document.getElementById('Firstname');
-                      const Lastname = document.getElementById('Lastname');
-                      const cellphoneNum = document.getElementById('cellphoneNum');
-                      const age = document.getElementById('age');
-                      const birthdate = document.getElementById('birthdate');
-                      const birthPlace= document.getElementById('birthPlace');
-                      const civilstatus = document.getElementById('civilstatus');
-                      const religion = document.getElementById('religion');
-                      const next1 = document.getElementById('next1');
-                 
-                      Firstname.addEventListener('input', toggleButtonState);
-                      Lastname.addEventListener('input', toggleButtonState);
-                      cellphoneNum.addEventListener('input', toggleButtonState);
-                      age.addEventListener('input', toggleButtonState);
-                      birthdate.addEventListener('input', toggleButtonState);
-                      birthPlace.addEventListener('input', toggleButtonState);
-                      civilstatus.addEventListener('input', toggleButtonState);
-                      religion.addEventListener('input', toggleButtonState);
-                  
-                     
-                      function toggleButtonState() {
-                        if (Firstname.value.trim() !== '' && Lastname.value.trim() !== '' && cellphoneNum.value.trim() !== ''
-                            && age.value.trim() !== '' && birthdate.value.trim() !== '' && birthPlace.value.trim() !== '' &&
-                            civilstatus.value.trim() !== '' && religion.value.trim() !== '' ) {
-                          next1.disabled = false;
-                        } else {
-                          next1.disabled = true;
-                        }
-                      }
-                    </script> -->
-                    
-                    <div class="modal fade" id="addMember2" aria-hidden="true" aria-labelledby="addMember2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2">Add New Member</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                           <form >
-                          
-                            <div class="row mb-2 px-4">
-                              <div class="col-md-4 pb-2">
-                  
-                                <div class="form-outline">
-                                  <label class="form-label" for="occupation">Occupation</label>
-                                  <input type="text" id="occupation" name="occupation" class="form-control form-control-md" required/>
-                                 
-                                </div>
-                  
-                              </div>
-                  
-                              <div class="col-md-4 pb-2">
-                                <label class="form-label select-label">Monthly Income</label>
-                                <select class="select form-control form-control-md" name="monthlyIncome" required>
-                                  <option value="P5000-P10,000">P5000-P10,000</option>
-                                  <option value="P10,000-P15,000">P10,000-P15,000</option>
-                                  <option value="P15,000-P20,000">P15,000-P20,000</option> 
-                                  <option value="P20,000-P25,000">P20,000-P25,000</option>
-                                </select>
-                               
-                              
-                              </div>
-                  
-                              <div class="col-md-4 pb-2">
-                  
-                                <div class="form-outline">
-                                  <label class="form-label" for="otherIncome">Other Sources of Income</label>
-                                  <input type="text" id="otherIncome"  name="otherIncome"class="form-control form-control-lg" /> 
-                                </div>
-                  
-                              </div>
-                              </div>
-                  
-                  
-                            <div class="row mb-2 px-4">
-                                <div class="col-md-6 pb-2">
-                  
-                                    <div class="form-outline">
-                                      <label class="form-label" for="spouseName">Name of Spouse (if married)</label>
-                                      <input type="text" id="spouseName" name="spouseName" class="form-control form-control-md" />
-                                    
-                                    </div>
-                  
-                                  </div>
-                  
-                            
-                             
-                  
-                              <div class="col-md-6  pb-2">
-                                <div class="form-outline">
-                                  <label class="form-label" for="numOfDependents">No. of Dependents</label>
-                                  <input type="text" id="numOfDependents"  name="numOfDependents" class="form-control form-control-md" required />
-                                  
-                                </div>
-                              </div>
-                  
-                  
-                            </div>
-                  
-                            <div class="row mb-2 px-4">
-                                <div class="col-md-3  pb-2">
-                  
-                                    <div class="form-outline">
-                                      <label class="form-label" for="employedCompany">Name of Company</label>
-                                      <input type="text" id="employedCompany"  name="employedCompany" class="form-control form-control-md" />
-                                   
-                                    </div>
-                  
-                                  </div>
-                  
-                            
-                              <div class="col-md-3  pb-2">
-                                <div class="form-outline">
-                                  <label class="form-label" for="presentEmp">Present Employment</label>
-                                  <input type="text" id="presentEmp" name="presentEmp" class="form-control form-control-md" required />
-                                 
-                                </div>
-                              </div>
-                  
-                              <div class="col-md-6  pb-2">
-                                <div class="form-outline">
-                                  <label class="form-label" for="emergency">Person to be contacted in case of emergency</label>
-                                  <input type="text" id="emergency" name="emergency" class="form-control form-control-md" required/>
-                                 
-                                </div>
-                              </div>
-                            </div>
-                            
-                        
-                  
-                            
+                          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                           </div>
                            </form>
-                          </div>
-                          <div class="modal-footer d-flex justify-content-between">
-                            <button class="btn btn-secondary" data-bs-target="#addMember" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
-                            <button class="btn btn-primary" data-bs-target="#addMember3" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
-                          
-                          </div>
                         </div>
                       </div>
                     </div>
-                    
-                    <div class="modal fade" id="addMember3" aria-hidden="true" aria-labelledby="addMember3" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2">Add New Member  </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                           <form >
-                            <div class="row mb-2 px-4">
-                              <div class="col-md-6 mx-auto py-5 ">
-                                <input type="file" name="img" id="img"  accept="image/*" onchange="previewImage(event)"
-                                data-parsley-trigger="keyup" class="form-control form-control-md"  required/>
-                                <label for="image">Your 2x2 Photo with white background</label>
-                                </div>
-                  
-                                <div class="col-md-6  d-flex justify-content-center">
-                                  <div style="width: 110px; height: 110px; border: 1px solid black;" >
-                                  <img id="image-preview" src="" class="center-image" style="width:110px;">
-                                </div>
-                               
-                                </div>  
-                            </div>
-                  
-                  
-                            <div class="row mb-1 px-4">
-                              <div class="col-md-6 mx-auto py-5">
-                                <input type="file" name="signature" id="signature" accept="image/*" onchange="previewImage2(event)"
-                                data-parsley-trigger="keyup" class="form-control form-control-md"  required/>
-                                <label for="image">Signature</label>
-                                </div>
-                                <div class="col-md-6  d-flex justify-content-center">
-                                  <div style="width: 180px; height: 110px; border: 1px solid black; ">
-                                  <img id="image-preview2" src="" style="width: 180px;">
-                                </div>
-                                </div>
-                            </div>
-                           </form>
-                          </div>
-                          <div class="modal-footer d-flex justify-content-between">
-                            <button class="btn btn-secondary" data-bs-target="#addMember2" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
-                            <input class="btn btn-submit btn-primary" type="submit" name="submit" value="Submit" style=" color: white;  "  onclick="createAlert('BTDubs','','Here is a bunch of text about some stuff that happened.','info',false,true,'pageMessages');"/>
-                          
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  
 <!-- ========== Add Member ========== -->
 
 
@@ -595,7 +580,7 @@
 
                                   <div class="form-outline">
                                     <label class="form-label" for="name">Firstname</label>
-                                    <input type="text" id="name" name="name" class="form-control form-control-md" required/>
+                                    <input type="text" id="name" name="name" class="form-control form-control-md"/>
                                 
                                     
                                   
@@ -607,7 +592,7 @@
 
                                   <div class="form-outline">
                                     <label class="form-label" for="name">LastName</label>
-                                    <input type="text" id="name" name="name" class="form-control form-control-md" required/>
+                                    <input type="text" id="name" name="name" class="form-control form-control-md"/>
                                   </div>
 
                                 </div>
@@ -618,14 +603,14 @@
                                 <div class="col-md-6 ">
                                   <div class="form-outline">
                                     <label class="form-label" for="presentAddress">Present Address</label>
-                                    <input type="text" id="presentAddress" name="address" class="form-control form-control-md" required/>
+                                    <input type="text" id="presentAddress" name="address" class="form-control form-control-md" />
                                   </div>
                                 </div>
 
                                 <div class="col-md-6 ">
                                   <div class="form-outline">
                                     <label for="cellphoneNum" class="form-label">Cellphone No. </label>
-                                    <input type="text" name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum" required/>
+                                    <input type="text" name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum"/>
                                 
                                   </div>
                                 </div>
@@ -636,7 +621,7 @@
 
                                   <div class="form-outline  w-100">
                                     <label for="age" class="form-label">Age</label>
-                                    <input type="text" name="age" class="form-control form-control-md" id="age" required/>
+                                    <input type="text" name="age" class="form-control form-control-md" id="age"/>
                                 
                                   </div>
 
@@ -646,14 +631,14 @@
 
                                   <div class="form-outline  w-100">
                                     <label for="dob" class="form-label">Birth Date</label>
-                                    <input type="date" name="birthdate" class="form-control form-control-md" id="birthdate" required>
+                                    <input type="date" name="birthdate" class="form-control form-control-md" id="birthdate" >
                                   </div>
                                 </div>
 
                                 <div class="col-md-5 pb-2">
                                   <div class="form-outline">
                                     <label class="form-label" for="birthPlace">Birthplace</label>
-                                    <input type="text" name="birthPlace" id="birthPlace" class="form-control form-control-md" required/>
+                                    <input type="text" name="birthPlace" id="birthPlace" class="form-control form-control-md" />
                                       </div>
                                 </div>
                               </div>
@@ -661,7 +646,7 @@
                               <div class="row mb-2 px-4">               
                                 <div class="col-md-6   pb-2">
                                   <label class="form-label select-label">Civil Status </label>
-                                  <select class="select form-control form-control-" name="civilstatus" required> 
+                                  <select class="select form-control form-control-" name="civilstatus" > 
                                     <option value=""> -- Select Civil Status -- </optimdon>
                                       <option value="single">Single</option>
                                       <option value="married">Married</option>
@@ -674,7 +659,7 @@
                                 <div class="col-md-6  pb-2">                 
                                   <div class="form-outline">
                                     <label class="form-label" for="Religion">Religion</label>
-                                    <input type="text" id="Religion" name="religion" class="form-control form-control-md"  required/>
+                                    <input type="text" id="Religion" name="religion" class="form-control form-control-md"  />
                                     
                                   </div>
                               </div>
