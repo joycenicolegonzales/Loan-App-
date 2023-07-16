@@ -56,7 +56,7 @@
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars" style="color: #FFDE59;"> </i></button>
             <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <form action = "insertdata.php" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
@@ -113,6 +113,10 @@
                       </div>
                     <div class="row my-1 justify-content-center">
                       <div class="div  py-1" style="max-height:520px ; overflow-y: scroll; ">
+
+              
+
+                            
                         <div class="table-responsive py-1">
                           <table class="table table-bordered my-2" id="myTable">
                            
@@ -176,8 +180,8 @@
                     
                                   <div class="form-outline">
                                     <label class="form-label" for="name">Firstname</label>
-                                    <input type="text" id="name" name="Firstname" class="form-control form-control-md" required/>
-                                
+                                    <input type="text" id="name" name="firstname" class="form-control form-control-md" required/>
+                                    
                                     
                                    
                                   </div>
@@ -188,7 +192,7 @@
                     
                                   <div class="form-outline">
                                     <label class="form-label" for="name">LastName</label>
-                                    <input type="text" id="name" name="Lastname" class="form-control form-control-md" required/>
+                                    <input type="text" id="name" name="lastname" class="form-control form-control-md" required/>
                                   </div>
                     
                                 </div>
@@ -263,7 +267,7 @@
                             </form>
                           </div>
                           <div class="modal-footer">
-                            <button class="btn btn-primary" id="next1" data-bs-target="#addMember2" data-bs-toggle="modal" data-bs-dismiss="modal">Next </button>
+                            <button class="btn btn-primary"  id="next1" data-bs-target="#addMember2" data-bs-toggle="modal" data-bs-dismiss="modal">Next </button>
                           </div>
                         </div>
                       </div>
@@ -457,7 +461,7 @@
                           </div>
                           <div class="modal-footer d-flex justify-content-between">
                             <button class="btn btn-secondary" data-bs-target="#addMember2" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
-                            <input class="btn btn-submit btn-primary" type="submit" value="Submit" style=" color: white;  "  onclick="createAlert('BTDubs','','Here is a bunch of text about some stuff that happened.','info',false,true,'pageMessages');"/>
+                            <input class="btn btn-submit btn-primary" type="submit" name="submit" value="Submit" style=" color: white;  "  onclick="createAlert('BTDubs','','Here is a bunch of text about some stuff that happened.','info',false,true,'pageMessages');"/>
                           
                           </div>
                         </div>

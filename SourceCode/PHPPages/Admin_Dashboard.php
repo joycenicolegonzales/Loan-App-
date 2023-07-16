@@ -161,7 +161,7 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading text-white">Member</div>
-                            <a class="nav-link px-2" href="MemberList.html"><i class="fa-solid fa-user-group  me-2"></i> List of Members</a>
+                            <a class="nav-link px-2" href="MemberList.php"><i class="fa-solid fa-user-group  me-2"></i> List of Members</a>
                             <a class="nav-link px-2" href="Member_Approval.html"><i class="fa-solid fa-user-check  me-1"></i>  Membership Approval </a>
                 
                        
@@ -177,7 +177,7 @@
             <div id="layoutSidenav_content">
                 <main class="main-container">
                     <div class="main-title">
-                      <h2 style="color: black">Dashboard - <?php echo $_SESSION['username']; ?></h2>
+                      <h2 style="color: black">Dashboard </h2>
                       
                     </div>
             
