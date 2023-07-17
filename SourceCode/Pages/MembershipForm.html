@@ -1,9 +1,16 @@
+<?php
+session_start();
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Privacy Policy - E-Membership</title>
+    <title>LoanApp Form</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -138,41 +145,243 @@
         <div class="col-12 col-lg-9 col-xl-9">
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
-                
-              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: #1165AE; font-weight:700;">Privacy Policy <br><span style="font-size: medium;">NMEMPC Online Membership Application</span> </h3>
-              
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: #1165AE; font-weight:700;">Application for Membership</h3>
               <form>
   
-                <div class="row">
-                  <!-- <div class="col-md-4 mb-4">
-    -->
-                  <p style="text-align: justify;">The Online Membership Application of San Jose del Monte Savings and Credit Cooperative is for all those who want to apply for membership of this Cooperative.
-                <br><br> All personal information collected by San Jose del Monte Savings and Credit Cooperative is done so exclusively with your consent, by means of submission on our application form, an email received from you via JotForm. No information is collected automatically.</p>
-                  
 
-                  <p style="text-align: justify;">The personal information collected is only used by Member Services Staff for the purposes defined at the time of the collection or a use that complies with these purposes. We do not share your information with any third parties.</p>
-               
-                  <p style="text-align: justify;">As mentioned above, we use your personal information to appropriately process your applications and present you with the information you need to access. We also use all of the information you provide voluntarily in order to make your membership application on San Jose del monte Savings Credit Cooperative possible.</p>
-               
-                 <p style="text-align: justify;">If you agree in this term, we can use your personal information in order to process your membership application whether to be approved or not.</p>
-           
-                 <p style="text-align: justify;">At all times, the Member Services Staff who will be in-charge in the Online Membership Application prepared by San Jose del Monte Savings and Credit Cooperative is easily identifiable and reachable, via email or phone.</p>
-                
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <input type="file" name="img" id="img"  accept="image/*" onchange="previewImage(event)"
+                    data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%;" required/>
+                    <label for="image">Your 2x2 Photo with white background</label>
+                    </div>
+
+                    <div class="col-md-6 mb-4 ">
+                      <div style="width: 200px; height: 200px; border: 1px solid black; margin-left: 13%;" >
+                      <img id="image-preview" src=""  style="width: 200px;">
+                    </div>
+                    </div>  
                 </div>
+
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <input type="file" name="signature" id="signature" accept="image/*" onchange="previewImage2(event)"
+                    data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%;" required/>
+                    <label for="image">Signature</label>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div style="width: 200px; height: 200px; border: 1px solid black; margin-left: 13%;">
+                      <img id="image-preview2" src="" style="width: 200px;">
+                    </div>
+                    </div>
+                </div>
+
+
+                <div class="row"  style="margin-top: 3%;">
+                  <div class="col-md-6 mb-4" >
+   
+                    <div class="form-outline">
+                      <input type="text" id="name" name="name" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="name">Name</label>
+                    </div>
+  
+                  </div>
+
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input type="text" id="presentAddress" name="address" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="presentAddress">Present Address</label>
+                    </div>
+  
+                  </div>
+
+                  
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-5 mb-4 d-flex align-items-center">
+  
+                    <div class="form-outline  w-100">
+                      <input type="text" name ="cellphoneNum" class="form-control form-control-lg" id="cellphoneNum" required/>
+                      <label for="cellphoneNum" class="form-label">Cellphone No. </label>
+                    </div>
+  
+                  </div>
+           
+                  <div class="col-md-3 mb-4 d-flex align-items-center">
+  
+                    <div class="form-outline  w-100">
+                      <input type="text" name="age" class="form-control form-control-lg" id="age" required/>
+                      <label for="age" class="form-label">Age</label>
+                    </div>
+  
+                  </div>
+
+                  <div class="col-md-4 mb-4 pb-2">
+                    <div class="form-outline">
+                      
+                        <input type="date" name="birthdate" class="form-control form-control-lg" id="birthdate" required>
+                        <label for="dob" class="form-label">Birth Date</label>
+                        </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-5 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <input type="text" name="birthPlace" id="birthPlace" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="birthPlace">Birthplace</label>
+                    </div>
+  
+                  </div>
+
+                  <div class="col-md-4  mb-4 pb-2">
+                    <select class="select form-control form-control-lg" name="civilstatus" required> 
+                      <option value=""> -- Select Civil Status -- </option>
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="live-in-partner">Live-in Partner</option>
+                        <option value="widowed">Widowed</option>
+                        <option value="separated">Separated</option>
+                      </select>
+                   
+                    <label class="form-label select-label">Civil Status </label>
+                  </div>  
+
+                  <div class="col-md-3 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <input type="text" id="Religion" name="religion" nameclass="form-control form-control-lg"  required/>
+                      <label class="form-label" for="Religion">Religion</label>
+                    </div>
+                </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <input type="text" id="occupation" name="occupation" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="occupation">Occupation</label>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4 mb-4 pb-2">
+                    <select class="select form-control form-control-lg" name="monthlyIncome" required>
+                      <option value="P5000-P10,000">P5000-P10,000</option>
+                      <option value="P10,000-P15,000">P10,000-P15,000</option>
+                      <option value="P15,000-P20,000">P15,000-P20,000</option> 
+                      <option value="P20,000-P25,000">P20,000-P25,000</option>
+                    </select>
+                   
+                    <label class="form-label select-label">Monthly Income</label>
+                  </div>
+
+                  <div class="col-md-4 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                      <input type="text" id="otherIncome"  name="otherIncome"class="form-control form-control-lg" />
+                      <label class="form-label" for="otherIncome">Other Sources of Income</label>
+                    </div>
+
+                  </div>
+                  </div>
+
+  
+                <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+  
+                        <div class="form-outline">
+                          <input type="text" id="spouseName" name="spouseName" class="form-control form-control-lg" />
+                          <label class="form-label" for="spouseName">Name of Spouse (if married)</label>
+                        </div>
+    
+                      </div>
+
                 
-                <div class="d-flex justify-content-center">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="checkbox" required>
-                      <label class="form-check-label" for="checkbox">
-                        I AGREE
-                      </label>
+                 
+
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <input type="text" id="numOfDependents"  name="numOfDependents" class="form-control form-control-lg" required />
+                      <label class="form-label" for="numOfDependents">No. of Dependents</label>
                     </div>
                   </div>
 
-                <!-- <input class="btn btn-submit btn-md" type="submit" value="Next" style="background-color: #1165AE; color: white; margin-left: 80%; width: 10%; height: 4vh;" />  -->
 
-                <input class="btn btn-submit btn-md" type="submit" value="Next" style="background-color: #1165AE; color: white; float: right;" />
+                </div>
 
+                <div class="row">
+                    <div class="col-md-4 mb-4 pb-2">
+  
+                        <div class="form-outline">
+                          <input type="text" id="employedCompany"  name="employedCompany" class="form-control form-control-lg" />
+                          <label class="form-label" for="employedCompany">Name of Company if employed</label>
+                        </div>
+    
+                      </div>
+
+                
+                  <div class="col-md-4 mb-4 pb-2">
+                    <div class="form-outline">
+                      <input type="text" id="presentEmp" name="presentEmp" class="form-control form-control-lg" required />
+                      <label class="form-label" for="presentEmp">Present Employment</label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 mb-4 pb-2">
+                    <div class="form-outline">
+                      <input type="text" id="emergency" name="emergency" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="emergency">Person to be contacted in case of emergency</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+  
+                        <div class="form-outline">
+                          <input type="text" id="address2" name="address2" class="form-control form-control-lg" required/>
+                          <label class="form-label" for="address2">Address</label>
+                        </div>
+    
+                      </div>
+
+                
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <input type="text" id="cellphoneNum2" class="form-control form-control-lg" minlength="11" name="cellphoneNum2" required />
+                      <div class="invalid-feedback">
+                        The number of characters should not be less than the minimum value: 11.
+                      </div>
+                      <label class="form-label" for="cellphoneNum2">Cellphone No.</label>
+                    </div>
+                  </div>
+                  </div>
+                <!-- <p style="font-weight: 600;color:black;" > Data Privacy Content</p>
+                <p style="font-weight: 300;color:black; text-align: justify;" > "In compliance with the Data Privacy Act (DPA) of 2012 and Credit Information Corporation (CIC), and its Implementing Rules and Regulations, I agree and authorize Tagum Cooperative to use my Personal Information to process any transaction related in the availment of Tagum Cooperative's Products and Services, including the insurance services and administer the benefits as stated in the policy and other service agreements and inform me of future customer campaigns and base its offer using the personal information I shared with the company." *t</p>
+                <p style="font-size: 15px; font-weight: 500;"> Checkbox *</p>
+                    <div class="form-check">
+                      
+                        <div class="col-md-6 mb-4 pb-2">
+                         
+                            <div class="form-outline">
+                                <input class="form-check-input" type="checkbox" value="" id="checkbox1">
+                                <label class="form-check-label" for="checkbox1">
+                                 I agree to the Data Privacy Content
+                                </label>
+                                 </div>
+                        
+                      </div>
+                </div> -->
+                
+                <input class="btn btn-back btn-md" type="submit" value="Back" style="background-color: #0c151d; color: white;" />
+                <input class="btn btn-submit btn-md" type="submit" value="Submit" style="background-color: #1165AE; color: white; float: right;">
+                <!-- <input class="btn btn-submit btn-md" type="submit" value="Submit" style="background-color: #1165AE; color: white; float: right;" /> -->
               </form>
             </div>
           </div>
@@ -181,8 +390,42 @@
     </div>
   </section>
 
+  <script>
+    function previewImage(event) {
+      var reader = new FileReader();
+      reader.onload = function() {
+        var output = document.getElementById('image-preview');
+        output.src = reader.result;
+        document.getElementById('image-preview-container').classList.remove('d-none');
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+    function previewImage2(event) {
+      var reader = new FileReader();
+      reader.onload = function() {
+        var output = document.getElementById('image-preview2');
+        output.src = reader.result;
+        document.getElementById('image-preview-container').classList.remove('d-none');
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+   
+  </script>
+
   <style>
- 
+    /* .gradient-custom {
+/* fallback for old browsers */
+/* background: #f093fb; */
+
+/* Chrome 10-25, Safari 5.1-6 */
+/* background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1)); */
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1))
+} */ */
+
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
 font-size: 1rem;
 line-height: 2.15;
@@ -192,12 +435,9 @@ padding-right: .75em;
 .card-registration .select-arrow {
 top: 13px;
 }
-@media (max-width: 576px) {
-  .d-flex.justify-content-center {
-    justify-content: left !important;
-  }
+.card{
+  box-shadow: 0px 0px 2px;
 }
-
   </style>
 
     

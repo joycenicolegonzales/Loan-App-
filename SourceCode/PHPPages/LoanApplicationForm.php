@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Privacy Policy - E-Membership</title>
+    <title>LoanApp Form</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -26,11 +28,16 @@
 <body>
 
 
+
     <div class="container-fluid px-0">
             <div class="row gx-0">
                 <div class="col-lg-3  d-none d-lg-block"  style="background-color: #1165AE;">
                     <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                        <img src="/SourceCode/images/logoo.jpg" style="width: 60px; height: 60px;"><h1 class="m-0  text-uppercase" style="color: #FFDE59;">NMEMPC</h1>
+                    <?php 
+                        $image_path = '/SourceCode/images/logoo.jpg'; 
+                        echo '<img src="' . $image_path . '" alt="Image">'; 
+                    ?>  
+                        <h1 class="m-0  text-uppercase" style="color: #FFDE59;">NMEMPC</h1>
                     </a>
                 </div>
                 <div class="col-lg-9">
@@ -131,6 +138,8 @@
         
                 </style>
 
+                
+
 <!-- 
 <section class="vh-100 gradient-custom"> -->
     <div class="container py-3 " style="margin-top: 2%; margin-bottom: 2%;">
@@ -138,41 +147,91 @@
         <div class="col-12 col-lg-9 col-xl-9">
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
-                
-              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: #1165AE; font-weight:700;">Privacy Policy <br><span style="font-size: medium;">NMEMPC Online Membership Application</span> </h3>
-              
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: #1165AE; font-weight:700;">Loan Application Form</h3>
               <form>
   
-                <div class="row">
-                  <!-- <div class="col-md-4 mb-4">
-    -->
-                  <p style="text-align: justify;">The Online Membership Application of San Jose del Monte Savings and Credit Cooperative is for all those who want to apply for membership of this Cooperative.
-                <br><br> All personal information collected by San Jose del Monte Savings and Credit Cooperative is done so exclusively with your consent, by means of submission on our application form, an email received from you via JotForm. No information is collected automatically.</p>
-                  
 
-                  <p style="text-align: justify;">The personal information collected is only used by Member Services Staff for the purposes defined at the time of the collection or a use that complies with these purposes. We do not share your information with any third parties.</p>
-               
-                  <p style="text-align: justify;">As mentioned above, we use your personal information to appropriately process your applications and present you with the information you need to access. We also use all of the information you provide voluntarily in order to make your membership application on San Jose del monte Savings Credit Cooperative possible.</p>
-               
-                 <p style="text-align: justify;">If you agree in this term, we can use your personal information in order to process your membership application whether to be approved or not.</p>
-           
-                 <p style="text-align: justify;">At all times, the Member Services Staff who will be in-charge in the Online Membership Application prepared by San Jose del Monte Savings and Credit Cooperative is easily identifiable and reachable, via email or phone.</p>
+            <div class="row">
+
+            <div class="col-md-6 mb-4 pb-2">                 
+                <select class="select form-control form-control-lg" name="monthlysalary">
+                <option value="" disabled selected hidden class="placeholder" >Please select here</option>
+                    <option value="regular">Regular Loan</option>
+                    <option value="salary">Salary Loan</option>
+                    <option value="productive">Productive Loan</option> 
+                    <option value="emergency">Emergency Loan</option>
+                    <option value="Special Assistance">Special Assistance Loan</option>
+                    
+                </select>
                 
+                <label class="form-label select-label">Loan Type</label>
                 </div>
+
+
+                <div class="col-md-6 mb-4 pb-2">                 
+                <select class="select form-control form-control-lg" name="monthlysalary">
+                <option value="" disabled selected hidden class="placeholder" >Please select here</option>
+                    <option value="3 months">3 months</option>
+                    <option value="6 months">6 months</option>
+                    <option value="1 year">1 year</option> 
+                    <option value="1 1/2 years">1 1/2 years</option>
+                    <option value="2 years">2 years</option>
+                    <option value="3 years">3 years</option>
+                </select>
                 
-                <div class="d-flex justify-content-center">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="checkbox" required>
-                      <label class="form-check-label" for="checkbox">
-                        I AGREE
-                      </label>
+                <label class="form-label select-label">Loan Plan</label>
+                </div>
+
+    </div>
+           
+         <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <input type="email" id="eempStatus" class="form-control form-control-lg" />
+                      <label class="form-label" for="empStatus">Loan Amount</label>
                     </div>
+             
+
+                  </div>  
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <input type="email" id="eempStatus" class="form-control form-control-lg" />
+                      <label class="form-label" for="empStatus">Loan Balance</label>
+                    </div>
+             
+
+                  </div>  
+    </div>
+
+             <div class="row">
+                  <div class="col-md-4 mb-4 pb-2">
+                    <div class="form-outline">
+                      
+                        <input type="date" class="form-control form-control-lg" id="dob">
+                        <label for="dob" class="form-label">Date Released</label>
+                        </div>
+                  </div>
                   </div>
 
-                <!-- <input class="btn btn-submit btn-md" type="submit" value="Next" style="background-color: #1165AE; color: white; margin-left: 80%; width: 10%; height: 4vh;" />  -->
-
-                <input class="btn btn-submit btn-md" type="submit" value="Next" style="background-color: #1165AE; color: white; float: right;" />
-
+  
+                <!-- <p style="font-weight: 600;color:black;" > Data Privacy Content</p>
+                <p style="font-weight: 300;color:black; text-align: justify;" > "In compliance with the Data Privacy Act (DPA) of 2012 and Credit Information Corporation (CIC), and its Implementing Rules and Regulations, I agree and authorize Tagum Cooperative to use my Personal Information to process any transaction related in the availment of Tagum Cooperative's Products and Services, including the insurance services and administer the benefits as stated in the policy and other service agreements and inform me of future customer campaigns and base its offer using the personal information I shared with the company." *t</p>
+                <p style="font-size: 15px; font-weight: 500;"> Checkbox *</p>
+                    <div class="form-check">
+                      
+                        <div class="col-md-6 mb-4 pb-2">
+                         
+                            <div class="form-outline">
+                                <input class="form-check-input" type="checkbox" value="" id="checkbox1">
+                                <label class="form-check-label" for="checkbox1">
+                                 I agree to the Data Privacy Content
+                                </label>
+                                 </div>
+                        
+                      </div>
+                </div> -->
+                <input class="btn btn-submit btn-md" type="submit" value="Back" style="background-color: #0c151d; color: white;" />
+                <input class="btn btn-submit btn-md" type="submit" value="Submit" style="background-color: #1165AE; color: white; float: right;" />
               </form>
             </div>
           </div>
@@ -182,7 +241,17 @@
   </section>
 
   <style>
- 
+    /* .gradient-custom {
+/* fallback for old browsers */
+/* background: #f093fb; */
+
+/* Chrome 10-25, Safari 5.1-6 */
+/* background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1)); */
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1))
+} */ */
+
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
 font-size: 1rem;
 line-height: 2.15;
@@ -192,12 +261,12 @@ padding-right: .75em;
 .card-registration .select-arrow {
 top: 13px;
 }
-@media (max-width: 576px) {
-  .d-flex.justify-content-center {
-    justify-content: left !important;
-  }
+.card{
+  box-shadow: 0px 0px 2px;
 }
-
+.form-label{
+  font-weight: 600;
+}
   </style>
 
     
