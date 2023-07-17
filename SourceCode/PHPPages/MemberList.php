@@ -114,6 +114,16 @@
                     <div class="row my-1 justify-content-center">
                       <div class="div  py-1" style="max-height:520px ; overflow-y: scroll; ">
                         <div class="table-responsive py-1">
+
+
+
+                      <?php
+                          $con = mysqli_connect("localhost", "root","","loanapp");
+
+                          $query = "SELECT * FROM member";
+                          $query_run = mysqli_query($con, $query);
+                      ?>
+
                           <table class="table table-bordered my-2" id="myTable">
                            
                             <thead>
@@ -122,50 +132,52 @@
                                   <th style="width: 10%;" class="text-center">#</th>
                                   <th style="width: 20%;" class="text-center">Firstname</th>
                                   <th style="width: 20%;" class="text-center">Lastname</th>
-                                  <th style="width: 20%;" class="text-center">Department</th>
-                                  <th style="width: 20%;" class="text-center">Current Loan</th>
+                                  <th style="width: 20%;" class="text-center">Address</th>
                                   <th style="width: 10%;" class="text-center">Action</th>
                                 
                               </tr>
                             </thead>
+
+                            <?php
+                              if($query_run){
+                                foreach($query_run as $row){
+                                  ?>
+
+                                        <tbody>
+                                        <tr class="text-center">
+                                          <td><?php echo $row['Member_ID']; ?></td>
+                                          <td><?php echo $row['firstname']; ?></td>
+                                          <td><?php echo $row['lastname']; ?></td>
+                                          <td><?php echo $row['address']; ?></td>
+                                        
+                                          <td>
+                                            <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                              <i class="fa-solid fa-bars "></i>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                              <li></li>
+                                              <li><a class="dropdown-item" href="view.php?=id=<?php echo $row['Member_ID'] ?>"><button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">View Details</button></a></li>
+                                              <li><a class="dropdown-item" href="edit.php"><button type="button" class="btn btn-success w-100 "  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li>
+                                              <li><a class="dropdown-item" href="delete.php"><button type="button" class="btn btn-danger w-100 " data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button></a></li>
+                                            </ul>
+                                          </td>
+                                        </tr>
+
+                                        </tbody>
+
+                                      <?php
+                                }
+                              } else
+                              {
+                                    echo "No Record Found";
+                              }
+                              ?>
+
+
                             <style>
                             
                             </style>
-                          <tbody>
-
-                          <?php 
-                                          $query = "SELECT * FROM 'member'":
-                                          $result = mysqli_query($con, $sql);
-                                          while ($row = mysqli_fetch_assoc($result))
-                                          {
-
-                                            ?>
-
-                            <tr class="text-center">
-                              <td><?php echoo $row['Member_ID']?>1</td>
-                              <td><?php echoo $row['firstname']?>Efren</td>
-                              <td><?php echoo $row['lastname']?>Pelo</td>
-                              <td><?php echoo $row['department']?>DSWD</td>
-                              <td><?php echoo $row['id']?>None</td>
-                              <td>
-                                <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <i class="fa-solid fa-bars "></i>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <li></li>
-                                  <li><a class="dropdown-item" href="view.php?=id=<?php echo $row['Member_ID'] ?>"><button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">View Details</button></a></li>
-                                  <li><a class="dropdown-item" href="edit.php"><button type="button" class="btn btn-success w-100 "  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li>
-                                  <li><a class="dropdown-item" href="delete.php"><button type="button" class="btn btn-danger w-100 " data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button></a></li>
-                                </ul>
-                              </td>
-                            </tr>
-                            <?php
-
-                                          }
-                                      
-
-                          
-                          </tbody>
+                        
                           </table>
                           
                         </div>
@@ -223,8 +235,8 @@ if(isset($_POST['submit']))
 //     {
         
     $query = "INSERT INTO member (firstname,lastname, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion,occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
-    employedCompany, presentEmp, emergency, address2, cellphoneNum2, image, signature) VALUES( '$firstname', '$lastname','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion','$occupation',
-'$monthlyIncome','$otherIncome','$spouseName','$numOfDependents','$employedCompany','$presentEmp','$emergency','$address2','$cellphoneNum2', '$image', '$signature')";
+    employedCompany, presentEmp, emergency, image, signature) VALUES( '$firstname', '$lastname','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion','$occupation',
+'$monthlyIncome','$otherIncome','$spouseName','$numOfDependents','$employedCompany','$presentEmp','$emergency', '$image', '$signature')";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
@@ -255,7 +267,7 @@ if(isset($_POST['submit']))
                     
                                   <div class="form-outline">
                                     <label class="form-label" for="name">Firstname</label>
-                                    <input type="text" id="name" name="Firstname" class="form-control form-control-md" />
+                                    <input type="text" id="name" name="firstname" class="form-control form-control-md" />
                                 
                                     
                                    
@@ -267,7 +279,7 @@ if(isset($_POST['submit']))
                     
                                   <div class="form-outline">
                                     <label class="form-label" for="name">LastName</label>
-                                    <input type="text" id="name" name="Lastname" class="form-control form-control-md"/>
+                                    <input type="text" id="name" name="lastname" class="form-control form-control-md"/>
                                   </div>
                     
                                 </div>
