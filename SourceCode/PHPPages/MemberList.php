@@ -156,8 +156,8 @@
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                               <li></li>
-                                              <li><a class="dropdown-item" href=""><button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">View Details</button></a></li>
-                                              <li><a class="dropdown-item" href=""><button type="button" class="btn btn-success editbtn w-100 "  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li>
+                                              <li><button type="button" class="dropdown-item btn btn-primary viewbtn w-100 text-center" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">View Details</button></li>
+                                              <li><button type="button" class="dropdown-item btn btn-success editbtn w-100 text-center"  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></li>
                                               <li><a class="dropdown-item" href=""><button type="button" class="btn btn-danger w-100 " data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button></a></li>
                                             </ul>
                                           </td>
@@ -171,13 +171,8 @@
                               {
                                     echo "No Record Found";
                               }
-                              ?>
+                          ?>
 
-
-                            <style>
-                            
-                            </style>
-                        
                           </table>
                           
                         </div>
@@ -185,84 +180,21 @@
                       </div>
                     </div>
                     </div>
-               
+                   
+                     
 <!-- ========== Add Member ========== -->
 <div class="modal fade" id="addMember" aria-hidden="true" aria-labelledby="addMember" tabindex="-1">
-<?php
 
-$con = mysqli_connect("localhost","root","","loanapp");
-
-if(isset($_POST['submit']))
-{
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $address = $_POST['address'];
-    $cellphoneNum = $_POST['cellphoneNum'];
-    $age = $_POST['age'];
-    $birthdate = $_POST['birthdate'];
-    $birthPlace = $_POST['birthPlace'];
-    $civilstatus = $_POST['civilstatus'];
-    $religion = $_POST['religion'];
-    $occupation = $_POST['occupation'];
-    $monthlyIncome = $_POST['monthlyIncome'];
-    $otherIncome = $_POST['otherIncome'];
-    $spouseName = $_POST['spouseName'];
-    $numOfDependents = $_POST['numOfDependents'];
-    $employedCompany = $_POST['employedCompany'];
-    $presentEmp = $_POST['presentEmp'];
-    $emergency = $_POST['emergency'];
-    $image = $_POST['image'];
-    $signature = $_POST['signature'];
-
-
-
-    // if (empty($name) OR empty($address) OR empty($cellphoneNum)) {
-    //   array_push($errors,"All fields are required");
-    //  }
-
-//      require_once "database.php";
-//      $sql = "SELECT * FROM member WHERE name = '$firstname'";
-//      $result = mysqli_query($con, $sql);
-//      $rowCount = mysqli_num_rows($result);
-
-   
-//     if (count($errors)>0) {
-//      foreach ($errors as $error) {
-//          echo "<div class='alert alert-danger'>$error</div>";
-//      }
-//  } 
-//     else
-//     {
-        
-    $query = "INSERT INTO member (firstname,lastname, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion,occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
-    employedCompany, presentEmp, emergency, image, signature) VALUES( '$firstname', '$lastname','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion','$occupation',
-'$monthlyIncome','$otherIncome','$spouseName','$numOfDependents','$employedCompany','$presentEmp','$emergency', '$image', '$signature')";
-    $query_run = mysqli_query($con, $query);
-
-    if($query_run)
-    {
-        echo '<script> alert("Data Saved"); </script>';
-        header('Location: MemberList.php');
-    }
-    else
-    {
-        echo '<script> alert("Data Not Saved"); </script>';
-    }
-
-}
-
-
-?>
                       <div class="modal-dialog modal-dialog-centered modal-fullscreen">
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalToggleLabel">Add New Member</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          
+                       
                           <div class="modal-body">
-                          <form action="MemberList.php" method="POST">
-                              <div class="row mb-2 px-4"  >
+                          <form action="insertcode.php" method="POST">
+                            <div class="row mb-2 px-4"  >
                                 <div class="col-md-6 " >
                     
                                   <div class="form-outline">
@@ -281,8 +213,8 @@ if(isset($_POST['submit']))
                                     <label class="form-label" for="name">LastName</label>
                                     <input type="text" id="name" name="lastname" class="form-control form-control-md"/>
                                   </div>
-                    
-                                </div>
+                            
+                             </div>
                     
                                 
                               </div>
@@ -443,7 +375,7 @@ if(isset($_POST['submit']))
 
                               <div class="row mb-2 px-4">
                                 <div class="col-md-6 mx-auto py-5 ">
-                                  <input type="file" name="img" id="img"  accept="image/*" onchange="previewImage(event)"
+                                  <input type="file" name="image" id="img"  accept="image/*" onchange="previewImage(event)"
                                   data-parsley-trigger="keyup" class="form-control form-control-md"  />
                                   <label for="image">Your 2x2 Photo with white background</label>
                                   </div>
@@ -478,7 +410,7 @@ if(isset($_POST['submit']))
                         </div>
                       </div>
                     </div>
-<!-- ========== Add Member ========== -->
+<!-- ========== Add Member END ========== -->
 
 
 
@@ -499,9 +431,11 @@ if(isset($_POST['submit']))
                               </div>
                               <div class="col-md-4 ">
                             
+
+
                                 <div class="d-flex">
                                     <p class="me-1"> <b>First Name :</b> </p>
-                                    <p>Efren Miguel Pelo</p>
+                                    <p></p>
                                 </div>
 
                                 <div class="d-flex">
@@ -575,292 +509,255 @@ if(isset($_POST['submit']))
                                 <p class="me-1"> <b>Contact incase of Emergency :</b>  </p>
                                 <p>Nicole Gonzales</p>
                             </div>
-                              </div>
 
-                            
+                          
+                              </div>
                             </div>
                           </div>
-                          <div class="modal-footer d-flex justify-content-between">
+                          <!-- <div class="modal-footer d-flex justify-content-between"> -->
                             <!-- <button class="btn btn-secondary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
                             <input class="btn btn-submit btn-primary" type="submit" value="Submit" style=" color: white; " /> -->
                           
-                          </div>
+                          <!-- </div> -->
                         </div>
                       </div>
                     </div>
 <!-- ========== VIEW DETAILS MODAL ========== -->
 
+       
+     
+
 <!-- ========== Edit Member ========== -->
-                    <div class="modal fade" id="editMember" aria-hidden="true" aria-labelledby="editMemberLabel" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalToggleLabel">Edit Member's Details  </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <form action="MemberList.php" method="POST">
-                              <div class="row mb-2 px-4"  >
-                                <div class="col-md-6 " >
+<div class="modal fade" id="editMember" aria-hidden="true" aria-labelledby="editMember" tabindex="-1">
 
-                                  <div class="form-outline">
-                                    <label class="form-label" for="name">Firstname</label>
-                                    <input type="text" id="name" name="name" class="form-control form-control-md"/>
-                                
-                                    
-                                  
-                                  </div>
+<div class="modal-dialog modal-dialog-centered modal-fullscreen">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalToggleLabel">Edit Member's Details</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+ 
+    <div class="modal-body">
+      <input type="text" name="edit_id">
+    <form action="insertcode.php" method="POST">
+        <div class="row mb-2 px-4"  >
+          <div class="col-md-6 " >
 
-                                </div>
+            <div class="form-outline">
+              <label class="form-label" for="name">Firstname</label>
+              <input type="text" id="name" name="firstname" class="form-control form-control-md" />
+          
+              
+             
+            </div>
 
-                                <div class="col-md-6 ">
+          </div>
 
-                                  <div class="form-outline">
-                                    <label class="form-label" for="name">LastName</label>
-                                    <input type="text" id="name" name="name" class="form-control form-control-md"/>
-                                  </div>
+          <div class="col-md-6 ">
 
-                                </div>
+            <div class="form-outline">
+              <label class="form-label" for="name">LastName</label>
+              <input type="text" id="name" name="lastname" class="form-control form-control-md"/>
+            </div>
 
-                                
-                              </div>
-                              <div class="row mb-2 px-4"  >
-                                <div class="col-md-6 ">
-                                  <div class="form-outline">
-                                    <label class="form-label" for="presentAddress">Present Address</label>
-                                    <input type="text" id="presentAddress" name="address" class="form-control form-control-md" />
-                                  </div>
-                                </div>
+          </div>
 
-                                <div class="col-md-6 ">
-                                  <div class="form-outline">
-                                    <label for="cellphoneNum" class="form-label">Cellphone No. </label>
-                                    <input type="text" name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum"/>
-                                
-                                  </div>
-                                </div>
-                              </div>
+          
+        </div>
+        <div class="row mb-2 px-4"  >
+          <div class="col-md-6 ">
+            <div class="form-outline">
+              <label class="form-label" for="presentAddress">Present Address</label>
+              <input type="text" id="presentAddress" name="address" class="form-control form-control-md"/>
+            </div>
+          </div>
 
-                              <div class="row mb-2 px-4">
-                                <div class="col-md-3 d-flex align-items-center">
+          <div class="col-md-6 ">
+            <div class="form-outline">
+              <label for="cellphoneNum" class="form-label">Cellphone No. </label>
+              <input type="text" name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum" />
+           
+            </div>
+          </div>
+        </div>
 
-                                  <div class="form-outline  w-100">
-                                    <label for="age" class="form-label">Age</label>
-                                    <input type="text" name="age" class="form-control form-control-md" id="age"/>
-                                
-                                  </div>
+        <div class="row mb-2 px-4">
+          <div class="col-md-3 d-flex align-items-center">
 
-                                </div>
-                        
-                                <div class="col-md-4 d-flex align-items-center">
+            <div class="form-outline  w-100">
+              <label for="age" class="form-label">Age</label>
+              <input type="text" name="age" class="form-control form-control-md" id="age" />
+           
+            </div>
 
-                                  <div class="form-outline  w-100">
-                                    <label for="dob" class="form-label">Birth Date</label>
-                                    <input type="date" name="birthdate" class="form-control form-control-md" id="birthdate" >
-                                  </div>
-                                </div>
+          </div>
+   
+          <div class="col-md-4 d-flex align-items-center">
 
-                                <div class="col-md-5 pb-2">
-                                  <div class="form-outline">
-                                    <label class="form-label" for="birthPlace">Birthplace</label>
-                                    <input type="text" name="birthPlace" id="birthPlace" class="form-control form-control-md" />
-                                      </div>
-                                </div>
-                              </div>
+            <div class="form-outline  w-100">
+              <label for="dob" class="form-label">Birth Date</label>
+              <input type="date" name="birthdate" class="form-control form-control-md" id="birthdate" >
+            </div>
+          </div>
 
-                              <div class="row mb-2 px-4">               
-                                <div class="col-md-6   pb-2">
-                                  <label class="form-label select-label">Civil Status </label>
-                                  <select class="select form-control form-control-" name="civilstatus" > 
-                                    <option value=""> -- Select Civil Status -- </optimdon>
-                                      <option value="single">Single</option>
-                                      <option value="married">Married</option>
-                                      <option value="live-in-partner">Live-in Partner</option>
-                                      <option value="widowed">Widowed</option>
-                                      <option value="separated">Separated</option>
-                                    </select>                                 
-                                
-                                </div>                     
-                                <div class="col-md-6  pb-2">                 
-                                  <div class="form-outline">
-                                    <label class="form-label" for="Religion">Religion</label>
-                                    <input type="text" id="Religion" name="religion" class="form-control form-control-md"  />
-                                    
-                                  </div>
-                              </div>
-                              </div>
+          <div class="col-md-5 pb-2">
+            <div class="form-outline">
+              <label class="form-label" for="birthPlace">Birthplace</label>
+              <input type="text" name="birthPlace" id="birthPlace" class="form-control form-control-md" />
+                </div>
+          </div>
+        </div>
 
-                              
-                          
-                              
+        <div class="row mb-2 px-4">               
+          <div class="col-md-6   pb-2">
+            <label class="form-label select-label">Civil Status </label>
+            <select class="select form-control form-control-" name="civilstatus" > 
+              <option value=""> -- Select Civil Status -- </optimdon>
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+                <option value="live-in-partner">Live-in Partner</option>
+                <option value="widowed">Widowed</option>
+                <option value="separated">Separated</option>
+              </select>                                 
+           
+          </div>                     
+          <div class="col-md-6  pb-2">                 
+            <div class="form-outline">
+              <label class="form-label" for="Religion">Religion</label>
+              <input type="text" id="Religion" name="religion" class="form-control form-control-md"  />
+              
+            </div>
+        </div>
+        </div>
 
-                            </form>
-                          </div>
-                          <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-target="#editMember2" data-bs-toggle="modal" data-bs-dismiss="modal">Next </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+        <!--  -->
+        <div class="row mb-2 px-4">
+          <div class="col-md-4 pb-2">
 
-                    <div class="modal fade" id="editMember2" aria-hidden="true" aria-labelledby="editMember2" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2">Edit Member's Details</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                          <form >
-                          
-                            <div class="row mb-2 px-4">
-                              <div class="col-md-4 pb-2">
+            <div class="form-outline">
+              <label class="form-label" for="occupation">Occupation</label>
+              <input type="text" id="occupation" name="occupation" class="form-control form-control-md" />
+             
+            </div>
 
-                                <div class="form-outline">
-                                  <label class="form-label" for="occupation">Occupation</label>
-                                  <input type="text" id="occupation" name="occupation" class="form-control form-control-md" required/>
-                                
-                                </div>
+          </div>
 
-                              </div>
+          <div class="col-md-4 pb-2">
+            <label class="form-label select-label">Monthly Income</label>
+            <select class="select form-control form-control-md" name="monthlyIncome" >
+              <option value="P5000-P10,000">P5000-P10,000</option>
+              <option value="P10,000-P15,000">P10,000-P15,000</option>
+              <option value="P15,000-P20,000">P15,000-P20,000</option> 
+              <option value="P20,000-P25,000">P20,000-P25,000</option>
+            </select>
+           
+          
+          </div>
 
-                              <div class="col-md-4 pb-2">
-                                <label class="form-label select-label">Monthly Income</label>
-                                <select class="select form-control form-control-md" name="monthlyIncome" required>
-                                  <option value="P5000-P10,000">P5000-P10,000</option>
-                                  <option value="P10,000-P15,000">P10,000-P15,000</option>
-                                  <option value="P15,000-P20,000">P15,000-P20,000</option> 
-                                  <option value="P20,000-P25,000">P20,000-P25,000</option>
-                                </select>
-                              
-                              
-                              </div>
+          <div class="col-md-4 pb-2">
 
-                              <div class="col-md-4 pb-2">
+            <div class="form-outline">
+              <label class="form-label" for="otherIncome">Other Sources of Income</label>
+              <input type="text" id="otherIncome"  name="otherIncome"class="form-control form-control-lg" /> 
+            </div>
 
-                                <div class="form-outline">
-                                  <label class="form-label" for="otherIncome">Other Sources of Income</label>
-                                  <input type="text" id="otherIncome"  name="otherIncome"class="form-control form-control-lg" /> 
-                                </div>
-
-                              </div>
-                              </div>
+          </div>
+          </div>
 
 
-                            <div class="row mb-2 px-4">
-                                <div class="col-md-6 pb-2">
+        <div class="row mb-2 px-4">
+            <div class="col-md-6 pb-2">
 
-                                    <div class="form-outline">
-                                      <label class="form-label" for="spouseName">Name of Spouse (if married)</label>
-                                      <input type="text" id="spouseName" name="spouseName" class="form-control form-control-md" />
-                                    
-                                    </div>
+                <div class="form-outline">
+                  <label class="form-label" for="spouseName">Name of Spouse (if married)</label>
+                  <input type="text" id="spouseName" name="spouseName" class="form-control form-control-md" />
+                
+                </div>
 
-                                  </div>
+              </div>
 
-                            
-                            
+        
+         
 
-                              <div class="col-md-6  pb-2">
-                                <div class="form-outline">
-                                  <label class="form-label" for="numOfDependents">No. of Dependents</label>
-                                  <input type="text" id="numOfDependents"  name="numOfDependents" class="form-control form-control-md" required />
-                                  
-                                </div>
-                              </div>
-
-
-                            </div>
-
-                            <div class="row mb-2 px-4">
-                                <div class="col-md-3  pb-2">
-
-                                    <div class="form-outline">
-                                      <label class="form-label" for="employedCompany">Name of Company</label>
-                                      <input type="text" id="employedCompany"  name="employedCompany" class="form-control form-control-md" />
-                                  
-                                    </div>
-
-                                  </div>
-
-                            
-                              <div class="col-md-3  pb-2">
-                                <div class="form-outline">
-                                  <label class="form-label" for="presentEmp">Present Employment</label>
-                                  <input type="text" id="presentEmp" name="presentEmp" class="form-control form-control-md" required />
-                                
-                                </div>
-                              </div>
-
-                              <div class="col-md-6  pb-2">
-                                <div class="form-outline">
-                                  <label class="form-label" for="emergency">Person to be contacted in case of emergency</label>
-                                  <input type="text" id="emergency" name="emergency" class="form-control form-control-md" required/>
-                                
-                                </div>
-                              </div>
-                            </div>
-                            
-                           
-                          </form>
-                          </div>
-                          <div class="modal-footer d-flex justify-content-between">
-                            <button class="btn btn-secondary" data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
-                            <button class="btn btn-primary" data-bs-target="#editMember3" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
-                          
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="modal fade" id="editMember3" aria-hidden="true" aria-labelledby="editMember3" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2">Edit Member's Details  </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                          <form >
-                            <div class="row mb-2 px-4">
-                              <div class="col-md-6 mx-auto py-5 ">
-                                <input type="file" name="img" id="img"  accept="image/*" onchange="previewImage(event)"
-                                data-parsley-trigger="keyup" class="form-control form-control-md"  required/>
-                                <label for="image">Your 2x2 Photo with white background</label>
-                                </div>
-
-                                <div class="col-md-6  d-flex justify-content-center">
-                                  <div style="width: 110px; height: 110px; border: 1px solid black;" >
-                                  <img id="image-preview" src="" class="center-image" style="width:110px;">
-                                </div>
-                              
-                                </div>  
-                            </div>
+          <div class="col-md-6  pb-2">
+            <div class="form-outline">
+              <label class="form-label" for="numOfDependents">No. of Dependents</label>
+              <input type="text" id="numOfDependents"  name="numOfDependents" class="form-control form-control-md"  />
+              
+            </div>
+          </div>
 
 
-                            <div class="row mb-1 px-4">
-                              <div class="col-md-6 mx-auto py-5">
-                                <input type="file" name="signature" id="signature" accept="image/*" onchange="previewImage2(event)"
-                                data-parsley-trigger="keyup" class="form-control form-control-md"  required/>
-                                <label for="image">Signature</label>
-                                </div>
-                                <div class="col-md-6  d-flex justify-content-center">
-                                  <div style="width: 180px; height: 110px; border: 1px solid black; ">
-                                  <img id="image-preview2" src="" style="width: 180px;">
-                                </div>
-                                </div>
-                            </div>
-                          </form>
-                          </div>
-                          <div class="modal-footer d-flex justify-content-between">
-                            <button class="btn btn-secondary" data-bs-target="#editMember2" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
-                            <input class="btn btn-submit btn-primary" type="submit" value="Submit" style=" color: white; " />
-                          
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-<!-- ========== Edit Member ========== -->
+        </div>
+
+        <div class="row mb-2 px-4">
+            <div class="col-md-3  pb-2">
+
+                <div class="form-outline">
+                  <label class="form-label" for="employedCompany">Name of Company</label>
+                  <input type="text" id="employedCompany"  name="employedCompany" class="form-control form-control-md" />
+               
+                </div>
+
+              </div>
+
+        
+          <div class="col-md-3  pb-2">
+            <div class="form-outline">
+              <label class="form-label" for="presentEmp">Present Employment</label>
+              <input type="text" id="presentEmp" name="presentEmp" class="form-control form-control-md"  />
+             
+            </div>
+          </div>
+
+          <div class="col-md-6  pb-2">
+            <div class="form-outline">
+              <label class="form-label" for="emergency">Person to be contacted in case of emergency</label>
+              <input type="text" id="emergency" name="emergency" class="form-control form-control-md" />
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-2 px-4">
+          <div class="col-md-6 mx-auto py-5 ">
+            <input type="file" name="image" id="img"  accept="image/*" onchange="previewImage(event)"
+            data-parsley-trigger="keyup" class="form-control form-control-md"  />
+            <label for="image">Your 2x2 Photo with white background</label>
+            </div>
+
+            <div class="col-md-6  d-flex justify-content-center">
+              <div style="width: 110px; height: 110px; border: 1px solid black;" >
+              <img id="image-preview" src="" class="center-image" style="width:110px;">
+            </div>
+           
+            </div>  
+        </div>
+
+
+        <div class="row mb-1 px-4">
+          <div class="col-md-6 mx-auto py-5">
+            <input type="file" name="signature" id="signature" accept="image/*" onchange="previewImage2(event)"
+            data-parsley-trigger="keyup" class="form-control form-control-md"  />
+            <label for="image">Signature</label>
+            </div>
+            <div class="col-md-6  d-flex justify-content-center">
+              <div style="width: 180px; height: 110px; border: 1px solid black; ">
+              <img id="image-preview2" src="" style="width: 180px;">
+            </div>
+            </div>
+        </div>
+     
+    </div>
+    <div class="modal-footer">
+    <button type="submit" name="update_mem" class="btn btn-primary">Submit</button>
+     </div>
+     </form>
+  </div>
+</div>
+</div>
+
+<!-- ========== Edit Member END ========== -->
 
 <!-- ========== Delete Member ========== -->
                   <div class="modal fade" id="deleteMember" aria-hidden="true" aria-labelledby="deleteMember" tabindex="-1">
@@ -985,9 +882,9 @@ if(isset($_POST['submit']))
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- Bootstrap 5 JS CDN Links -->
-<!-- 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/js/jquery.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.min.js/1.14.6/umd/popper.min.js"></script>  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.min.js/1.14.6/umd/popper.min.js"></script> 
 
 
 
@@ -1015,22 +912,16 @@ if(isset($_POST['submit']))
       </script>
 
       <script>
-      // $(document).ready(function() { 
-      //   $('.editbtn').on('click', function()
-      //   {
+   
+    //   $(document).ready(function() { 
 
-      //       $('#editMember').modal('show');
-      //   });
-      // });
-      $(document).ready(function() { 
-
-      $(document).on('click','.editbtn', function() 
-      {
-        $('#editMember').modal('show');
-      });
-      });
+    //   $(document).on('click','.editbtn', function() 
+    //   {
+    //     $('#editMember').modal('show');
+    //   });
+    //   });
      
-    </script>
+    // </script>
 
 </body>
 </html>
