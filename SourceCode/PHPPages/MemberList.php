@@ -156,9 +156,9 @@
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                               <li></li>
-                                              <li><a class="dropdown-item" href="view.php?=id=<?php echo $row['Member_ID'] ?>"><button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">View Details</button></a></li>
-                                              <li><a class="dropdown-item" href="edit.php"><button type="button" class="btn btn-success w-100 "  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li>
-                                              <li><a class="dropdown-item" href="delete.php"><button type="button" class="btn btn-danger w-100 " data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button></a></li>
+                                              <li><a class="dropdown-item" href=""><button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">View Details</button></a></li>
+                                              <li><a class="dropdown-item" href=""><button type="button" class="btn btn-success editbtn w-100 "  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li>
+                                              <li><a class="dropdown-item" href=""><button type="button" class="btn btn-danger w-100 " data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button></a></li>
                                             </ul>
                                           </td>
                                         </tr>
@@ -591,7 +591,7 @@ if(isset($_POST['submit']))
 <!-- ========== VIEW DETAILS MODAL ========== -->
 
 <!-- ========== Edit Member ========== -->
-                    <div class="modal fade" id="editMember" aria-hidden="true" aria-labelledby="editMember" tabindex="-1">
+                    <div class="modal fade" id="editMember" aria-hidden="true" aria-labelledby="editMemberLabel" tabindex="-1">
                       <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -1009,7 +1009,17 @@ if(isset($_POST['submit']))
         }
         reader.readAsDataURL(event.target.files[0]);
       }
-  
+      
+      </script>
+
+      <script>
+      $(document).ready(function() { 
+        $('.editbtn').on('click', function()
+        {
+
+            $('#editMember').modal('show');
+        });
+      });
      
     </script>
 
