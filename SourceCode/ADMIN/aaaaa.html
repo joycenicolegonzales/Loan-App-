@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Member List</title>
+        <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> -->
+        <link href="dashstyles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    
+        <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+
+</head>
+
+    <body class="sb-nav-fixed" style="overflow-y: hidden;">
+        <nav class="sb-topnav navbar navbar-expand " style="background-color: #1165AE; ">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="dash.html" style="color: #FFDE59;">
+                <img src="/SourceCode/images/logoo.jpg"  class="" style="width: 50px; height: 50px;"alt=""> NMEMPC
+            </a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars" style="color: #FFDE59;"> </i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading text-white ">Core</div>
+                            <a class="nav-link" href="Admin_Dashboard.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt "></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading text-white">Member</div>
+                            <a class="nav-link px-2" href="Member_List.html"><i class="fa-solid fa-user-group  me-2"></i> List of Members</a>
+                            <a class="nav-link px-2" href="layout-sidenav-light.html"><i class="fa-solid fa-user-check  me-1"></i>  Membership Approval </a>
+                
+                       
+                            <div class="sb-sidenav-menu-heading text-white">Loans</div>
+                            <a class="nav-link px-2" href="layout-static.html"><i class="fa-solid fa-credit-card  me-2"></i> Member's Loan</a>
+                            <a class="nav-link px-2" href="layout-static.html"><i class="fa-solid fa-table me-2"></i> Loan Types</a>
+                        
+                        </div>
+                    </div>
+                   
+                </nav>
+            </div>
+
+            <div id="layoutSidenav_content">
+                <main class="main-container" >
+                  
+                      <div class="container  " >
+                        <div class="row my-3 d-flex">
+                     
+                            <h3>List of Members</h3>
+                          
+                          <div  >
+                            <button class="btn btn-primary float-end"> <i class="fa-solid fa-plus"></i> Add Member</button>
+                          </div>
+    
+                      </div>
+                      <div class="row  justify-content-center">
+                        <div class="div bg-light " >
+                            <!-- style="max-height:450px ; overflow-y: scroll; width: 85%;" -->
+                          <div class="table-responsive" style="height: 75vh; overflow-y: scroll; overflow-x: hidden;">
+                            <table class="table table-bordered py-2" id="myTable" >
+                             
+                              <thead  >
+                                <tr >
+                                  <th style="width: 20%;" class="text-center">#</th>
+                                  <th style="width: 20%;" class="text-center">Member</th>
+                                  <th style="width: 20%;" class="text-center">Current Loan</th>
+                                  <th style="width: 20%;" class="text-center">Next Payment Schedule</th>
+                                  <th style="width: 20%;" class="text-center">Action</th>
+                                  
+                                </tr>
+                              </thead>
+                              <style>
+                              
+                              </style>
+                              <tbody  >
+                                <tr class="text-center">
+                                  <td>1</td>
+                                  <td class="text-start">
+                                      <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                      <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                      <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                      <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                   
+                                  </td>
+                                  <td>None</td>
+                                  <td>N/A</td>
+                                  <td  >   
+                                    <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <i class="fa-solid fa-bars "></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                      <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                      <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                    </ul>
+                                 
+                              
+                                    
+                                  </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>1</td>
+                                    <td class="text-start">
+                                        <p>Name :<b class="me-2">migg Pelo</b></p>
+                                        <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                        <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                        <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                     
+                                    </td>
+                                    <td>None</td>
+                                    <td>N/A</td>
+                                    <td  >   
+                                      <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-bars "></i>
+                                      </button>
+                                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                        <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                        <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                      </ul>
+                                   
+                                
+                                      
+                                    </td>
+                                  </tr>
+                                  <tr class="text-center">
+                                    <td>1</td>
+                                    <td class="text-start">
+                                        <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                        <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                        <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                        <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                     
+                                    </td>
+                                    <td>None</td>
+                                    <td>N/A</td>
+                                    <td  >   
+                                      <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-bars "></i>
+                                      </button>
+                                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                        <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                        <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                      </ul>
+                                   
+                                
+                                      
+                                    </td>
+                                  </tr>
+                                  <tr class="text-center">
+                                      <td>1</td>
+                                      <td class="text-start">
+                                          <p>Name :<b class="me-2">migg Pelo</b></p>
+                                          <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                          <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                          <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                       
+                                      </td>
+                                      <td>None</td>
+                                      <td>N/A</td>
+                                      <td  >   
+                                        <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                          <i class="fa-solid fa-bars "></i>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                          <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                          <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                          <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                        </ul>
+                                     
+                                  
+                                        
+                                      </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>1</td>
+                                        <td class="text-start">
+                                            <p>Name :<b class="me-2">Efren Pelo</b></p>
+                                            <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                            <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                            <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                         
+                                        </td>
+                                        <td>None</td>
+                                        <td>N/A</td>
+                                        <td  >   
+                                          <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-bars "></i>
+                                          </button>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                          </ul>
+                                       
+                                    
+                                          
+                                        </td>
+                                      </tr>
+                                      <tr class="text-center">
+                                          <td>1</td>
+                                          <td class="text-start">
+                                              <p>Name :<b class="me-2">nics gonzales</b></p>
+                                              <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                              <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                              <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                           
+                                          </td>
+                                          <td>None</td>
+                                          <td>N/A</td>
+                                          <td  >   
+                                            <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                              <i class="fa-solid fa-bars "></i>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                              <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                              <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                              <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                            </ul>
+                                         
+                                      
+                                            
+                                          </td>
+                                        </tr>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>1</td>
+                                        <td class="text-start">
+                                            <p>Name :<b class="me-2">nics gonzales</b></p>
+                                            <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                            <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                            <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                         
+                                        </td>
+                                        <td>None</td>
+                                        <td>N/A</td>
+                                        <td  >   
+                                          <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-bars "></i>
+                                          </button>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                          </ul>
+                                       
+                                    
+                                          
+                                        </td>
+                                      </tr>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>1</td>
+                                        <td class="text-start">
+                                            <p>Name :<b class="me-2">nics gonzales</b></p>
+                                            <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                            <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                            <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                         
+                                        </td>
+                                        <td>None</td>
+                                        <td>N/A</td>
+                                        <td  >   
+                                          <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-bars "></i>
+                                          </button>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                          </ul>
+                                       
+                                    
+                                          
+                                        </td>
+                                      </tr>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>1</td>
+                                        <td class="text-start">
+                                            <p>Name :<b class="me-2">nics gonzales</b></p>
+                                            <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                            <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                            <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                         
+                                        </td>
+                                        <td>None</td>
+                                        <td>N/A</td>
+                                        <td  >   
+                                          <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-bars "></i>
+                                          </button>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                          </ul>
+                                       
+                                    
+                                          
+                                        </td>
+                                      </tr>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>1</td>
+                                        <td class="text-start">
+                                            <p>Name :<b class="me-2">nics gonzales</b></p>
+                                            <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                            <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                            <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                         
+                                        </td>
+                                        <td>None</td>
+                                        <td>N/A</td>
+                                        <td  >   
+                                          <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-bars "></i>
+                                          </button>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                          </ul>
+                                       
+                                    
+                                          
+                                        </td>
+                                      </tr>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>1</td>
+                                        <td class="text-start">
+                                            <p>Name :<b class="me-2">nics gonzales</b></p>
+                                            <p><small>Address :<b class="me-2">Nasugbu, Batangas</small></b></p>
+                                            <p><small>Contact # :<b class="me-2">09556623356</small></b></p>
+                                            <p><small>Email :<b class="me-2">epelo@gmail.com</small></b></p>
+                                         
+                                        </td>
+                                        <td>None</td>
+                                        <td>N/A</td>
+                                        <td  >   
+                                          <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-bars "></i>
+                                          </button>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-primary w-100 ">View Details</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 ">Edit</button></a></li>
+                                            <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 ">Delete</button></a></li>
+                                          </ul>
+                                       
+                                    
+                                          
+                                        </td>
+                                      </tr>
+                                
+                            
+                             
+                              
+                              
+                              
+                              
+                              
+                               
+                              </tbody>
+                            </table>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      
+        
+          
+                      </div>
+                    </main>
+           
+               
+            </div>
+
+
+ 
+ 
+ <script>
+     $(document).ready( function () {
+     $('#myTable').DataTable();
+ } );
+     </script>
+
+  
+           <script>
+
+            $(document).ready(function(){
+       
+         $("#datatable").dataTable();
+       
+       });
+       
+          </script>
+          <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
+
+          <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+
+           <script src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
+
+	<link href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+     
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+   
+
+   
+    <script>
+        window.addEventListener('DOMContentLoaded', event => {
+        const sidebarToggle = document.body.querySelector('#sidebarToggle');
+        if (sidebarToggle) {
+
+            sidebarToggle.addEventListener('click', event => {
+                event.preventDefault();
+                document.body.classList.toggle('sb-sidenav-toggled');
+                localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+            });
+        }
+
+        });
+    </script>
+
+        <!----SCRIPT BOOTSTRAP 5-->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>   -->
+
+
+    <!-- Bootstrap 5 JS CDN Links -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script> -->
+
+</body>
+</html>
