@@ -599,7 +599,7 @@ if(isset($_POST['submit']))
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            <form>
+                            <form action="MemberList.php" method="POST">
                               <div class="row mb-2 px-4"  >
                                 <div class="col-md-6 " >
 
@@ -1015,12 +1015,19 @@ if(isset($_POST['submit']))
       </script>
 
       <script>
-      $(document).ready(function() { 
-        $('.editbtn').on('click', function()
-        {
+      // $(document).ready(function() { 
+      //   $('.editbtn').on('click', function()
+      //   {
 
-            $('#editMember').modal('show');
-        });
+      //       $('#editMember').modal('show');
+      //   });
+      // });
+      $(document).ready(function() { 
+
+      $(document).on('click','.editbtn', function() 
+      {
+        $('#editMember').modal('show');
+      });
       });
      
     </script>
