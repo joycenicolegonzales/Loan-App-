@@ -2,7 +2,7 @@
 
 $con = mysqli_connect("localhost","root","","loanapp");
 
-if(isset($_POST['submit2']))
+if(isset($_POST['submit']))
 {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -24,9 +24,9 @@ if(isset($_POST['submit2']))
     $image = $_POST['image'];
     $signature = $_POST['signature'];
 
-    $query = "INSERT INTO member (image, signature, name, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion, department,occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
-    employedCompany, presentEmp, emergency, address2, cellphoneNum2) VALUES('$image', '$signature', '$name','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion', '$department','$occupation',
-   '$monthlyIncome','$otherIncome','$spouseName','$numOfDependents','$employedCompany','$presentEmp','$emergency','$address2','$cellphoneNum2')";
+    $query = "INSERT INTO member (firstname, lastname, address, cellphoneNum, age, birthdate, birthPlace,  civilstatus, religion,occupation, monthlyIncome,otherIncome, spouseName, numOfDependents,
+    employedCompany, presentEmp, emergency, image, signature) VALUES('$firstname', '$lastname','$address','$cellphoneNum','$age','$birthdate','$birthPlace','$civilstatus','$religion','$occupation',
+   '$monthlyIncome','$otherIncome','$spouseName','$numOfDependents','$employedCompany','$presentEmp','$emergency','$image', '$signature')";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
@@ -40,4 +40,8 @@ if(isset($_POST['submit2']))
     }
 
 }
-?>
+
+
+ //select.php 
+ 
+
