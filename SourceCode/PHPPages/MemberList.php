@@ -103,7 +103,7 @@
 
             <div id="layoutSidenav_content">
                 <main class="main-container py-2 px-4" style="height: 100vh; background-color: #d9d9d9; " >
-         
+
               
                     <div class="container my-2 bg-light " >
                       <div class="d-flex py-3 justify-content-between">
@@ -116,9 +116,9 @@
                         <div class="table-responsive py-1">
                           <table class="table table-bordered my-2" id="myTable">
                            
-                            <thead  >
+                            <thead>
                               <tr >
-                          
+
                                   <th style="width: 10%;" class="text-center">#</th>
                                   <th style="width: 20%;" class="text-center">Firstname</th>
                                   <th style="width: 20%;" class="text-center">Lastname</th>
@@ -132,24 +132,37 @@
                             
                             </style>
                           <tbody>
+
+                          <?php 
+                                          $query = "SELECT * FROM 'member'":
+                                          $result = mysqli_query($con, $sql);
+                                          while ($row = mysqli_fetch_assoc($result))
+                                          {
+
+                                            ?>
+
                             <tr class="text-center">
-                              <td>1</td>
-                              <td>Efren</td>
-                              <td>Pelo</td>
-                              <td>DSWD</td>
-                              <td>None</td>
+                              <td><?php echoo $row['Member_ID']?>1</td>
+                              <td><?php echoo $row['firstname']?>Efren</td>
+                              <td><?php echoo $row['lastname']?>Pelo</td>
+                              <td><?php echoo $row['department']?>DSWD</td>
+                              <td><?php echoo $row['id']?>None</td>
                               <td>
                                 <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                   <i class="fa-solid fa-bars "></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <li></li>
-                                  <li><a class="dropdown-item" href="#"><button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">View Details</button></a></li>
-                                  <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 "  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li>
-                                  <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 " data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button></a></li>
+                                  <li><a class="dropdown-item" href="view.php?=id=<?php echo $row['Member_ID'] ?>"><button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">View Details</button></a></li>
+                                  <li><a class="dropdown-item" href="edit.php"><button type="button" class="btn btn-success w-100 "  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li>
+                                  <li><a class="dropdown-item" href="delete.php"><button type="button" class="btn btn-danger w-100 " data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button></a></li>
                                 </ul>
                               </td>
                             </tr>
+                            <?php
+
+                                          }
+                                      
 
                           
                           </tbody>
