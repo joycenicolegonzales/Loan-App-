@@ -1,37 +1,36 @@
-
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "loanapp");  
- $query = "SELECT * FROM member ORDER BY Member_ID DESC";  
+ $connect = mysqli_connect("localhost", "root", "", "testing");  
+ $query = "SELECT * FROM tbl_employee ORDER BY id DESC";  
  $result = mysqli_query($connect, $query);  
  ?>  
-
-
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Member List</title>
-        <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> -->
+        <meta name="author" content="" /> 
+
+        <title>Webslesson Tutorial | PHP Ajax Update MySQL Data Through Bootstrap Modal</title>  
+
         <link href="dashstyles.css" rel="stylesheet" />
         <!-- <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script> -->
         <script src="https://kit.fontawesome.com/1c020da525.js" crossorigin="anonymous"></script>  
         
-
-        <script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+			<script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
 		<script>
 		  (adsbygoogle = window.adsbygoogle || []).push({
 			google_ad_client: "ca-pub-4529508631166774",
 			enable_page_level_ads: true
 		  });
 		</script>
-    
-    
+
+                
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>    
+
+
+    
 
 </head>
 
@@ -118,120 +117,78 @@
             </div>
 
 
-
-            <div id="layoutSidenav_content">
+     
+      <body>  
+           <br /><br />  
+           <div id="layoutSidenav_content">
                 <main class="main-container py-2 px-4" style="height: 100vh; background-color: #d9d9d9; " >
 
-
-                <div class="col-md-3">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- webslesson_sidebarrightsec_AdSense1_1x1_as -->
-                <ins class="adsbygoogle"
-                  style="display:block"
-                  data-ad-client="ca-pub-4529508631166774"
-                  data-ad-host="ca-host-pub-1556223355139109"
-                  data-ad-host-channel="L0001"
-                  data-ad-slot="8049812049"
-                  data-ad-format="auto"></ins>
-                <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-              </div>
-
-
+           <!-- <div class="container" style="width:700px; margin-top: 10%;">   -->
+                
+				<div class="col-md-3">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- webslesson_sidebarrightsec_AdSense1_1x1_as -->
+					<ins class="adsbygoogle"
+						 style="display:block"
+						 data-ad-client="ca-pub-4529508631166774"
+						 data-ad-host="ca-host-pub-1556223355139109"
+						 data-ad-host-channel="L0001"
+						 data-ad-slot="8049812049"
+						 data-ad-format="auto"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
 
                     <div class="container my-2 bg-light " >
                       <div class="d-flex py-3 justify-content-between">
-                        <h4>List of Members</h4>
-                        <!-- <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add</button>   -->
-                        <button type="button" name="add" id="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_data_Modal">
-                                Add Member
-                              </button>
-                        
-                      </div>
-                    <div class="row my-1 justify-content-center">
-                      <div class="div  py-1" style="max-height:520px ; overflow-y: scroll; ">
-                        <div class="table-responsive py-1">
-
-
-                        <div id="member_table">  
+                         
+				<div class="col-md-12 " >
                    
-
-                          <table class="table table-bordered my-2" id="myTable">
-                           
-                            <!-- <thead> -->
-                            <tr>  
-                            <th width="10%">#</th>  
-                          <th width="30%">FirstName</th>  
-                          <th width="25%">LastName</th> 
-                          <th width="25%">Address</th>
-                          <th width="25%">Edit</th>
-                          <th width="25%">View</th>   
-                          </tr>  
-                            <!-- </thead> -->
-
-                            <?php
-                              if($result){
-                                foreach($result as $row){
-                                  ?>
-                            <tr>  
-                            <td><?php echo $row['Member_ID']; ?></td>
-                            <td><?php echo $row['firstname']; ?></td>
-                            <td><?php echo $row['lastname']; ?></td>
-                            <td><?php echo $row['address']; ?></td>
-                              <td><input type="button" name="edit_data" value="Edit" id="<?php echo $row["Member_ID"]; ?>" class="btn btn-info btn-xs edit_data" /></td> 
-                              
-                              <td><input type="button" name="view" value="view" id="<?php echo $row["Member_ID"]; ?>" class="btn btn-info btn-xs view_data" /></td>  
-                            </tr>  
-                            <?php
-                                }
-                              } else
-                              {
-                                    echo "No Record Found";
-                              }
-                          ?>
-                              
-                                        
-                                          <!-- <td>
-                                           
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                              <li></li>
-                                              <li><button type="button" class="dropdown-item btn btn-primary viewbtn w-100 text-center" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">View Details</button></li>
-                                              <li><button type="button" class="dropdown-item btn btn-success editbtn w-100 text-center"  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></li>
-                                              <li><a class="dropdown-item" href=""><button type="button" class="btn btn-danger w-100 " data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button></a></li>
-                                            </ul>
-                                          </td> -->
-                                        
-                          </table>
+					<div class="table-responsive">  
+						 <div class="d-flex justify-content-between">  
+                               <h4>List of Members</h4>
+							  <!-- <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add</button>   -->
+                                     <button type="button" name="add" id="add" data-bs-toggle="modal" data-bs-target="#add_data_Modal" class="btn btn-warning">Add</button>  
+						 </div> <!--   <button type="button" name="add" id="add" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_data_Modal"> -->
                           
-                        </div>
-                        
-                      </div>
-                    </div>
-                    </div>
-                            </div>
-
-                            <script>
-			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-			  ga('create', 'UA-87739877-1', 'auto');
-			  ga('send', 'pageview');
-
-			</script>
-                 
-             
-                 
+						 <br />  
+                               <div class="row my-1 justify-content-center">
+                      <div class="div  py-1" style="max-height:520px ; overflow-y: scroll; ">
+                      <div id="employee_table">  
+                          <table class="table table-bordered">  
+                               <tr>  
+                                    <th width="70%">Employee Name</th>  
+                                    <th width="15%">Edit</th>  
+                                    <th width="15%">View</th>  
+                               </tr>  
+                               <?php  
+                               while($row = mysqli_fetch_array($result))  
+                               {  
+                               ?>  
+                               <tr>  
+                                    <td><?php echo $row["firstname"]; ?></td>  
+                                    <td><input type="button" name="edit" value="Edit" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>  
+                                    <td><input type="button" name="view" value="view" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs view_data" /></td>  
+                               </tr>  
+                               <?php  
+                               }  
+                               ?>  
+                          </table>  
+                     </div>  
+                </div>  
+           </div>  
+      </body>  
+ </html>  
  <div id="dataModal" class="modal fade">  
       <div class="modal-dialog">  
            <div class="modal-content">  
                 <div class="modal-header">  
-                     <button type="button" class="close" data-dismiss="modal">&times;</button>  
-                     <h4 class="modal-title">Member's Information</h4>  
+          
+                     <h4 class="modal-title">Employee Details</h4>  
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
                 </div>  
-                <div class="modal-body" id="member_detail">  
+                <div class="modal-body" id="employee_detail">  
                 </div>  
                 <div class="modal-footer">  
                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
@@ -239,101 +196,51 @@
            </div>  
       </div>  
  </div>  
-      
- <!-- <div id="add_data_Modal" class="modal fade">  
-      <div class="modal-dialog">  
+ 
+ <div id="add_data_Modal" class="modal fade">  
+      <div class="modal-dialog modal-dialog-centered modal-fullscreen">  
            <div class="modal-content">  
                 <div class="modal-header">  
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-       
-                     <h4 class="modal-title">Edit Member Details</h4>  
+                <h5 class="modal-title" id="exampleModalToggleLabel">Add New Member</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
                 </div>  
                 <div class="modal-body">  
                      <form method="post" id="insert_form">  
-                          <label>Enter Employee Name</label>  
-                          <input type="text" name="name" id="name" class="form-control" />  
-                          <br />  
-                          <label>Enter Employee Address</label>  
-                          <textarea name="address" id="address" class="form-control"></textarea>  
-                          <br />  
-                          <label>Select Gender</label>  
-                          <select name="gender" id="gender" class="form-control">  
-                               <option value="Male">Male</option>  
-                               <option value="Female">Female</option>  
-                          </select>  
-                          <br />  
-                          <label>Enter Designation</label>  
-                          <input type="text" name="designation" id="designation" class="form-control" />  
-                          <br />  
-                          <label>Enter Age</label>  
-                          <input type="text" name="age" id="age" class="form-control" />  
-                          <br />  
-                          <input type="hidden" name="employee_id" id="employee_id" />  
-                        
-                          <button type="submit" name="insert" id="insert" class="btn btn-success">Submit</button>
-                     </form>  
-                </div>  
-              
-           </div>  
-      </div>  
- </div>   -->
+                     <div class="row mb-2 px-4" >
 
-                     
-<!-- ========== Add Member ========== -->
-<div class="modal fade" id="add_data_Modal" aria-hidden="true" aria-labelledby="addMember" tabindex="-1">
+                    <div class="col-md-6 " >
+                    <div class="form-outline">
+                    <label class="form-label" for="name">Firstname</label>
+                    <input type="text" id="firstname" name="firstname" class="form-control form-control-md" />
+                    </div>
+                    </div>
+                    <div class="col-md-6 ">
 
-<div class="modal-dialog modal-dialog-centered modal-fullscreen">
-  
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalToggleLabel">Add New Member</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
- 
-    <div class="modal-body">
-    <form method="post" id="insert_form">
-      <div class="row mb-2 px-4"  >
-          <div class="col-md-6 " >
+                    <div class="form-outline">
+                    <label class="form-label" for="name">LastName</label>
+                    <input type="text" id="name" name="lastname" class="form-control form-control-md"/>
+                    </div>
 
-            <div class="form-outline">
-              <label class="form-label" for="name">Firstname</label>
-              <input type="text" id="name" name="firstname" class="form-control form-control-md" />
-          
-              
-             
-            </div>
+                    </div>
 
-          </div>
+                    </div>
+                    <div class="row mb-2 px-4"  >
+                         <div class="col-md-6 ">
+                         <div class="form-outline">
+                         <label class="form-label" for="presentAddress">Present Address</label>
+                         <textarea name="address" id="address" class="form-control"></textarea>  
+                         </div>
+                         </div>
 
-          <div class="col-md-6 ">
-
-            <div class="form-outline">
-              <label class="form-label" for="name">LastName</label>
-              <input type="text" id="name" name="lastname" class="form-control form-control-md"/>
-            </div>
-      
-       </div>
-
-          
-        </div>
-        <div class="row mb-2 px-4"  >
-          <div class="col-md-6 ">
-            <div class="form-outline">
-              <label class="form-label" for="presentAddress">Present Address</label>
-              <input type="text" id="presentAddress" name="address" class="form-control form-control-md"/>
-            </div>
-          </div>
-
-          <div class="col-md-6 ">
-            <div class="form-outline">
-              <label for="cellphoneNum" class="form-label">Cellphone No. </label>
-              <input type="text" name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum" />
-           
-            </div>
-          </div>
-        </div>
-
-        <div class="row mb-2 px-4">
+                         <div class="col-md-6 ">
+                         <div class="form-outline">
+                         <label for="cellphoneNum" class="form-label">Cellphone No. </label>
+                         <input type="text" name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum" />
+                         
+                         </div>
+                         </div>
+                    </div>
+                    <div class="row mb-2 px-4">
           <div class="col-md-3 d-flex align-items-center">
 
             <div class="form-outline  w-100">
@@ -359,7 +266,6 @@
                 </div>
           </div>
         </div>
-
         <div class="row mb-2 px-4">               
           <div class="col-md-6   pb-2">
             <label class="form-label select-label">Civil Status </label>
@@ -382,7 +288,7 @@
         </div>
         </div>
 
-        <!--  -->
+      
         <div class="row mb-2 px-4">
           <div class="col-md-4 pb-2">
 
@@ -470,49 +376,18 @@
             </div>
           </div>
         </div>
-
-        <!-- 
-        <div class="row mb-2 px-4">
-          <div class="col-md-6 mx-auto py-5 ">
-            <input type="file" name="image" id="img"  accept="image/*" onchange="previewImage(event)"
-            data-parsley-trigger="keyup" class="form-control form-control-md"  />
-            <label for="image">Your 2x2 Photo with white background</label>
-            </div>
-
-            <div class="col-md-6  d-flex justify-content-center">
-              <div style="width: 110px; height: 110px; border: 1px solid black;" >
-              <img id="image-preview" src="" class="center-image" style="width:110px;">
-            </div>
-           
-            </div>  
-        </div>
-
-
-        <div class="row mb-1 px-4">
-          <div class="col-md-6 mx-auto py-5">
-            <input type="file" name="signature" id="signature" accept="image/*" onchange="previewImage2(event)"
-            data-parsley-trigger="keyup" class="form-control form-control-md"  />
-            <label for="image">Signature</label>
-            </div>
-            <div class="col-md-6  d-flex justify-content-center">
-              <div style="width: 180px; height: 110px; border: 1px solid black; ">
-              <img id="image-preview2" src="" style="width: 180px;">
-            </div>
-            </div>
-        </div>
-      -->
-    </div>
-    <div class="modal-footer">
-<input type="hidden" name="Member_ID" id="Member_ID" />
-   <button type="submit" name="insert" id="insert" class="btn btn-success">Submit</button>
-     </div>
-     </form>
-  </div>
-</div>
-</div>
-<!-- ========== Add Member END ========== -->
-
-
+        <div class="modal-footer">         
+                          <input type="hidden" name="employee_id" id="employee_id" />  
+                          <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
+                              </div>  
+                     </form>  
+                </div>  
+                <!-- <div class="modal-footer">  
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                </div>   -->
+           </div>  
+      </div>  
+ </div>  
  <script>  
  $(document).ready(function(){  
       $('#add').click(function(){  
@@ -520,17 +395,16 @@
            $('#insert_form')[0].reset();  
       });  
       $(document).on('click', '.edit_data', function(){  
-           var Member_ID = $(this).attr("id");  
+           var employee_id = $(this).attr("id");  
            $.ajax({  
                 url:"fetch.php",  
                 method:"POST",  
-                data:{Member_ID:Member_ID},  
+                data:{employee_id:employee_id},  
                 dataType:"json",  
                 success:function(data){  
-                     $('#Member_ID').val(data.Member_ID);  
-                     $('#firstname').val(data.firstname);  
+                     $('#firstname').val(data.firstname); 
                      $('#lastname').val(data.lastname);  
-                     $('#address').val(data.address); 
+                     $('#address').val(data.address);  
                      $('#cellphoneNum').val(data.cellphoneNum);  
                      $('#age').val(data.age);  
                      $('#birthdate').val(data.birthdate);   
@@ -546,24 +420,23 @@
                      $('#presentEmp').val(data.presentEmp);  
                      $('#emergency').val(data.emergency);  
                      
-                    //  $('#Member_ID').val(data.Member_ID);  
+                     $('#employee_id').val(data.id);  
                      $('#insert').val("Update");  
-                     $('#dataModal').modal('show');  
+                     $('#add_data_Modal').modal('show');  
                 }  
            });  
       });  
-     
       $('#insert_form').on("submit", function(event){  
            event.preventDefault();  
            if($('#firstname').val() == "")  
            {  
-                alert("Firstname is required");  
+                alert("Name is required");  
            }  
-           else if($('#lastname').val() == '')  
-           {  
-                alert("Lastname is required");  
-           }  
-          //  else if($('#address').val() == '')  
+          //  else if($('#lastname').val() == '')  
+          //  {  
+          //       alert("Lastname is required");  
+          //  }  
+          //  else if($('#Address').val() == '')  
           //  {  
           //       alert("Address is required");  
           //  }  
@@ -573,7 +446,7 @@
           //  }  
           //  else if($('#age').val() == '')  
           //  {  
-          //       alert("Age No. is required");  
+          //       alert("Age is required");  
           //  }  
           //  else if($('#birthdate').val() == '')  
           //  {  
@@ -586,51 +459,32 @@
           //  else if($('#civilstatus').val() == '')  
           //  {  
           //       alert("Civil Status is required");  
-          //  }  
+          //  } 
           //  else if($('#religion').val() == '')  
           //  {  
           //       alert("Religion is required");  
-          //  } 
+          //  }   
           //  else if($('#occupation').val() == '')  
           //  {  
-          //       alert("occupation is required");  
+          //       alert("Occupation is required");  
           //  }  
           //  else if($('#monthlyIncome').val() == '')  
           //  {  
           //       alert("Monthly Income is required");  
-          //  }   
-          //  else if($('#otherIncome').val() == '')  
-          //  {  
-          //       alert("Other Income is required");  
-          //  }    
-          //  else if($('#spouseName').val() == '')  
-          //  {  
-          //       alert("Spouse Name is required");  
-          //  }   
+          //  }  
+             
           //  else if($('#numOfDependents').val() == '')  
           //  {  
           //       alert("No. of Dependents is required");  
-          //  }   
+          //  }  
           //  else if($('#employedCompany').val() == '')  
           //  {  
           //       alert("Employed Company is required");  
-          //  }   
-          //  else if($('#presentEmp').val() == '')  
+          //  }  
+          //  else if($('#cellphoneNum').val() == '')  
           //  {  
-          //       alert("Present Employment is required");  
-          //  }   
-          //  else if($('#emergency').val() == '')  
-          //  {  
-          //       alert("Emergency is required");  
-          //  }   
-          //  else if($('#image').val() == '')  
-          //  {  
-          //       alert("Image is required");  
-          //  } 
-          //  else if($('#signature').val() == '')  
-          //  {  
-          //       alert("Signature is required");  
-          //  }     
+          //       alert("Phone No. is required");  
+          //  }  
            else  
            {  
                 $.ajax({  
@@ -643,21 +497,21 @@
                      success:function(data){  
                           $('#insert_form')[0].reset();  
                           $('#add_data_Modal').modal('hide');  
-                          $('#member_table').html(data);  
+                          $('#employee_table').html(data);  
                      }  
                 });  
            }  
       });  
       $(document).on('click', '.view_data', function(){  
-           var Member_ID = $(this).attr("Member_ID");  
-           if(Member_ID != '')  
+           var employee_id = $(this).attr("id");  
+           if(employee_id != '')  
            {  
                 $.ajax({  
                      url:"select.php",  
                      method:"POST",  
-                     data:{Member_ID:Member_ID},  
+                     data:{employee_id:employee_id},  
                      success:function(data){  
-                          $('#member_detail').html(data);  
+                          $('#employee_detail').html(data);  
                           $('#dataModal').modal('show');  
                      }  
                 });  
@@ -665,13 +519,93 @@
       });  
  });  
  </script>
-                  </main> 
-             
-            
-                <script>
+    
+
+<!-- <script> 
+
+ $(document).ready(function(){  
+      $('#add').click(function(){  
+           $('#insert').val("Insert");  
+           $('#insert_form')[0].reset();  
+      });      
+      $(document).on('click', '.edit_data', function(){  
+           var employee_id = $(this).attr("id");  
+           $.ajax({  
+                url:"fetch.php",  
+                method:"POST",  
+                data:{employee_id:employee_id},  
+                dataType:"json",  
+                success:function(data){  
+                       
+                     $('#firstname').val(data.firstname);  
+                     $('#lastname').val(data.lastname);  
+                     $('#address').val(data.address);  
+                       
+                     $('#employee_id').val(data.id);  
+                     $('#insert').val("Update");  
+                     $('#add_data_Modal').modal('show');  
+                }  
+           });  
+      });  
+      $('#insert_form').on("submit", function(event){  
+           event.preventDefault();  
+           if($('#firstname').val() == "")  
+           {  
+                alert("Name is required");  
+           }  
+           else if($('#address').val() == '')  
+           {  
+                alert("Address is required");  
+           }  
+           else if($('#designation').val() == '')  
+           {  
+                alert("Designation is required");  
+           }  
+           else if($('#age').val() == '')  
+           {  
+                alert("Age is required");  
+           }  
+           else  
+           {  
+               $.ajax({  
+                     url:"insert.php",  
+                     method:"POST",  
+                     data:$('#insert_form').serialize(),  
+                     beforeSend:function(){  
+                          $('#insert').val("Inserting");  
+                     },  
+                     success:function(data){  
+                          $('#insert_form')[0].reset();  
+                          $('#add_data_Modal').modal('hide');  
+                          $('#employee_table').html(data);  
+                     }  
+                });  
+           }  
+      });  
+      $(document).on('click', '.view_data', function(){  
+           var employee_id = $(this).attr("id");  
+           if(employee_id != '')  
+           {  
+                $.ajax({  
+                     url:"select.php",  
+                     method:"POST",  
+                     data:{employee_id:employee_id},  
+                     success:function(data){  
+                          $('#employee_detail').html(data);  
+                          $('#dataModal').modal('show');  
+                     }  
+                });  
+           }            
+      });  
+ });  
+ </script> 
+
+    -->
+
+     <script>
 
                     // get the table element
-                    var $table = document.getElementById("myTable"),
+                    var $table = document.getElementByClass("myTable"),
                     // number of rows per page
                     $n = 15,
                     // number of rows of the table
@@ -738,8 +672,8 @@
                 </script>
             
                
-               
-            </div>
+                    
+               </div>
 
    
     <script>
@@ -756,19 +690,12 @@
 
         });
     </script>
-   <!-- --SCRIPT BOOTSTRAP 5-->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>   -->
-
+ 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap 5 JS CDN Links -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/js/jquery.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.min.js/1.14.6/umd/popper.min.js"></script> 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.min.js/1.14.6/umd/popper.min.js"></script>  
 
     <script>
       function previewImage(event) {
