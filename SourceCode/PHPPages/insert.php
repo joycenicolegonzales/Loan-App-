@@ -4,6 +4,7 @@
  {  
       $output = '';  
       $message = '';  
+      $member_id = mysqli_real_escape_string($connect, $_POST["MemberID"]);
       $firstname = mysqli_real_escape_string($connect, $_POST["firstname"]);  
       $lastname = mysqli_real_escape_string($connect, $_POST["lastname"]);  
       $address = mysqli_real_escape_string($connect, $_POST["address"]);  
@@ -46,7 +47,7 @@
            employedCompany='$employedCompany',
            presentEmp='$presentEmp',
            emergency='$emergency',
-           WHERE Member_ID='".$_POST["Member_ID"]."'";  
+           WHERE Member_ID='".$_POST["Mem_ID"]."'";  
            $message = 'Data Updated';  
       }  
       else  
