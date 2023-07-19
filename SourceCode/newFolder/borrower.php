@@ -332,7 +332,7 @@
                                                          
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label>Present Employmentt</label>
+                                                                    <label>Present Employment</label>
                                                                     <input type="text" name="employment" value="<?php echo $fetch['employment']?>" class="form-control" />
                                                                 </div>
                                                             </div>
