@@ -519,7 +519,7 @@
 										$tbl_borrower=$db->display_borrower();
 										while($fetch=$tbl_borrower->fetch_array()){
 									?>
-										<option value="<?php echo $fetch['borrower_id']?>"><?php echo $fetch['lastname'].", ".$fetch['firstname']." ".substr($fetch['middlename'], 0, 1)?>.</option>
+										<option value="<?php echo $fetch['borrower_id']?>"><?php echo $fetch['lastname'].", ".$fetch['firstname']?>.</option>
 									<?php
 										}
 									?>
