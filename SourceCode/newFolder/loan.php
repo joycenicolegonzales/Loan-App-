@@ -572,7 +572,7 @@
 							</div>
 						</div>
 						<hr>
-						<div class="row" id="calcTable">
+						<!-- <div class="row" id="calcTable">
 							<div class="col-xl-4 col-md-4">
 								<center><span>Total Payable Amount</span></center>
 								<center><span id="tpa"></span></center>
@@ -585,7 +585,7 @@
 								<center><span>Penalty Amount</span></center>
 								<center><span id="pa"></span></center>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="modal-footer">
 						<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
