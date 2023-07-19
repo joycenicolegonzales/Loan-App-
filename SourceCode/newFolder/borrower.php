@@ -329,10 +329,10 @@
                                                                     <input type="text" name="company" value="<?php echo $fetch['company']?>" class="form-control" />
                                                                 </div>
                                                             </div>
-                                                        
+                                                         
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label>Present Employment</label>
+                                                                    <label>Present Employmentt</label>
                                                                     <input type="text" name="employment" value="<?php echo $fetch['employment']?>" class="form-control" />
                                                                 </div>
                                                             </div>
