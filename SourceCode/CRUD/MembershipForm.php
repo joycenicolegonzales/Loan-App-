@@ -181,7 +181,7 @@ session_start();
           //   array_push($errors,"All fields are required");
           //  }
 
-           require_once "database.php";
+           require_once "fet
            $sql = "SELECT * FROM member WHERE name = '$name'";
            $result = mysqli_query($con, $sql);
            $rowCount = mysqli_num_rows($result);
@@ -442,7 +442,7 @@ session_start();
                   </div>
                   </div>
 
-                  <div class="row">
+                  <!-- <div class="row">
                   <div class="col-md-6 mb-4">
                     <input type="file" name="image" accept=".jpg, .jpeg, .png"  onchange="previewImage(event)"
                     data-parsley-trigger="keyup" class="form-control form-control-lg" style="margin-top: 15%; border: 2px solid black;" />
@@ -468,7 +468,7 @@ session_start();
                       <img id="image-preview2" src=""  style="width: 200px;">
                     </div>
                     </div>  
-                </div>   
+                </div>    -->
                 <!-- <p style="font-weight: 600;color:black;" > Data Privacy Content</p>
                 <p style="font-weight: 300;color:black; text-align: justify;" > "In compliance with the Data Privacy Act (DPA) of 2012 and Credit Information Corporation (CIC), and its Implementing Rules and Regulations, I agree and authorize Tagum Cooperative to use my Personal Information to process any transaction related in the availment of Tagum Cooperative's Products and Services, including the insurance services and administer the benefits as stated in the policy and other service agreements and inform me of future customer campaigns and base its offer using the personal information I shared with the company." *t</p>
                 <p style="font-size: 15px; font-weight: 500;"> Checkbox *</p>

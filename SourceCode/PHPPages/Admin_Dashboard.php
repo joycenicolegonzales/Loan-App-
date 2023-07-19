@@ -156,13 +156,13 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading text-white ">Core</div>
-                            <a class="nav-link active" href="Admin_Dashboard.html">
+                            <a class="nav-link active" href="MemberList.php">
                                 <div class="sb-nav-link-icon "><i class="fas fa-tachometer-alt "></i></div>
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading text-white">Member</div>
                             <a class="nav-link px-2" href="MemberList.php"><i class="fa-solid fa-user-group  me-2"></i> List of Members</a>
-                            <a class="nav-link px-2" href="Member_Approval.html"><i class="fa-solid fa-user-check  me-1"></i>  Membership Approval </a>
+                            <a class="nav-link px-2" href="Member_Approval.php"><i class="fa-solid fa-user-check  me-1"></i>  Membership Approval </a>
                 
                        
                             <div class="sb-sidenav-menu-heading text-white">Loans</div>

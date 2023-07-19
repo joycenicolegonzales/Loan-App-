@@ -1,6 +1,6 @@
 <?php  
  $connect = mysqli_connect("localhost", "root", "", "testing");  
- $query = "SELECT * FROM tbl_employee ORDER BY id DESC";  
+ $query = "SELECT * FROM member ORDER BY id DESC";  
  $result = mysqli_query($connect, $query);  
  ?>  
 <html lang="en">
@@ -26,10 +26,11 @@
 		</script>
 
                 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>    
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>     -->
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
     
 
 </head>
@@ -96,13 +97,13 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading text-white ">Core</div>
-                            <a class="nav-link text-white" href="Admin_Dashboard.html">
+                            <a class="nav-link text-white" href="Admin_Dashboard.php">
                                 <div class="sb-nav-link-icon text-white"><i class="fas fa-tachometer-alt  "></i></div>
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading text-white">Member</div>
-                            <a class="nav-link active px-2 text-white" href="MemberList.html"><i class="fa-solid fa-user-group  me-2"></i> List of Members</a>
-                            <a class="nav-link  px-2 text-white" href="Member_Approval.html"><i class="fa-solid fa-user-check  me-1"></i>  Membership Approval </a>
+                            <a class="nav-link active px-2 text-white" href="MemberList.php"><i class="fa-solid fa-user-group  me-2"></i> List of Members</a>
+                            <a class="nav-link  px-2 text-white" href="MemberApproval.php"><i class="fa-solid fa-user-check  me-1"></i>  Membership Approval </a>
                 
                        
                             <div class="sb-sidenav-menu-heading text-white">Loans</div>
@@ -154,13 +155,18 @@
                           
 						 <br />  
                                <div class="row my-1 justify-content-center">
-                      <div class="div  py-1" style="max-height:520px ; overflow-y: scroll; ">
+                      <div class="div  py-1" style="max-height:520px ;  ">
                       <div id="employee_table">  
-                          <table class="table table-bordered">  
+                          <table class="table table-bordered" style="overflow-y: scroll;">  
                                <tr>  
-                                    <th width="70%">Employee Name</th>  
+                                    <th width="40%">Firstname</th>  
+                                    <th width="30%">Lastname</th> 
+                                    <th width="20%">Address</th>   
                                     <th width="15%">Edit</th>  
                                     <th width="15%">View</th>  
+                                    <th width="15%">Delete</th>  
+                                    
+
                                </tr>  
                                <?php  
                                while($row = mysqli_fetch_array($result))  
@@ -168,8 +174,11 @@
                                ?>  
                                <tr>  
                                     <td><?php echo $row["firstname"]; ?></td>  
+                                    <td><?php echo $row["lastname"]; ?></td>  
+                                    <td><?php echo $row["address"]; ?></td>  
                                     <td><input type="button" name="edit" value="Edit" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>  
                                     <td><input type="button" name="view" value="view" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs view_data" /></td>  
+                                    <td><input type="button" name="delete" value="delete" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs delete_data" /></td> 
                                </tr>  
                                <?php  
                                }  
@@ -180,6 +189,7 @@
            </div>  
       </body>  
  </html>  
+
  <div id="dataModal" class="modal fade">  
       <div class="modal-dialog">  
            <div class="modal-content">  
@@ -196,9 +206,92 @@
            </div>  
       </div>  
  </div>  
+
+ <!-- <div id="editModal" class="modal fade">  
+      <div class="modal-dialog">  
+           <div class="modal-content">  
+                <div class="modal-header">  
+          
+                     <h4 class="modal-title">Edit Student Data</h4>  
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+                </div>  
+                <form action="updatecode.php" method="POST">
+                <div class="modal-body">
+
+                    <input type="hidden" name="update_id" id="update_id">
+
+                    <div class="form-group">
+                    <label> First Name </label>
+                    <input type="text" name="fname" id="fname" class="form-control"
+                         placeholder="Enter First Name">
+                    </div>
+
+                    <div class="form-group">
+                    <label> Last Name </label>
+                    <input type="text" name="lname" id="lname" class="form-control"
+                         placeholder="Enter Last Name">
+                    </div>
+
+                    <div class="form-group">
+                    <label> Course </label>
+                    <input type="text" name="course" id="course" class="form-control"
+                         placeholder="Enter Course">
+                    </div>
+
+                    <div class="form-group">
+                    <label> Phone Number </label>
+                    <input type="text" name="contact" id="contact" class="form-control"
+                         placeholder="Enter Phone Number">
+                    </div>
+                    </div>
+                <div class="modal-footer">  
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Update Data</button>  
+                </div>  
+           </div>  
+      </div>  
+ </div>   -->
+
+ <!-- <div id="dataModal" class="modal fade">  
+      <div class="modal-dialog">  
+           <div class="modal-content">  
+                <div class="modal-header">  
+          
+                     <h4 class="modal-title">Employee Details</h4>  
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+                </div>  
+                <div class="modal-body" id="employee_detail">  
+                </div>  
+                <div class="modal-footer">  
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                </div>  
+           </div>  
+      </div>  
+ </div>   -->
+
+ <div id="delete_data_Modal" class="modal fade">  
+      <div class="modal-dialog">  
+           <div class="modal-content">  
+                <div class="modal-header">  
+                         
+                     <h4 class="modal-title">Delete Member</h4>  
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+                </div>  
+                <div class="modal-body" id="delete_mem"> 
+                    <input type="hidden" id="delete_id">
+                    <h4>Are you sure you want to delete this data?</h4> 
+                </div>  
+                <div class="modal-footer">  
+                     <input type="button" name="close"  value="Close" data-bs-dismiss="modal" class="btn btn-default" />
+                     <input type="submit" name="delete_mem"  value="Delete"  data-bs-dismiss="modal" class="btn btn-danger" onclick="deleteData();" /> 
+                </div>  
+            </div>
+      </div>  
+ </div>
+
  
  <div id="add_data_Modal" class="modal fade">  
-      <div class="modal-dialog modal-dialog-centered modal-fullscreen">  
+      <div class="modal-dialog modal-dialog-centered modal-XL">  
            <div class="modal-content">  
                 <div class="modal-header">  
                 <h5 class="modal-title" id="exampleModalToggleLabel">Add New Member</h5>
@@ -218,7 +311,7 @@
 
                     <div class="form-outline">
                     <label class="form-label" for="name">LastName</label>
-                    <input type="text" id="name" name="lastname" class="form-control form-control-md"/>
+                    <input type="text" id="lastname" name="lastname" class="form-control form-control-md"/>
                     </div>
 
                     </div>
@@ -228,14 +321,14 @@
                          <div class="col-md-6 ">
                          <div class="form-outline">
                          <label class="form-label" for="presentAddress">Present Address</label>
-                         <textarea name="address" id="address" class="form-control"></textarea>  
+                         <input type="text" id="address" name="address" class="form-control form-control-md"/> 
                          </div>
                          </div>
 
                          <div class="col-md-6 ">
                          <div class="form-outline">
                          <label for="cellphoneNum" class="form-label">Cellphone No. </label>
-                         <input type="text" name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum" />
+                         <input type="text"  name ="cellphoneNum" class="form-control form-control-md" id="cellphoneNum" />
                          
                          </div>
                          </div>
@@ -267,22 +360,19 @@
           </div>
         </div>
         <div class="row mb-2 px-4">               
-          <div class="col-md-6   pb-2">
-            <label class="form-label select-label">Civil Status </label>
-            <select class="select form-control form-control-" name="civilstatus" > 
-              <option value=""> -- Select Civil Status -- </optimdon>
-                <option value="single">Single</option>
-                <option value="married">Married</option>
-                <option value="live-in-partner">Live-in Partner</option>
-                <option value="widowed">Widowed</option>
-                <option value="separated">Separated</option>
-              </select>                                 
-           
+          <div class="col-md-6 pb-2">
+          <label class="form-label select-label">Civil Status</label>
+            <select class="select form-control form-control-md" name="civilstatus"  id="civilstatus" >
+               <option value="Single">Single</option>
+               <option value="Married">Married</option> 
+                <option value="Widowed">Widowed</option>
+                <option value="Separated">Separated</option>
+            </select>
           </div>                     
           <div class="col-md-6  pb-2">                 
             <div class="form-outline">
               <label class="form-label" for="Religion">Religion</label>
-              <input type="text" id="Religion" name="religion" class="form-control form-control-md"  />
+              <input type="text" id="religion" name="religion" class="form-control form-control-md"  />
               
             </div>
         </div>
@@ -301,22 +391,16 @@
           </div>
 
           <div class="col-md-4 pb-2">
-            <label class="form-label select-label">Monthly Income</label>
-            <select class="select form-control form-control-md" name="monthlyIncome" >
-              <option value="P5000-P10,000">P5000-P10,000</option>
-              <option value="P10,000-P15,000">P10,000-P15,000</option>
-              <option value="P15,000-P20,000">P15,000-P20,000</option> 
-              <option value="P20,000-P25,000">P20,000-P25,000</option>
-            </select>
            
-          
+            <label class="form-label select-label">Monthly Income</label>
+            <input type="text" name="monthlyIncome" id="monthlyIncome" class="form-control form-control-md" />
           </div>
 
           <div class="col-md-4 pb-2">
 
             <div class="form-outline">
               <label class="form-label" for="otherIncome">Other Sources of Income</label>
-              <input type="text" id="otherIncome"  name="otherIncome"class="form-control form-control-lg" /> 
+              <input type="text" id="otherIncome"  name="otherIncome" class="form-control form-control-md" /> 
             </div>
 
           </div>
@@ -382,19 +466,20 @@
                               </div>  
                      </form>  
                 </div>  
-                <!-- <div class="modal-footer">  
-                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
-                </div>   -->
+               
            </div>  
       </div>  
  </div>  
+
+
+
  <script>  
  $(document).ready(function(){  
       $('#add').click(function(){  
            $('#insert').val("Insert");  
            $('#insert_form')[0].reset();  
-      });  
-      $(document).on('click', '.edit_data', function(){  
+      });   
+     $(document).on('click', '.edit_data', function(){  
            var employee_id = $(this).attr("id");  
            $.ajax({  
                 url:"fetch.php",  
@@ -402,7 +487,7 @@
                 data:{employee_id:employee_id},  
                 dataType:"json",  
                 success:function(data){  
-                     $('#firstname').val(data.firstname); 
+                    $('#firstname').val(data.firstname); 
                      $('#lastname').val(data.lastname);  
                      $('#address').val(data.address);  
                      $('#cellphoneNum').val(data.cellphoneNum);  
@@ -418,12 +503,13 @@
                      $('#numOfDependents').val(data.numOfDependents);  
                      $('#employedCompany').val(data.employedCompany);  
                      $('#presentEmp').val(data.presentEmp);  
-                     $('#emergency').val(data.emergency);  
+                     $('#emergency').val(data.emergency)
                      
-                     $('#employee_id').val(data.id);  
+
                      $('#insert').val("Update");  
                      $('#add_data_Modal').modal('show');  
-                }  
+                } 
+                 
            });  
       });  
       $('#insert_form').on("submit", function(event){  
@@ -502,6 +588,7 @@
                 });  
            }  
       });  
+      
       $(document).on('click', '.view_data', function(){  
            var employee_id = $(this).attr("id");  
            if(employee_id != '')  
@@ -518,6 +605,33 @@
            }            
       });  
  });  
+
+//  $(document).ready(function () {
+
+     $(document).on('click', '.delete_data', function() {
+    var employee_id = $(this).attr("id");  
+    if(employee_id != '')  
+    {  
+        $('#delete_id').val(employee_id); // Set the employee_id to the hidden input in the modal
+        $('#delete_data_Modal').modal('show');  
+    }    
+});
+
+function deleteData() {
+    var id = $('#delete_id').val(); // Get the employee_id from the hidden input in the modal
+
+    $.ajax({  
+        url: "delete.php",  
+        method: "POST",  
+        data: {delete_data: true, delete_id: id},  
+        success: function(data){  
+            alert(data); // Display the response message (Data Deleted or Data Not Deleted)
+            window.location.reload(); // Refresh the page after deletion
+        }  
+    });  
+}
+         
+    
  </script>
     
 

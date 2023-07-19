@@ -1,10 +1,10 @@
 <?php  
- if(isset($_POST["employee_id"]))  
+ if(isset($_POST["id"]))  
  {  
       $output = '';  
-      $connect = mysqli_connect("localhost", "root", "", "testing");  
-      $query = "SELECT * FROM member WHERE id = '".$_POST["employee_id"]."'";  
-      $result = mysqli_query($connect, $query);  
+      $connection = mysqli_connect("localhost", "root", "", "phpcrud");  
+      $query = "SELECT * FROM  student WHERE id = '".$_POST["id"]."'";  
+      $result = mysqli_query($connection, $query);  
       $output .= '  
       <div class="table-responsive">  
            <table class="table table-bordered">';  
