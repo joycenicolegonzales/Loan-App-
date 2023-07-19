@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>T&C - E-Loan</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+
+
+      <!-----caarousel -->
+      <link rel="stylesheet" href="../bootstrap-5.2.2/css/bootstrap.min.css"/>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"> 
+      <!------ICONS--------->
+      <script src="https://kit.fontawesome.com/1c020da525.js" crossorigin="anonymous"></script>  
+          <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
+
+
+</head>
+
+<body>
+
+
+    <div class="container-fluid px-0">
+            <div class="row gx-0">
+                <div class="col-lg-3  d-none d-lg-block"  style="background-color: #1165AE;">
+                    <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                        <img src="/SourceCode/images/logoo.jpg" style="width: 60px; height: 60px;"><h1 class="m-0  text-uppercase" style="color: #FFDE59;">NMEMPC</h1>
+                    </a>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row gx-0 bg-white d-none d-lg-flex">
+                        <div class="col-lg-7 px-5 text-start">
+                            <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                                <i class="fa fa-envelope text-primary me-2"></i>
+                                <p class="mb-0">nmempc@gmail.com</p>
+                            </div>
+                            <div class="h-100 d-inline-flex align-items-center py-2">
+                                <i class="fa fa-phone-alt text-primary me-2"></i>
+                                <p class="mb-0">09151532463</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 px-5 text-end">
+                            <div class="d-inline-flex align-items-center py-2">
+                                <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="" href=""><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="navbar navbar-expand-lg navbar-dark p-3 p-lg-0"  style="background-color: #1165AE;">
+                        <a href="index.html" class="navbar-brand d-block d-lg-none">
+                            <h1 class="m-0 text-uppercase" style="color: #FFDE59;"> NMEMPC</h1>
+                        </a>
+                        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto py-0">
+                                <a href="Homepage2.php" class="nav-item nav-link active">Home</a>
+                                <a href="" class="nav-item nav-link">About Us</a>
+                            
+                                <!-- <a href="service.html" class="nav-item nav-link">Membership</a> -->
+                                <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Membership</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="booking.html" class="dropdown-item">Booking</a>
+                                    <a href="team.html" class="dropdown-item">Our Team</a>
+                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                </div>
+                            </div>
+                                <!-- <div class="nav-item dropdown"> -->
+                                    <a href="#" class="nav-item nav-link">Services</a>
+                                    <!-- <div class="dropdown-menu rounded-0 m-0">
+                                        <a href="booking.html" class="dropdown-item">Booking</a>
+                                        <a href="team.html" class="dropdown-item">Our Team</a>
+                                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                    </div>
+                                </div> -->
+                                <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
+                            </div>
+                           
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+        <style>
+            .navbar-dark .navbar-nav .nav-link {
+            margin-right: 30px;
+            padding: 25px 0;
+            color:  white;
+            font-size: 15px;
+            text-transform: uppercase;
+            outline: none;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            color:   #FFDE59;
+        }
+        
+        @media (max-width: 991.98px) {
+            .navbar-dark .navbar-nav .nav-link  {
+                margin-right: 0;
+                padding: 10px 0;
+            }
+        }
+        :root {
+            --primary: #FEA116;
+            --light: #F1F8FF;
+            --dark: #0F172B;
+        }
+        
+        .fw-medium {
+            font-weight: 500 !important;
+        }
+        
+        .fw-semi-bold {
+            font-weight: 600 !important;
+        }
+        
+                </style>
+
+<!-- 
+<section class="vh-100 gradient-custom"> -->
+    <div class="container py-3 " style="margin-top: 2%; margin-bottom: 2%;">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-9">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+                
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: #1165AE; font-weight:700;">Terms & Conditions <br><span style="font-size: medium;">for using Online Loan Application</span> </h3>
+              
+              <form>
+  
+                <div class="row">
+               
+                  <p style="text-align: justify;">I. The e-Loan Processing of Nasugbu Municipal Employees Multi-Purpose Cooperative is ONLY for members of this Cooperative. All loan applications submitted by non-members will be disregarded.</p>
+                  
+
+                  <p style="text-align: justify;">II. The processing of loan transactions may take 1-2 business days depending on the queue.</p>
+               
+                  <p style="text-align: justify;">III. The following are the three (3) options for e-Loan Processing:<br><br>  <span  style="font-weight: 650;">Loan Application </span> <br><br>
+                    * Loan Application is ONLY for First-Time Borrowers. <br>* First-time borrowers of REGULAR LOAN (or other loan types that may be subject to a credit investigation) are encouraged to personally apply to their nearest NMEMPC Office.</p>
+               
+                 <p style="text-align: justify;"><br><span  style="font-weight: 650;">Loan Renewal Request </span> <br><br> * Loan Renewal Request is ONLY for the Borrowers who have previous transactions of the same loan or have the same existing loans.</p>
+           
+                 <p style="text-align: justify;"><span  style="font-weight: 650;"><br>Loan Restructuring </span> </p>
+                
+                 <p style="text-align:  justify;">* Loan Restructuring is ONLY intended for member-borrowers who have unsettled and overdue loans by reason of financial difficulties in order to fulfill and re-pay their existing loan obligation.</p>
+               
+                 <p style="text-align: justify;"><br>IV.  e-Loan Processing supports the following loan products:</p>
+                 <p style="text-align: justify;"><b>A. Loans for First-Time Borrowers</b></p>
+                 <p style="text-align: justify;">1.   Regular Loan </p>
+                 <p style="text-align: justify;">   2.  Salary Loan </p>
+                 <p style="text-align: justify;">   3.  Productive Loan </p>
+                 <p style="text-align: justify;">   4.  Special Assistance Loan </p>
+                 <p style="text-align: justify;">   5.  Emergency Loan </p>
+
+                 <p style="text-align: justify;"><br>For any inquiries regarding to your loanable amount, feel free to contact us at (0931) 212 4851 or nmempc@gmail.com, loanrestructure@nmempc.com, cashless.loan.request@nmempc.com</p>
+                </div>
+                
+
+
+                <!-- <div class="d-flex justify-content-center">
+                    <span style="color: red; font-size: 15px;">*</span>
+                    <div class="form-check" style="margin-left: 2%;">
+                      <input class="form-check-input" type="checkbox" id="checkbox" required>
+                      <label class="form-check-label" for="checkbox">
+                        I AGREE
+                      </label>
+                    </div>
+                  </div> -->
+
+                <!-- <input class="btn btn-submit btn-md" type="submit" value="Next" style="background-color: #1165AE; color: white; margin-left: 80%; width: 10%; height: 4vh;" />  -->
+
+                <!-- <input class="btn btn-submit btn-md" type="submit" value="Next" style="background-color: #1165AE; color: white; float: right;"/> -->
+                  <a href="LoanApplicationType.php" class="btn" style="background-color: #1165AE; color: white; float: right; height: 4vh; width: 10%;">Next </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+ 
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em;
+}
+.card-registration .select-arrow {
+top: 13px;
+}
+@media (max-width: 576px) {
+  .d-flex.justify-content-center {
+    justify-content: left !important;
+  }
+}
+
+  </style>
+
+    
+    <!-- Footer section --> 
+    <section id="contact" class="footer_wrapper wrapper">
+      <div class="container pb-3">
+          <div class="row" >
+              <div class="col-lg-3 col-md-6 mb-4" style="margin-top: 2%;">
+                  <h5>Clinic Location</h5>
+                  <p class="ps-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim erat ut
+                      laoreet
+                      pharetra....</p>
+                  <div class="contact-info">
+                      <ul class="list-unstyled p-0">
+                          <li><a href="#"><i class="fa fa-home me-3"></i> No. 96, South City, London</a></li>
+                          <li><a href="#"><i class="fa fa-phone me-3"></i>+1 222 3333</a></li>
+                          <li><a href="#"><i class="fa fa-envelope me-3"></i>info@example.com</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6 mb-4" style="margin-top: 2%;">
+                  <h5>More Links</h5>
+                  <ul class="link-widget p-0">
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Our Office</a></li>
+                      <li><a href="#">Delivery</a></li>
+                      <li><a href="#">Our Store</a></li>
+                      <li><a href="#">Guarantee</a></li>
+                      <li><a href="#">Buy Gift Card</a></li>
+                      <li><a href="#">Return Policy</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 mb-4" style="margin-top: 2%;">
+                  <h5>More Links</h5>
+                  <ul class="link-widget p-0">
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Our Office</a></li>
+                      <li><a href="#">Delivery</a></li>
+                      <li><a href="#">Our Store</a></li>
+                      <li><a href="#">Guarantee</a></li>
+                      <li><a href="#">Buy Gift Card</a></li>
+                      <li><a href="#">Return Policy</a></li>
+                  </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-6 mb-4" style="margin-top: 2%;">
+                  <h5>Newsletter</h5>
+                  <div class="form-group mb-4">
+                      <input type="email" class="form-control bg-transparent text-white" placeholder="Enter Your Email Here" >
+                      <button type="submit" class="main-btn rounded-2 mt-3 border-white text-white">Subscribe</button>
+                  </div>
+                  <h5>Stay Connected</h5>
+                  <ul class="social-network d-flex align-items-center p-0 ">
+                      <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                      <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="container-fluid copyright-section">
+          <p class="p-0">Copyright <a href="#">© CODE4EDUCATION.</a> All Rights Reserved</p>
+      </div>
+  </section> 
+<style>
+  .footer_wrapper{
+  background-color:#1165AE;
+  padding-bottom:0;
+}
+.footer_wrapper h5{
+  color:white;
+}
+.footer_wrapper .contact-info ul a {
+  padding:0;
+}
+.footer_wrapper ul li{
+  margin-bottom:.5rem;
+  list-style: none;
+  font-size: .875rem;
+
+}
+.footer_wrapper ul li a{
+  color:white;
+}
+.footer_wrapper .link-widget li a,
+.footer_wrapper p{
+  color:white;
+  font-size: .875rem;
+  padding-left:1.5rem;
+  position:relative;
+  -webkit-transition:all 0.3s ease-out 0s;
+  transition:all 0.3s ease-out 0s;
+}
+.footer_wrapper .link-widget li a::before{
+  content:'\f105';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  position:absolute;
+  left:0.3rem;
+  top:50%;
+  -webkit-transform:translateY(-50%);
+  transform:translateY(-50%);
+}
+.footer_wrapper .link-widget li a:hover{
+  margin-left:.625rem;
+  color:#082945;
+}
+.footer_wrapper .social-network a{
+  width:2.1875rem;
+  height:2.1875rem;
+  margin:.5rem;
+  line-height: 2rem;
+  font-size: .875rem;
+  display:inline-block;
+  border:.125rem solid white;
+  color:white;
+  text-align: center;
+  border-radius: 100%;
+  -webkit-transition:all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.footer_wrapper .social-network a:hover{
+  background-color:red;
+  border-color:white;
+  color:white;
+  transform:translateY(-0.1875rem);
+}
+.footer_wrapper ::placeholder{
+ color: white;
+}
+.footer_wrapper .form-control{
+  color:white;
+}
+.footer_wrapper .form-control:focus{
+  outline:none;
+  box-shadow: none;
+  border-color:white;
+}
+.footer_wrapper .copyright-section{
+  background-color:#1165AE;
+  padding:2rem 0 1rem;
+  text-align: center;
+}
+.footer_wrapper .copyright-section a{
+  color:white;
+  font-weight: 600;
+}
+
+@media (max-width: 1199.5px) {
+
+  /* custom css */ 
+  .card{
+      padding:2.5rem 1.875rem;
+  } 
+
+  /* header */ 
+  .header_wrapper .navbar-nav .nav-link{
+      font-size: 1rem;
+  }
+
+  /* top banner */ 
+  .banner_wrapper .animate-img .aimg1{
+      left:-3.125rem;
+  }
+
+  /* about */ 
+  .about_wrapper .card{
+      width:100%;
+  } 
+  .about_wrapper .about-animate{
+      left:.9375rem;
+  }
+
+  /* service */ 
+  .services_wrapper .card{
+      padding:1.875rem 1.25rem;
+  }
+
+}
+
+@media (max-width:991px) {
+
+  /* custom css */ 
+  .wrapper{
+      padding:3.125rem 0;
+  }
+  .main-btn{
+      font-size: .875rem;
+  }
+  h1{
+      font-size: 2.8125rem;
+      margin-bottom:.625rem;
+  }
+  h2{
+      font-size: 1.875rem; 
+  }
+  h3{
+      font-size: 1.5625rem; 
+  }
+  h4{
+      font-size: 1.25rem; 
+  }
+  h5{
+      font-size: 1.125rem; 
+  }
+  p{
+      font-size: .875rem;
+      line-height: 1.35rem;
+  }
+  .card{
+      padding:1.875rem 1rem;
+  }
+
+  /* 2 Navbar */ 
+  .header-scrolled{
+      height:auto;
+  }
+  .header_wrapper .menu-navbar-nav{
+      text-align: center;
+  }
+  .header_wrapper .nav-item .nav-link{
+      margin-top:.9375rem;
+  }
+
+  /* banner */ 
+  .banner_wrapper p{
+      max-width: 100%;
+  }
+
+
+  /* about */ 
+  .about_wrapper .about-clinic:nth-child(1),
+  .about_wrapper .about-clinic:nth-child(2){
+      margin-bottom:1.5625rem;
+  }
+  .about_wrapper .about-clinic:nth-child(2),
+  .about_wrapper .about-clinic:nth-child(4){
+      padding-left:2.375rem;
+  }
+
+  /* services */ 
+  .services_wrapper .card{
+      padding:1.875rem .875rem;
+  }
+
+  /* blog */ 
+  .blog_wrapper .card .blog-content{
+      padding:1.875rem .625rem;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  /* custom css */ 
+  .main-btn{
+      font-size: .875rem;
+  }
+  h1{
+      font-size: 2.5rem;
+      margin-bottom:2.5rem;
+  } 
+  h5{
+      font-size: 1.25rem; 
+  } 
+
+  /* service */ 
+  .services_wrapper .card{
+      text-align: center;
+  }
+
+  /* blog */ 
+  .blog_wrapper .card .blog-content{
+      margin:0;
+  }
+
+  /* footer */ 
+  .footer_wrapper{ 
+      padding-bottom:0;
+  }
+  .footer_wrapper>div{
+      padding:0 1.875rem;
+  }
+}
+
+@media (max-width: 360px) {
+
+  /* Services */ 
+  .services_wrapper .icon-box{
+      margin-bottom:.9375rem;
+  }
+
+  /* about */   
+  .about_wrapper .about-animate{
+      width:6.875rem;
+  }
+  .about_wrapper .card{
+      padding:1.25rem .3125rem;
+  }
+  .about_wrapper .about-clinic:nth-child(2),
+  .about_wrapper .about-clinic:nth-child(4){
+      padding-left:.625rem;
+  }
+
+}
+    
+</style>
+  <!-- Footer section exit -->
+
+    <!----SCRIPT BOOTSTRAP 5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>  
+
+</body>
+</html>

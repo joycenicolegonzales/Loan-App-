@@ -32,7 +32,7 @@
     <div class="row gx-0">
         <div class="col-lg-3  d-none d-lg-block"  style="background-color: #1165AE;">
             <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                <img src="/SourceCode/images/logoo.jpg" style="width: 60px; height: 60px;"><h1 class="m-0  text-uppercase" style="color: #FFDE59;">NMEMPC</h1>
+                <img src="/LoanApp/SourceCode/newFolder/image/logoo.jpg" style="width: 60px; height: 60px;"><h1 class="m-0  text-uppercase" style="color: #FFDE59;">NMEMPC</h1>
             </a>
         </div>
         <div class="col-lg-9">
@@ -40,11 +40,11 @@
                 <div class="col-lg-7 px-5 text-start">
                     <div class="h-100 d-inline-flex align-items-center py-2 me-4">
                         <i class="fa fa-envelope text-primary me-2"></i>
-                        <p class="mb-0">nmempc@example.com</p>
+                        <p class="mb-0">nmempc@gmail.com</p>
                     </div>
                     <div class="h-100 d-inline-flex align-items-center py-2">
                         <i class="fa fa-phone-alt text-primary me-2"></i>
-                        <p class="mb-0">+012 345 6789</p>
+                        <p class="mb-0">09151532463</p>
                     </div>
                 </div>
                 <div class="col-lg-5 px-5 text-end">
@@ -65,29 +65,33 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav mr-auto py-0">
-                        <a href="Homepage2.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About Us</a>
-                        <a href="#" class="nav-item nav-link">Membership</a>
-                        <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="#" class="dropdown-item">Loan Products</a>
-                            <a href="#" class="dropdown-item">Testimonial</a>
-                        </div>
-                    </div>
-                        <!-- <div class="nav-item dropdown"> -->
-                            <a href="#" class="nav-item nav-link">Contact Us</a>
-                            <!-- <div class="dropdown-menu rounded-0 m-0">
-                                <a href="booking.html" class="dropdown-item">Booking</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <div class="navbar-nav mr-auto py-0">
+                                <a href="Homepage2.php" class="nav-item nav-link active">Home</a>
+                                <a href="" class="nav-item nav-link">About Us</a>
+                            
+                                <!-- <a href="service.html" class="nav-item nav-link">Membership</a> -->
+                                <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Membership</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <!-- <a href="booking.html" class="dropdown-item">Booking</a>
+                                    <a href="team.html" class="dropdown-item">Our Team</a>
+                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a> -->
+                                </div>
                             </div>
-                        </div> -->
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    </div>
-                   
-                </div>
+                                <!-- <div class="nav-item dropdown"> -->
+                                    <a href="#" class="nav-item nav-link">Services</a>
+                                    <a href="" class="nav-item nav-link">Contact Us</a>
+                            
+                                    <!-- <div class="dropdown-menu rounded-0 m-0">
+                                        <a href="booking.html" class="dropdown-item">Booking</a>
+                                        <a href="team.html" class="dropdown-item">Our Team</a>
+                                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                    </div>
+                                </div> -->
+                                <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
+                            </div>
+                           
+                        </div>
             </nav>
         </div>
     </div>
@@ -329,24 +333,24 @@ background-color: #1165AE;
                       <div class="col-md-5">
                           <div class="profile">
                               <div class="img-area">
-                                  <img src="/SourceCode/images/user.jpg" alt="">
+                                  <img src="/LoanApp/SourceCode/newFolder/image/profile1.jpg" alt="">
                               </div>
                               <div class="bio">
-                                  <h2>Dave Wood</h2>
-                                  <h4>Web Developer</h4>
+                                  <h2>NMEMPC</h2>
+                                  <h4>Model Member</h4>
                               </div>
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="content">
                               <p><span><i class="fa fa-quote-left"></i></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel a eius excepturi molestias commodi aliquam error magnam consectetur laboriosam numquam, minima eveniet nostrum sequi saepe ipsam non ea, inventore tenetur! Corporis commodi consequatur molestiae voluptatum!</p>
-                              <p class="socials">
+                              <!-- <p class="socials">
                                   <i class="fa fa-twitter"></i>
                                   <i class="fa fa-behance"></i>
                                   <i class="fa fa-pinterest"></i>
                                   <i class="fa fa-dribbble"></i>
                                   <i class="fa fa-vimeo"></i>
-                              </p>
+                              </p> -->
                           </div>
                       </div>
                   </div>
@@ -358,24 +362,24 @@ background-color: #1165AE;
                       <div class="col-md-5">
                           <div class="profile">
                               <div class="img-area">
-                                  <img src="/SourceCode/images/user.jpg" alt="">
+                                  <img src="/LoanApp/SourceCode/newFolder/image/profile2.jpg" alt="">
                               </div>
                               <div class="bio">
-                                  <h2>Martin Guptill</h2>
-                                  <h4>UI/UX Designer</h4>
+                                  <h2>NMEMPC</h2>
+                                  <h4>Model Member</h4>
                               </div>
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="content">
                               <p><span><i class="fa fa-quote-left"></i></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel a eius excepturi molestias commodi aliquam error magnam consectetur laboriosam numquam, minima eveniet nostrum sequi saepe ipsam non ea, inventore tenetur! Corporis commodi consequatur molestiae voluptatum!</p>
-                              <p class="socials">
+                              <!-- <p class="socials">
                                   <i class="fa fa-twitter"></i>
                                   <i class="fa fa-behance"></i>
                                   <i class="fa fa-pinterest"></i>
                                   <i class="fa fa-dribbble"></i>
                                   <i class="fa fa-vimeo"></i>
-                              </p>
+                              </p> -->
                           </div>
                       </div>
                   </div>
@@ -387,24 +391,24 @@ background-color: #1165AE;
                       <div class="col-md-5">
                           <div class="profile">
                               <div class="img-area">
-                                  <img src="/SourceCode/images/user.jpg" alt="">
+                                  <img src="/LoanApp/SourceCode/newFolder/image/profile3.jpg" alt="">
                               </div>
                               <div class="bio">
-                                  <h2>Stephen Jones</h2>
-                                  <h4>Graphic Designer</h4>
+                                  <h2>NMEMPC</h2>
+                                  <h4>Model Member</h4>
                               </div>
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="content">
                               <p><span><i class="fa fa-quote-left"></i></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel a eius excepturi molestias commodi aliquam error magnam consectetur laboriosam numquam, minima eveniet nostrum sequi saepe ipsam non ea, inventore tenetur! Corporis commodi consequatur molestiae voluptatum!</p>
-                              <p class="socials">
+                              <!-- <p class="socials">
                                   <i class="fa fa-twitter"></i>
                                   <i class="fa fa-behance"></i>
                                   <i class="fa fa-pinterest"></i>
                                   <i class="fa fa-dribbble"></i>
                                   <i class="fa fa-vimeo"></i>
-                              </p>
+                              </p> -->
                           </div>
                       </div>
                   </div>
@@ -429,12 +433,12 @@ background-color: #1165AE;
   <div class=" row row-cols-2">
     <div class="col" >
       <div class="testimonial">
-        <img src="/SourceCode/images/user.jpg" alt="" style="margin-right: 5%;">
+        <img src="/LoanApp/SourceCode/newFolder/image/profile4.jpg" alt="" style="margin-right: 5%;">
         <div class="name" style="font-size: 12px; font-style: italic; 
          text-align: left;">Tagum Coop is always a blessing in disguise given to me by God everytime I have financial problem. My best TC experience was when I first received my PRD. It wasn’t that much, being a new member, but it was way more than I expected.</div>
         
-        <p style="font-size: 18px; font-weight:500; margin-right: 15%; margin-top: 10%; color: #1165AE;
-        font-weight: 600;">Joyce Nicole Gonzales</p>
+        <p style="font-size: 18px; font-weight:500; margin-right: 27%; margin-top: 10%; color: #1165AE;
+        font-weight: 600;">Julie Guerrero</p>
         <p style="font-size: 15px; color: gray; margin-right: 41%; "> Member</p>
         
       </div>
@@ -442,11 +446,11 @@ background-color: #1165AE;
 
     <div class="col">
       <div class="testimonial">
-        <img src="/SourceCode/images/user.jpg" alt="" style="margin-right: 5%;">
+        <img src="/LoanApp/SourceCode/newFolder/image/profile5.jpg" alt="" style="margin-right: 5%;">
         <div class="name" style="font-size: 12px; font-style: italic; 
         text-align: left;">Tagum Coop is always a blessing in disguise given to me by God everytime I have financial problem. My best TC experience was when I first received my PRD. It wasn’t that much, being a new member, but it was way more than I expected.</div>
-        <p style="font-size: 18px; font-weight:500; margin-right: 15%; margin-top: 10%; color: #1165AE;
-        font-weight: 600;">Joyce Nicole Gonzales</p>
+        <p style="font-size: 18px; font-weight:500; margin-right: 20%; margin-top: 10%; color: #1165AE;
+        font-weight: 600;">Laila Grace Lovitos</p>
        <p style="font-size: 15px; color: gray; margin-right: 41%; "> Member</p>
       </div>
     </div>
@@ -454,11 +458,11 @@ background-color: #1165AE;
     <!-- <div class="col" style="width: 400px; margin-top:5px; "> -->
       <div class="col" >
         <div class="testimonial"  >
-          <img src="/SourceCode/images/user.jpg" alt="" style="margin-right: 5%;">
+          <img src="/LoanApp/SourceCode/newFolder/image/profile5.jpg" alt="" style="margin-right: 5%;">
           <div class="name" style="font-size: 12px; font-style: italic; 
           text-align: left;">Tagum Coop is always a blessing in disguise given to me by God everytime I have financial problem. My best TC experience was when I first received my PRD. It wasn’t that much, being a new member, but it was way more than I expected.</div>
-          <p style="font-size: 18px; font-weight:500; margin-right: 15%; margin-top: 10%; color: #1165AE;
-          font-weight: 600;">Joyce Nicole Gonzales</p>
+          <p style="font-size: 18px; font-weight:500; margin-right: 28%; margin-top: 10%; color: #1165AE;
+          font-weight: 600;">Julyn Peteros</p>
          <p style="font-size: 15px; color: gray; margin-right: 41%; "> Member</p>
         </div>
       </div>
@@ -466,33 +470,33 @@ background-color: #1165AE;
     <!-- <div class="col" style="width: 395px; margin-top:6px; "> -->
       <div class="col">
         <div class="testimonial">
-          <img src="/SourceCode/images/user.jpg" alt="" style="margin-right: 5%;">
+          <img src="/LoanApp/SourceCode/newFolder/image/profile4.jpg" alt="" style="margin-right: 5%;">
           <div class="name" style="font-size: 12px; font-style: italic; 
           text-align: left;">Tagum Coop is always a blessing in disguise given to me by God everytime I have financial problem. My best TC experience was when I first received my PRD. It wasn’t that much, being a new member, but it was way more than I expected.</div>
-          <p style="font-size: 18px; font-weight:500; margin-right: 15%; margin-top: 10%; color:#1165AE;
-          font-weight: 600;">Joyce Nicole Gonzales</p>
+          <p style="font-size: 18px; font-weight:500; margin-right: 6%; margin-top: 10%; color:#1165AE;
+          font-weight: 600;">Maricar Macatigue Salomon</p>
          <p style="font-size: 15px; color: gray; margin-right: 41%; "> Member</p>
         </div>
       </div>
     <!-- <div class="col-6" style="width: 395px; margin-top:20px; "> -->
       <div class="col">
         <div class="testimonial">
-          <img src="/SourceCode/images/user.jpg" alt="" style="margin-right: 5%;">
+          <img src="/LoanApp/SourceCode/newFolder/image/profile4.jpg"alt="" style="margin-right: 5%;">
           <div class="name" style="font-size: 12px; font-style: italic; 
           text-align: left;">Tagum Coop is always a blessing in disguise given to me by God everytime I have financial problem. My best TC experience was when I first received my PRD. It wasn’t that much, being a new member, but it was way more than I expected.</div>
-          <p style="font-size: 18px; font-weight:500; margin-right: 15%; margin-top: 10%; color: #1165AE;
-          font-weight: 600;">Joyce Nicole Gonzales</p>
+          <p style="font-size: 18px; font-weight:500; margin-right: 25%; margin-top: 10%; color: #1165AE;
+          font-weight: 600;">Michelle Ambaic</p>
          <p style="font-size: 15px; color: gray; margin-right: 41%; "> Member</p>
         </div>
       </div>
     <!-- <div class="col-6" style="width: 395px; margin-top:20px; "> -->
       <div class="col">
         <div class="testimonial">
-          <img src="/SourceCode/images/user.jpg" alt="" style="margin-right: 5%;">
+          <img src="/LoanApp/SourceCode/newFolder/image/profile5.jpg" alt="" style="margin-right: 5%;">
           <div class="name" style="font-size: 12px; font-style: italic; 
           text-align: left;">Tagum Coop is always a blessing in disguise given to me by God everytime I have financial problem. My best TC experience was when I first received my PRD. It wasn’t that much, being a new member, but it was way more than I expected.</div>
-          <p style="font-size: 18px; font-weight:500; margin-right: 15%; margin-top: 10%; color: #1165AE;
-          font-weight: 600;">Joyce Nicole Gonzales</p>
+          <p style="font-size: 18px; font-weight:500; margin-right: 20%; margin-top: 10%; color: #1165AE;
+          font-weight: 600;">Lutzchel S. Villareal</p>
          <p style="font-size: 15px; color: gray; margin-right: 41%; "> Member</p>
         </div>
       </div>
@@ -512,7 +516,7 @@ background-color: #1165AE;
 }
 .testimonials{
   padding: 40px 0;
-  background: #f1f1f1;
+  background: 	#F8F8F8;
   color: #434343;
   text-align: center;
 }
@@ -543,7 +547,7 @@ background-color: #1165AE;
 }
 
 .testimonial{
-  background: #e4e8ebcf;
+  background: #F0F0F0;
   padding: 30px;
   
   
