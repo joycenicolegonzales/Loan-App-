@@ -25,17 +25,17 @@
 </style>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark ">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 
 		<a class="navbar-brand" href="">
         <img src="/LoanApp/SourceCode/newFolder/image/logoo.jpg"  class="" style="width: 50px; height: 50px;"alt=""> NMEMPC</a>
 	</nav>
     <div class="container">
-		<div class="row justify-content-center" style="margin-top:6%;">
+		<div class="row justify-content-center">
 			<div class="col-xl-10 col-lg-12 col-md-9">
                 <div class="card o-hidden border-0 shadow-lg my-5 ">
                     <div class="card-body p-0">
-                        <div class="row" >
+                        <div class="row">
                             <div class="col-lg-6 d-none d-lg-block"><img src="/LoanApp/SourceCode/newFolder/image/loan.jpg" height="100%" width="100%"/></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
