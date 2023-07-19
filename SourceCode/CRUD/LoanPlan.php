@@ -138,7 +138,7 @@
                                         <div class="card">
                                           <div class="card-body">
                                             <h6 class="card-title py-2" >Plan's Form</h5>
-                                            <form  method="POST">
+                                            <form method="POST">
                                               <div class="mb-3">
                                                 <label class="control-label">Plan (months)</label>
 								                <input type="number" name="months" id="months" class="form-control text-right">
@@ -211,13 +211,17 @@
                                               </style>
                                             <tbody>
                                                 <tr class="text-center">
-                                                <td> <?php echo $row['loanplan_ID']; ?> </td>
+                                                <td> <?php echo $row['id']; ?> </td>
                                                 <td> <?php echo $row['months']; ?> </td>
                                                 <td> <?php echo $row['interest']; ?> </td>
                                                 <td> <?php echo $row['penalty']; ?> </td>
-                                                    <td><input type="button" name="edit" value="Edit" id="<?php echo $row["loanplan_ID"]; ?>" class="btn btn-info btn-xs edit_data" /></td>  
-                                                    <td><input type="button" name="edit" value="Edit" id="<?php echo $row["loanplan_ID"]; ?>" class="btn btn-info btn-xs edit_data" /></td>  
-                                           
+                                                    <!-- <td><input type="button" name="edit" value="Edit" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs edit_btn" /></td>   -->
+                                                    <td><button class="btn btn-sm btn-primary" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal"> Edit</button></td>
+                                                    <!-- <td><button class="btn btn-sm btn-warning" data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal"> Delete</button></td> r -->
+                                                         <!-- <td><input type="button" name="delete" value="delete" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs delete_data" /></td>  -->
+                                                         <td><button class="btn btn-sm btn-primary delete_data"  data-bs-target="#deleteMember_Modal" data-bs-toggle="modal" data-bs-dismiss="modal" > Delete</button></td>
+                                                         <td><input type="button" name="delete" value="delete" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs delete_data"  data-bs-target="#deleteMember_Modal" data-bs-toggle="modal" /></td> 
+                                                       
                                                   </tr>
                       
                                                 
@@ -239,25 +243,26 @@
 
                                    
 
-<!-- ========== EDIT DETAILS MODAL ========== -->
-                    <div class="modal fade" id="memDetailS" aria-hidden="true" aria-labelledby="memDetails" tabindex="-1">
+<!-- ========== EDIT LOAN PLAN MODAL ========== -->
+
+<div class="modal fade" id="memDetails" aria-hidden="true" aria-labelledby="memDetails" tabindex="-1">
                       <div class="modal-dialog modal-dialog-centered modal-md">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalToggleLabel2">Member's Information </h5>
+                            <h5 class="modal-title" id="exampleModalToggleLabel2">Edit Loan Plan</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body ">
                             <form>
                               <div class="mb-3">
                                 <label class="control-label">Plan (months)</label>
-                <input type="number" name="months" id="months" class="form-control text-right">
+                <input type="number" name="months" id="" class="form-control text-right">
 
                               </div>
                               <div class="mb-3">
                                 <label class="control-label">Interest</label>
                                 <div class="input-group">
-                                <input type="number" step="any" min="0" max="100" class="form-control text-right" name="interest" id="interest" aria-label="interest">
+                                <input type="number" step="any" min="0" max="100" class="form-control text-right" name="interest_percentage" aria-label="Interest">
                                 <div class="input-group-append">
                                     <span class="input-group-text">%</span>
                                 </div>
@@ -266,7 +271,7 @@
                               <div class="mb-3">
                                 <label class="control-label">Monthly Over due's Penalty</label>
                                 <div class="input-group">
-                                  <input type="number" step="any" min="0" max="100" class="form-control text-right" aria-label="Penalty percentage" name="penalty" id="penalty">
+                                  <input type="number" step="any" min="0" max="100" class="form-control text-right" aria-label="Penalty percentage" name="penalty_rate">
                                   <div class="input-group-append">
                                     <span class="input-group-text">%</span>
                                   </div>
@@ -278,46 +283,102 @@
                           <div class="modal-footer d-flex  py-1">
                             
                             <button class="btn btn-secondary"  data-bs-dismiss="modal">Cancel</button>
-                            <input class="btn btn-submit btn-primary" type="submit" name="submit" value="Save" style=" color: white; " />
+                            <!-- <input class="btn btn-submit btn-primary" type="submit" value="Save" style=" color: white; " /> -->
+                            <!-- <button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button> -->
                             
                             </div>
                         </div>
                       </div>
                     </div>
                     </div>
-<!-- ========== VIEW DETAILS MODAL ========== -->
+
+
+
+
+
+                    <!-- ========== EDIT DETAILS MODAL ========== -->
                 
 
 
 <!-- ========== Delete Member ========== -->
-                  <div class="modal fade" id="deleteMember" aria-hidden="true" aria-labelledby="deleteMember" tabindex="-1">
+                  <!-- <div class="modal fade" id="deleteMember_Modal" aria-hidden="true" aria-labelledby="deleteMember" tabindex="-1">
                     <div class="modal-dialog modal-dialog-top5modal-md">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalToggleLabel2">Delete Member  </h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" id="delete_plan">
+                        <input type="hidden" id="delete_id">
                           <h5>Are you sure you want to delete this Member?</h5>
                         </div>
                         <div class="modal-footer d-flex ">
                           <button class="btn btn-secondary"  data-bs-dismiss="modal">Cancel</button>
-                          <input class="btn btn-submit btn-danger" type="submit" value="Delete" style=" color: white; " />
+                          <input type="submit" name="delete_plan"  value="Delete"  data-bs-dismiss="modal" class="btn btn-danger" onclick="deleteData();" /> 
                         
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 <!-- ========== Delete Member ========== -->
 
+<div class="modal fade" id="deleteMember_Modal" aria-hidden="true" aria-labelledby="deleteMember" tabindex="-1">
+                      <div class="modal-dialog modal-dialog-centered modal-md">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalToggleLabel2">Edit Loan Plan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body" id="delete_plan">
+                        <input type="hidden" id="delete_id">
+                          <h5>Are you sure you want to delete this Member?</h5>
+                        </div>
+                        <div class="modal-footer d-flex ">
+                          <button class="btn btn-secondary"  data-bs-dismiss="modal">Cancel</button>
+                          <input type="submit" name="delete_plan"  value="Delete"  data-bs-dismiss="modal" class="btn btn-danger" onclick="deleteData();" /> 
+                        
+                        </div>
+                       
+                        </div>
+                      </div>
+                    </div>
+                    </div>
 
                   </main> 
              
             
-                <script>
+<script>
+    
+   $(document).ready(function(){  
+     $(document).on('click', '.delete_data', function() {
+    var plan_id = $(this).attr("id");  
+    if(plan_id != '')  
+    {  
+        $('#delete_id').val(plan_id); // Set the employee_id to the hidden input in the modal
+        $('#deleteMember_Modal').modal('show');  
+    }    
+});
+   });
+function deleteData() {
+    var id = $('#delete_id').val(); // Get the employee_id from the hidden input in the modal
+
+    $.ajax({  
+        url: "delete2.php",  
+        method: "POST",  
+        data: {delete_plan: true, delete_id: id},  
+        success: function(data){  
+            alert(data); // Display the response message (Data Deleted or Data Not Deleted)
+            window.location.reload(); // Refresh the page after deletion
+        }  
+    });  
+});
+
+         
+    
+ </script>
+
+                    <script>
                             
-                    
-                    
                     // get the table element
                     var $table = document.getElementById("myTable"),
                     // number of rows per page
