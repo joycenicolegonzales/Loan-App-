@@ -126,20 +126,9 @@
 
            <!-- <div class="container" style="width:700px; margin-top: 10%;">   -->
                 
-				<div class="col-md-3">
-					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-					<!-- webslesson_sidebarrightsec_AdSense1_1x1_as -->
-					<ins class="adsbygoogle"
-						 style="display:block"
-						 data-ad-client="ca-pub-4529508631166774"
-						 data-ad-host="ca-host-pub-1556223355139109"
-						 data-ad-host-channel="L0001"
-						 data-ad-slot="8049812049"
-						 data-ad-format="auto"></ins>
-					<script>
-					(adsbygoogle = window.adsbygoogle || []).push({});
-					</script>
-				</div>
+				<!-- <div class="col-md-3"> -->
+					
+				<!-- </div> -->
 
                     <div class="container my-2 bg-light " >
                       <div class="d-flex py-3 justify-content-between">
@@ -833,7 +822,19 @@ function deleteData() {
       }
       
       </script>
-
+<script
+     async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- webslesson_sidebarrightsec_AdSense1_1x1_as -->
+     <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-4529508631166774"
+               data-ad-host="ca-host-pub-1556223355139109"
+               data-ad-host-channel="L0001"
+               data-ad-slot="8049812049"
+               data-ad-format="auto"></ins>
+     <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
       
 </body>
 </html>
