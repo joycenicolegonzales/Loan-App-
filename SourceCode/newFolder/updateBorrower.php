@@ -2,15 +2,27 @@
 	require_once'class.php';
 	if(ISSET($_POST['update'])){
 		$db=new db_class();
-		$borrower_id=$_POST['borrower_id'];
 		$firstname=$_POST['firstname'];
-		$middlename=$_POST['middlename'];
 		$lastname=$_POST['lastname'];
 		$contact_no=$_POST['contact_no'];
 		$address=$_POST['address'];
-		$email=$_POST['email'];
-		$tax_id=$_POST['tax_id'];
-		$db->update_borrower($borrower_id,$firstname,$middlename,$lastname,$contact_no,$address,$email,$tax_id);
+		$age=$_POST['age'];
+		$birthdate =$_POST['birthdate'];
+		$birthplace =$_POST['birthplace'];
+		$civilstatus =$_POST['civilstatus'];
+		$religion =$_POST['religion'];
+		$occupation =$_POST['occupation'];
+		$monthlyIncome =$_POST['monthlyIncome'];
+		$otherIncome =$_POST['otherIncome'];
+		$spouse =$_POST['spouse'];
+		$dependents =$_POST['dependents'];
+		$company =$_POST['company'];
+		$employment =$_POST['employment'];
+		$emergency =$_POST['emergency'];
+		
+		$db->update_borrower($firstname,$lastname,$contact_no,$address,$age,
+		$birthdate,$birthplace,$civilstatus,$religion ,$occupation ,$monthlyIncome,
+		$otherIncome, $spouse,$dependents,$company ,$employment,$emergency );
 		echo"<script>alert('Update Borrower successfully')</script>";
 		echo"<script>window.location='borrower.php'</script>";
 	}

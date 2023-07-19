@@ -173,9 +173,9 @@
 		
 		/* Borrower Function */
 		
-		public function save_borrower($firstname,$middlename,$lastname,$contact_no,$address,$email,$tax_id){
-			$query=$this->conn->prepare("INSERT INTO `borrower` (`firstname`, `middlename`, `lastname`, `contact_no`, `address`, `email`, `tax_id`) VALUES(?, ?, ?, ?, ?, ?, ?)") or die($this->conn->error);
-			$query->bind_param("ssssssi", $firstname, $middlename, $lastname, $contact_no, $address, $email, $tax_id);
+		public function save_borrower($firstname,$lastname,$contact_no, $address,  $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency){
+			$query=$this->conn->prepare("INSERT INTO `borrower` (`firstname`, `lastname`, `contact_no`, `address`, `birthdate`, `birthplace`,`civilstatus`,`religion`,`occupation`,`monthlyIncome`,`otherIncome`,`spouse`,`dependents`,`company`,`employment`,`emergency`) VALUES(?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?)") or die($this->conn->error);
+			$query->bind_param("ssssssssssssssss", $firstname, $lastname, $contact_no, $address,  $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency);
 			
 			if($query->execute()){
 				$query->close();
@@ -201,9 +201,9 @@
 			}
 		}
 		
-		public function update_borrower($borrower_id,$firstname,$middlename,$lastname,$contact_no,$address,$email,$tax_id){
-			$query=$this->conn->prepare("UPDATE `borrower` SET `firstname`=?, `middlename`=?, `lastname`=?, `contact_no`=?, `address`=?, `email`=?, `tax_id`=? WHERE `borrower_id`=?") or die($this->conn->error);
-			$query->bind_param("ssssssii", $firstname, $middlename, $lastname, $contact_no, $address, $email, $tax_id, $borrower_id);
+		public function update_borrower($firstname,$lastname,$contact_no, $address,  $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency){
+			$query=$this->conn->prepare("UPDATE `borrower` SET `firstname`=?, `lastname`=?, `contact_no`=?, `address`=?, `birthdate`=?, `birthplace`=? , `civilstatus`=?, `religion`=?, `occupation`=?, `monthlyIncome`=?, `otherIncome`=?, `spouse`=?, `dependents`=?, `company`=?, `employment`=?, `emergency`=?  WHERE `borrower_id`=?") or die($this->conn->error);
+			$query->bind_param("ssssssssssssssss", $firstname,$lastname,$contact_no, $address,  $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency);
 			
 			if($query->execute()){
 				$query->close();

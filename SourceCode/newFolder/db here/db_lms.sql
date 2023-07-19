@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2022 at 01:46 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Jul 19, 2023 at 07:35 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,13 +30,30 @@ SET time_zone = "+00:00";
 CREATE TABLE `borrower` (
   `borrower_id` int(11) NOT NULL,
   `firstname` varchar(100) NOT NULL,
-  `middlename` varchar(100) NOT NULL,
   `lastname` varchar(100) NOT NULL,
   `contact_no` varchar(15) NOT NULL,
   `address` text NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `tax_id` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `age` int(11) NOT NULL,
+  `birthdate` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `birthplace` varchar(255) NOT NULL,
+  `civilstatus` enum('Single','Married','Live-In Partner','Widowed','Separated') NOT NULL,
+  `religion` varchar(100) NOT NULL,
+  `occupation` varchar(50) NOT NULL,
+  `monthlyIncome` int(50) NOT NULL,
+  `otherIncome` int(50) NOT NULL,
+  `spouse` varchar(50) NOT NULL,
+  `dependents` int(11) NOT NULL,
+  `company` varchar(255) NOT NULL,
+  `employment` varchar(255) NOT NULL,
+  `emergency` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `borrower`
+--
+
+INSERT INTO `borrower` (`borrower_id`, `firstname`, `lastname`, `contact_no`, `address`, `age`, `birthdate`, `birthplace`, `civilstatus`, `religion`, `occupation`, `monthlyIncome`, `otherIncome`, `spouse`, `dependents`, `company`, `employment`, `emergency`) VALUES
+(2, 'em', 'gonzales', '0905 488 5949', 'ACM Woodstock Brgy 12', 0, '2023-07-20 01:28:57', '', 'Single', '', '', 0, 0, '', 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -56,7 +72,14 @@ CREATE TABLE `loan` (
   `status` tinyint(1) NOT NULL COMMENT '0=request, 1=confirmed, 2=released, 3=completed, 4=denied',
   `date_released` datetime NOT NULL,
   `date_created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `loan`
+--
+
+INSERT INTO `loan` (`loan_id`, `ref_no`, `ltype_id`, `borrower_id`, `purpose`, `amount`, `lplan_id`, `status`, `date_released`, `date_created`) VALUES
+(1, '19618148', 1, 2, 'regular', 1000, 1, 2, '2023-07-19 04:18:01', '2023-07-19 04:17:29');
 
 -- --------------------------------------------------------
 
@@ -69,7 +92,14 @@ CREATE TABLE `loan_plan` (
   `lplan_month` int(11) NOT NULL,
   `lplan_interest` float NOT NULL,
   `lplan_penalty` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `loan_plan`
+--
+
+INSERT INTO `loan_plan` (`lplan_id`, `lplan_month`, `lplan_interest`, `lplan_penalty`) VALUES
+(1, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -81,7 +111,14 @@ CREATE TABLE `loan_schedule` (
   `loan_sched_id` int(50) NOT NULL,
   `loan_id` int(11) NOT NULL,
   `due_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `loan_schedule`
+--
+
+INSERT INTO `loan_schedule` (`loan_sched_id`, `loan_id`, `due_date`) VALUES
+(1, 1, '2023-08-19');
 
 -- --------------------------------------------------------
 
@@ -93,7 +130,14 @@ CREATE TABLE `loan_type` (
   `ltype_id` int(11) NOT NULL,
   `ltype_name` text NOT NULL,
   `ltype_desc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `loan_type`
+--
+
+INSERT INTO `loan_type` (`ltype_id`, `ltype_name`, `ltype_desc`) VALUES
+(1, 'Regular loan', 'regular loan');
 
 -- --------------------------------------------------------
 
@@ -108,8 +152,8 @@ CREATE TABLE `payment` (
   `pay_amount` float NOT NULL,
   `penalty` float NOT NULL,
   `overdue` tinyint(1) NOT NULL COMMENT '0=no, 1=yes',
-  `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `date_created` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -123,14 +167,15 @@ CREATE TABLE `user` (
   `password` varchar(30) NOT NULL,
   `firstname` text NOT NULL,
   `lastname` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `firstname`, `lastname`) VALUES
-(2, 'admin', 'admin', 'Administrator', '');
+(2, 'admin', 'admin', 'Administrator', ''),
+(3, 'em', '123', 'em', 'pelo');
 
 --
 -- Indexes for dumped tables
@@ -186,31 +231,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `borrower`
 --
 ALTER TABLE `borrower`
-  MODIFY `borrower_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `borrower_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `loan`
 --
 ALTER TABLE `loan`
-  MODIFY `loan_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `loan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `loan_plan`
 --
 ALTER TABLE `loan_plan`
-  MODIFY `lplan_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `lplan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `loan_schedule`
 --
 ALTER TABLE `loan_schedule`
-  MODIFY `loan_sched_id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `loan_sched_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `loan_type`
 --
 ALTER TABLE `loan_type`
-  MODIFY `ltype_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ltype_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -222,7 +267,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

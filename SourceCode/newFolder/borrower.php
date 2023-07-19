@@ -162,12 +162,11 @@
                                     <thead>
                                         <tr>
                                             <th>Firstname</th>
-                                            <th>Middlename</th>
+                                           
                                             <th>Lastname</th>
                                             <th>Contact No</th>
                                             <th>Address</th>
-                                            <th>Email</th>
-                                            <th>Tax ID</th>
+                                           
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -180,12 +179,10 @@
 										
                                         <tr>
                                             <td><?php echo $fetch['firstname']?></td>
-                                            <td><?php echo $fetch['middlename']?></td>
                                             <td><?php echo $fetch['lastname']?></td>
                                             <td><?php echo $fetch['contact_no']?></td>
                                             <td><?php echo $fetch['address']?></td>
-                                            <td><?php echo $fetch['email']?></td>
-                                            <td><?php echo $fetch['tax_id']?></td>
+                                           
                                             <td>
 												<div class="dropdown">
 													<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -202,45 +199,154 @@
 										
 										<!-- Update User Modal -->
 										<div class="modal fade" id="updateborrower<?php echo $fetch['borrower_id']?>" tabindex="-1" aria-hidden="true">
-											<div class="modal-dialog">
+											<div class="modal-dialog modal-xl">
 												<form method="POST" action="updateBorrower.php">
 													<div class="modal-content">
 														<div class="modal-header bg-warning">
-															<h5 class="modal-title text-white">Edit Borrower</h5>
+															<h5 class="modal-title ">Edit Member Details</h5>
 															<button class="close" type="button" data-dismiss="modal" aria-label="Close">
 																<span aria-hidden="true">×</span>
 															</button>
 														</div>
 														<div class="modal-body">
-															<div class="form-group">
-																<label>Firstname</label>
-																<input type="text" name="firstname" value="<?php echo $fetch['firstname']?>" class="form-control" required="required" />
-																<input type="hidden" name="borrower_id" value="<?php echo $fetch['borrower_id']?>"/>
-															</div>
-															<div class="form-group">
-																<label>Middlename</label>
-																<input type="text" name="middlename" value="<?php echo $fetch['middlename']?>" class="form-control" required="required" />
-															</div>
-															<div class="form-group">
-																<label>Lastname</label>
-																<input type="text" name="lastname" value="<?php echo $fetch['lastname']?>" class="form-control" required="required" />
-															</div>
-															<div class="form-group">
-																<label>Contact no</label>
-																<input type="tel" name="contact_no" value="<?php echo $fetch['contact_no']?>" class="form-control" placeholder="Eg.[0965 567 6544]" pattern="[0-9]{4} [0-9]{3} [0-9]{4}"  required="required" />
-															</div>
-															<div class="form-group">
-																<label>Address</label>
-																<input type="text" name="address" value="<?php echo $fetch['address']?>" class="form-control" required="required" />
-															</div>
-															<div class="form-group">
-																<label>Email</label>
-																<input type="email" name="email" value="<?php echo $fetch['email']?>" class="form-control" required="required" maxlength="30"/>
-															</div>
-															<div class="form-group">
-																<label>Tax ID(must be valid)</label>
-																<input type="number" name="tax_id" min="0" value="<?php echo $fetch['tax_id']?>" class="form-control" required="required" />
-															</div>
+														
+<!-- ===================================================================================================================== -->
+                                                        <div class="row  mb-2 px-4">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Firstname</label>
+                                                                    <input type="text" name="firstname" value="<?php echo $fetch['firstname']?>" class="form-control" />
+                                                                    <input type="hidden" name="borrower_id" value="<?php echo $fetch['borrower_id']?>"/>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Lastname</label>
+                                                                    <input type="text" name="lasttname" value="<?php echo $fetch['lastname']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row  mb-2 px-4">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Address</label>
+                                                                    <input type="text" name="address" value="<?php echo $fetch['address']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Contact no.</label>
+                                                                    <input type="text" name="contact_no" value="<?php echo $fetch['contact_no']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row  mb-2 px-4">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Age</label>
+                                                                    <input type="text" name="age" value="<?php echo $fetch['age']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Birthdate</label>
+                                                                    <input type="text" name="birthdate" value="<?php echo $fetch['birthdate']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Birthplace</label>
+                                                                    <input type="text" name="birthplace" value="<?php echo $fetch['birthplace']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row  mb-2 px-4">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Civil Status</label>
+                                                                    <!-- <input type="text" name="civilStatus" class="form-control" required="required" /> -->
+                                                                    <select class="form-control" name="civilstatus"  value="<?php echo $fetch['birthplace']?>" >
+                                                                        <option value="Single">Single</option>
+                                                                        <option value="Married">Married</option> 
+                                                                        <option value="Widowed">Widowed</option>
+                                                                        <option value="Separated">Separated</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Religion</label>
+                                                                    <input type="text" name="religion" value="<?php echo $fetch['religion']?>" class="form-control" />
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row  mb-2 px-4">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Occupation</label>
+                                                                    <input type="text" name="occupation" value="<?php echo $fetch['occupation']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Monthly Income</label>
+                                                                    <input type="text" name="monthlyIncome" value="<?php echo $fetch['monthlyIncome']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Other Sources of Income</label>
+                                                                    <input type="text" name="otherIncome" value="<?php echo $fetch['otherIncome']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row  mb-2 px-4">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Name of Spouse</label>
+                                                                    <input type="text" name="spouse" value="<?php echo $fetch['spouse']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>No. of Dependents</label>
+                                                                    <input type="text" name="dependents" value="<?php echo $fetch['dependents']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row  mb-2 px-4">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Name of Company</label>
+                                                                    <input type="text" name="company" value="<?php echo $fetch['company']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label>Present Employment</label>
+                                                                    <input type="text" name="employment" value="<?php echo $fetch['employment']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <div class="form-group">
+                                                                    <label>Person to be contacted in case of emergency</label>
+                                                                    <input type="text" name="emergency" value="<?php echo $fetch['emergency']?>" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+
 														</div>
 														<div class="modal-footer">
 															<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -259,7 +365,7 @@
 											<div class="modal-dialog">
 												<div class="modal-content">
 													<div class="modal-header bg-danger">
-														<h5 class="modal-title text-white">System Information</h5>
+														<h5 class="modal-title text-white">Delete Member</h5>
 														<button class="close" type="button" data-dismiss="modal" aria-label="Close">
 															<span aria-hidden="true">×</span>
 														</button>
@@ -310,44 +416,150 @@
 	
 	<!-- Add User Modal-->
 	<div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog modal-xl">
 			<form method="POST" action="save_borrower.php">
 				<div class="modal-content">
-					<div class="modal-header bg-primary">
-						<h5 class="modal-title text-white">Add Borrower</h5>
+					<div class="modal-header ">
+						<h5 class="modal-title">Add Member</h5>
 						<button class="close" type="button" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">×</span>
 						</button>
 					</div>
 					<div class="modal-body">
-						<div class="form-group">
-							<label>Firstname</label>
-							<input type="text" name="firstname" class="form-control" required="required" />
-						</div>
-						<div class="form-group">
-							<label>Middlename</label>
-							<input type="text" name="middlename" class="form-control" required="required" />
-						</div>
-						<div class="form-group">
-							<label>Lastname</label>
-							<input type="text" name="lastname" class="form-control" required="required" />
-						</div>
-						<div class="form-group">
-							<label>Contact no</label>
-							<input type="tel" name="contact_no" class="form-control" placeholder="Eg.[0965 567 6544]" pattern="[0-9]{4} [0-9]{3} [0-9]{4}"  required="required" />
-						</div>
-						<div class="form-group">
-							<label>Address</label>
-							<input type="text" name="address" class="form-control" required="required" />
-						</div>
-						<div class="form-group">
-							<label>Email</label>
-							<input type="email" name="email" class="form-control" required="required" maxlength="30"/>
-						</div>
-						<div class="form-group">
-							<label>Tax ID(must be valid)</label>
-							<input type="number" name="tax_id" min="0" class="form-control" required="required" />
-						</div>
+                        <div class="row  mb-2 px-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Firstname</label>
+                                    <input type="text" name="firstname" class="form-control" required="required" />
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Lastname</label>
+                                    <input type="text" name="lastname" class="form-control" required="required" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row  mb-2 px-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input type="text" name="address" class="form-control" required="required" />
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Contact no.</label>
+                                    <input type="text" name="contact_no" class="form-control"  />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row  mb-2 px-4">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Age</label>
+                                    <input type="text" name="age" class="form-control" />
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Birthdate</label>
+                                    <input type="date" name="birthdate" class="form-control"  />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Birthplace</label>
+                                    <input type="text" name="birthplace" class="form-control"  />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row  mb-2 px-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Civil Status</label>
+                                    <!-- <input type="text" name="civilStatus" class="form-control" required="required" /> -->
+                                    <select class="form-control" name="civilstatus"   >
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option> 
+                                        <option value="Widowed">Widowed</option>
+                                        <option value="Separated">Separated</option>
+                                    </select>
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Religion</label>
+                                    <input type="text" name="religion" class="form-control"  />
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row  mb-2 px-4">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Occupation</label>
+                                    <input type="text" name="occupation" class="form-control" />
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Monthly Income</label>
+                                    <input type="text" name="monthlyIncome" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Other Sources of Income</label>
+                                    <input type="text" name="otherIncome" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row  mb-2 px-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Name of Spouse</label>
+                                    <input type="text" name="spouse" class="form-control"  />
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>No. of Dependents</label>
+                                    <input type="text" name="dependents" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row  mb-2 px-4">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Name of Company</label>
+                                    <input type="text" name="company" class="form-control" />
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Present Employment</label>
+                                    <input type="text" name="employment" class="form-control"  />
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>Person to be contacted in case of emergency</label>
+                                    <input type="text" name="emergency" class="form-control"  />
+                                </div>
+                            </div>
+                        </div>
+					
+						
+						
 					</div>
 					<div class="modal-footer">
 						<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
