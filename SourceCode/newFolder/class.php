@@ -184,6 +184,7 @@
 			}
 		}
 		
+		
 		public function display_borrower(){
 			$query=$this->conn->prepare("SELECT * FROM `borrower`") or die($this->conn->error);
 			if($query->execute()){
