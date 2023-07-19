@@ -4102,7 +4102,7 @@ input[type="button"].btn-block {
 }
 
 .navbar {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -10296,7 +10296,8 @@ a:focus {
 }
 
 .topbar.navbar-dark .navbar-nav .nav-item .nav-link {
-  color: rgba(255, 255, 255, 0.8);
+  /* color: rgba(255, 255, 255, 0.8); */
+  color: #000;
 }
 
 .topbar.navbar-dark .navbar-nav .nav-item .nav-link:hover {
