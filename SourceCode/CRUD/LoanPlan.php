@@ -1,3 +1,10 @@
+<?php  
+ $connect = mysqli_connect("localhost", "root", "", "testing");  
+ $query = "SELECT * FROM loan_plan ORDER BY loanplan_ID DESC";  
+ $result = mysqli_query($connect, $query);  
+ ?>  
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -87,12 +94,12 @@
                             </a>
                             <div class="sb-sidenav-menu-heading text-white">Member</div>
                             <a class="nav-link  px-2 text-white" href="MemberList.php"><i class="fa-solid fa-user-group  me-2"></i> List of Members</a>
-                            <a class="nav-link px-2 text-white" href="Member_Approval.html"><i class="fa-solid fa-user-check  me-1"></i>  Membership Approval </a>
+                            <a class="nav-link px-2 text-white" href="MemberApproval.php"><i class="fa-solid fa-user-check  me-1"></i>  Membership Approval </a>
                 
                        
                             <div class="sb-sidenav-menu-heading text-white">Loans</div>
                             <a class="nav-link px-2 text-white" href="Member_Loan.html"><i class="fa-solid fa-credit-card  me-2"></i> Member's Loan</a>
-                            <a class="nav-link active px-2 text-white" href="LoanPlan.html"><i class="fa-solid fa-credit-card  me-2"></i> Loan Plan</a>
+                            <a class="nav-link active px-2 text-white" href="LoanPlan.php"><i class="fa-solid fa-credit-card  me-2"></i> Loan Plan</a>
                             <a class="nav-link px-2 text-white" href="LoanType.html"><i class="fa-solid fa-table me-2"></i> Loan Types</a>
                         
                         </div>
@@ -101,6 +108,28 @@
                 </nav>
             </div>
 
+
+            <?php  
+                $connect = mysqli_connect("localhost", "root", "", "testing");  
+                if (isset($_POST['save'])) {
+
+                $months = $_POST['months'];
+                $interest = $_POST['interest'];
+                $penalty = $_POST['penalty'];
+
+            
+                $query = "INSERT INTO loan_plan (months, interest, penalty) 
+                VALUES ('$months', '$interest', '$penalty')";
+                    $query_run = mysqli_query($connect, $query);
+
+                    if ($query_run) {
+                    $_SESSION['status'] = "Stored Successfully";
+                    } else {
+                    $_SESSION['status'] = "Stored Failed";
+                    }
+                    }
+                    ?>
+                
                                 <!-- FORM Panel -->
                                 <div id="layoutSidenav_content"  style="height: 100vh; background-color: #d9d9d9; " >
                                 <div class="container my-3 ">
@@ -109,16 +138,16 @@
                                         <div class="card">
                                           <div class="card-body">
                                             <h6 class="card-title py-2" >Plan's Form</h5>
-                                            <form>
+                                            <form  method="POST">
                                               <div class="mb-3">
                                                 <label class="control-label">Plan (months)</label>
-								                <input type="number" name="months" id="" class="form-control text-right">
+								                <input type="number" name="months" id="months" class="form-control text-right">
 
                                               </div>
                                               <div class="mb-3">
                                                 <label class="control-label">Interest</label>
                                                 <div class="input-group">
-                                                <input type="number" step="any" min="0" max="100" class="form-control text-right" name="interest_percentage" aria-label="Interest">
+                                                <input type="number" step="any" min="0" max="100" class="form-control text-right" name="interest"  id="interest" aria-label="interest">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">%</span>
                                                 </div>
@@ -127,7 +156,7 @@
                                               <div class="mb-3">
                                                 <label class="control-label">Monthly Over due's Penalty</label>
                                                 <div class="input-group">
-                                                  <input type="number" step="any" min="0" max="100" class="form-control text-right" aria-label="Penalty percentage" name="penalty_rate">
+                                                  <input type="number" step="any" min="0" max="100" class="form-control text-right" aria-label="Penalty percentage" name="penalty" id="penalty">
                                                   <div class="input-group-append">
                                                     <span class="input-group-text">%</span>
                                                   </div>
@@ -137,7 +166,7 @@
                                               <!-- <div class="card-footer" style="background-color:white;"> -->
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <button class="btn btn-sm btn-primary col-sm-3 offset-md-3"> Save</button>
+                                                        <button class="btn btn-sm btn-primary col-sm-3 offset-md-3" name="save" id="save"> Save</button>
                                                         <button class="btn btn-sm btn-default col-sm-3" type="button" onclick="_reset()"> Cancel</button>
                                                     </div>
                                                 </div>
@@ -153,36 +182,53 @@
                                             <table class="table table-bordered my-2" id="myTable">
                                              
                                               <thead>
+
+                                                <?php 
+                                                    $connect = mysqli_connect("localhost","root","","testing");
+
+                                                    $query = "SELECT * FROM loan_plan";
+                                                    $query_run = mysqli_query($connect, $query);
+                                                ?>
                                                 <tr>
                                             
                                                     <th style="width: 10%;" class="text-center">#</th>
                                                     <th style="width: 20%;" class="text-center">Plan</th>
-                                                    <th style="width: 10%;" class="text-center">Action</th>
+                                                    <th style="width: 20%;" class="text-center">Interest</th>
+                                                    <th style="width: 20%;" class="text-center">Months</th>
+                                                    <th style="width: 10%;" class="text-center">Edit</th>
+                                                    <th style="width: 10%;" class="text-center">Delete</th>
                                                   
                                                 </tr>
                                               </thead>
+                                              <?php
+                                               if($query_run)
+                                               {
+                                                   foreach($query_run as $row)
+                                                   {
+                                           ?>
                                               <style>
                                               
                                               </style>
                                             <tbody>
                                                 <tr class="text-center">
-                                                    <td>1</td>
-                                                    <td>Years/Month</td>
-                                                    <td>
-                                                      <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="fa-solid fa-bars "></i>
-                                                      </button>
-                                                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <li></li>
-                                                        <li><a class="dropdown-item" href="#"><button class="btn btn-primary w-100" data-bs-target="#memDetails" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li>
-                                                        <!-- <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-success w-100 "  data-bs-target="#editMember" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button></a></li> -->
-                                                        <li><a class="dropdown-item" href="#"><button type="button" class="btn btn-danger w-100 " data-bs-target="#deleteMember" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button></a></li>
-                                                      </ul>
-                                                    </td>
+                                                <td> <?php echo $row['loanplan_ID']; ?> </td>
+                                                <td> <?php echo $row['months']; ?> </td>
+                                                <td> <?php echo $row['interest']; ?> </td>
+                                                <td> <?php echo $row['penalty']; ?> </td>
+                                                    <td><input type="button" name="edit" value="Edit" id="<?php echo $row["loanplan_ID"]; ?>" class="btn btn-info btn-xs edit_data" /></td>  
+                                                    <td><input type="button" name="edit" value="Edit" id="<?php echo $row["loanplan_ID"]; ?>" class="btn btn-info btn-xs edit_data" /></td>  
+                                           
                                                   </tr>
                       
                                                 
                                                 </tbody>
+                                                <?php
+                                                   }
+                                               }
+                                               else{
+                                                echo "No Record Found";
+                                               }
+                                            ?>
                                                 </table>
                                       </div>
                                     </div>
@@ -190,11 +236,11 @@
                                   </div>
                                 </div>
 
-                      
-                                
 
-<!-- ========== VIEW DETAILS MODAL ========== -->
-                    <div class="modal fade" id="memDetails" aria-hidden="true" aria-labelledby="memDetails" tabindex="-1">
+                                   
+
+<!-- ========== EDIT DETAILS MODAL ========== -->
+                    <div class="modal fade" id="memDetailS" aria-hidden="true" aria-labelledby="memDetails" tabindex="-1">
                       <div class="modal-dialog modal-dialog-centered modal-md">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -205,13 +251,13 @@
                             <form>
                               <div class="mb-3">
                                 <label class="control-label">Plan (months)</label>
-                <input type="number" name="months" id="" class="form-control text-right">
+                <input type="number" name="months" id="months" class="form-control text-right">
 
                               </div>
                               <div class="mb-3">
                                 <label class="control-label">Interest</label>
                                 <div class="input-group">
-                                <input type="number" step="any" min="0" max="100" class="form-control text-right" name="interest_percentage" aria-label="Interest">
+                                <input type="number" step="any" min="0" max="100" class="form-control text-right" name="interest" id="interest" aria-label="interest">
                                 <div class="input-group-append">
                                     <span class="input-group-text">%</span>
                                 </div>
@@ -220,7 +266,7 @@
                               <div class="mb-3">
                                 <label class="control-label">Monthly Over due's Penalty</label>
                                 <div class="input-group">
-                                  <input type="number" step="any" min="0" max="100" class="form-control text-right" aria-label="Penalty percentage" name="penalty_rate">
+                                  <input type="number" step="any" min="0" max="100" class="form-control text-right" aria-label="Penalty percentage" name="penalty" id="penalty">
                                   <div class="input-group-append">
                                     <span class="input-group-text">%</span>
                                   </div>
@@ -232,7 +278,7 @@
                           <div class="modal-footer d-flex  py-1">
                             
                             <button class="btn btn-secondary"  data-bs-dismiss="modal">Cancel</button>
-                            <input class="btn btn-submit btn-primary" type="submit" value="Save" style=" color: white; " />
+                            <input class="btn btn-submit btn-primary" type="submit" name="submit" value="Save" style=" color: white; " />
                             
                             </div>
                         </div>
@@ -240,7 +286,7 @@
                     </div>
                     </div>
 <!-- ========== VIEW DETAILS MODAL ========== -->
-
+                
 
 
 <!-- ========== Delete Member ========== -->
