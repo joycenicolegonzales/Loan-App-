@@ -173,9 +173,9 @@
 		
 		/* Borrower Function */
 		
-		public function save_borrower($firstname,$lastname,$contact_no, $address,  $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency){
-			$query=$this->conn->prepare("INSERT INTO `borrower` (`firstname`, `lastname`, `contact_no`, `address`, `birthdate`, `birthplace`,`civilstatus`,`religion`,`occupation`,`monthlyIncome`,`otherIncome`,`spouse`,`dependents`,`company`,`employment`,`emergency`) VALUES(?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?)") or die($this->conn->error);
-			$query->bind_param("ssssssssssssssss", $firstname, $lastname, $contact_no, $address,  $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency);
+		public function save_borrower($firstname,$lastname,$contact_no, $address, $age, $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency){
+			$query=$this->conn->prepare("INSERT INTO `borrower` (`firstname`, `lastname`, `contact_no`, `address`,`age` , `birthdate`, `birthplace`,`civilstatus`,`religion`,`occupation`,`monthlyIncome`,`otherIncome`,`spouse`,`dependents`,`company`,`employment`,`emergency`) VALUES(?,?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?)") or die($this->conn->error);
+			$query->bind_param("sssssssssssssssss", $firstname, $lastname, $contact_no, $address, $age,  $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency);
 			
 			if($query->execute()){
 				$query->close();
@@ -201,9 +201,9 @@
 			}
 		}
 		
-		public function update_borrower($firstname,$lastname,$contact_no, $address,  $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency){
-			$query=$this->conn->prepare("UPDATE `borrower` SET `firstname`=?, `lastname`=?, `contact_no`=?, `address`=?, `birthdate`=?, `birthplace`=? , `civilstatus`=?, `religion`=?, `occupation`=?, `monthlyIncome`=?, `otherIncome`=?, `spouse`=?, `dependents`=?, `company`=?, `employment`=?, `emergency`=?  WHERE `borrower_id`=?") or die($this->conn->error);
-			$query->bind_param("ssssssssssssssss", $firstname,$lastname,$contact_no, $address,  $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency);
+		public function update_borrower($firstname,$lastname,$contact_no, $address, $age,  $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency){
+			$query=$this->conn->prepare("UPDATE `borrower` SET `firstname`=?, `lastname`=?, `contact_no`=?, `address`=?,`age`=?,  `birthdate`=?, `birthplace`=? , `civilstatus`=?, `religion`=?, `occupation`=?, `monthlyIncome`=?, `otherIncome`=?, `spouse`=?, `dependents`=?, `company`=?, `employment`=?, `emergency`=?  WHERE `borrower_id`=?") or die($this->conn->error);
+			$query->bind_param("sssssssssssssssss", $firstname,$lastname,$contact_no, $address,  $age, $birthdate, $birthplace,$civilstatus,$religion,$occupation,$monthlyIncome,$otherIncome,$spouse,$dependents,$company,$employment,$emergency);
 			
 			if($query->execute()){
 				$query->close();
