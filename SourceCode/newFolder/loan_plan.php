@@ -15,8 +15,8 @@
 
     <title>Loan Management System</title>
 
-    <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  
+    <!-- <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
    
     <link href="css/sb-admin-2.css" rel="stylesheet">
 	
@@ -25,6 +25,23 @@
     
 
 </head>
+<style>
+     .side-link:hover{
+        background-color: #4884bc;
+      
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .side-link:active{
+        background-color: #4884bc;
+         
+         transform: translateY(4px);
+    }
+    .side-link.active{
+        background-color: #4884bc;
+    }
+
+</style>
 
 <body id="page-top">
 
@@ -32,51 +49,53 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+		<ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #1165AE">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">ADMIN PANEL</div>
-            </a>
+			<!-- Sidebar - Brand -->
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+				<div class="sidebar-brand-text mx-3">  <img src="../images/logoo.jpg"  class="" style="width: 50px; height: 50px;"alt=""> NMEMPC</div>
+			</a>
 
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="home.php">
-                    <i class="fas fa-fw fa-home"></i>
-                    <span>Home</span></a>
-            </li>
+			<!-- Nav Item - Dashboard -->
+			<li class="nav-item ">
+				<a class="nav-link side-link" href="home.php" >
+					<i class="fas fa-fw fa-home"></i>
+					Home</a>
+			</li>
 			<li class="nav-item">
-                <a class="nav-link" href="loan.php">
-                    <i class="fas fa-fw fas fa-comment-dollar"></i>
-                    <span>Loans</span></a>
-            </li>
+				<a class="nav-link side-link" href="borrower.php" >
+				<i class="fa-solid fa-users"></i></i>
+					Members</a>
+			</li>
 			<li class="nav-item">
-                <a class="nav-link" href="payment.php">
-                    <i class="fas fa-fw fas fa-coins"></i>
-                    <span>Payments</span></a>
-            </li>
-			<li class="nav-item">
-                <a class="nav-link" href="borrower.php">
-                    <i class="fas fa-fw fas fa-book"></i>
-                    <span>Borrowers</span></a>
-            </li>
+				<a class="nav-link side-link" href="loan.php">
+				<i class="fa-solid fa-credit-card"></i></i>
+					Loans</a>
+			</li>
+
 			<li class="nav-item active">
-                <a class="nav-link" href="loan_plan.php">
-                    <i class="fas fa-fw fa-piggy-bank"></i>
-                    <span>Loan Plans</span></a>
-            </li>
+				<a class="nav-link side-link" href="loan_plan.php" >
+				<i class="fa-solid fa-file"></i></i>
+				Loan Plans</a>
+			</li>
 			<li class="nav-item">
-                <a class="nav-link" href="loan_type.php">
-                    <i class="fas fa-fw fa-money-check"></i>
-                    <span>Loan Types</span></a>
-            </li>
+				<a class="nav-link side-link" href="loan_type.php" >
+					<i class="fas fa-fw fa-money-check "></i>
+					Loan Types</a>
+			</li>
 			<li class="nav-item">
-                <a class="nav-link" href="user.php">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Users</span></a>
-            </li>
-        </ul>
+				<a class="nav-link side-link" href="payment.php">
+					<i class="fas fa-fw fas fa-coins "></i>
+					Payments</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link side-link" href="user.php" >
+					<i class="fas fa-fw fa-user "></i>
+					Users</a>
+			</li>
+		</ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -102,8 +121,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $db->user_acc($_SESSION['user_id'])?></span>
-                                <img class="img-profile rounded-circle"
-                                    src="image/admin_profile.svg">
+								<i class="fas fa-fw fa-user "></i>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -279,9 +297,7 @@
             <!-- Footer -->
             <footer class="stocky-footer">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Loan Management System <?php echo date("Y")?></span>
-                    </div>
+                  
                 </div>
             </footer>
             <!-- End of Footer -->
