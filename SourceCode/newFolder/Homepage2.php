@@ -44,7 +44,7 @@
             <div class="row gx-0">
                 <div class="col-lg-3  d-none d-lg-block"  style="background-color: #1165AE;">
                     <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                        <img src="/SourceCode/images/logoo.jpg" alt="Image" style="width: 60px; height: 60px;"><h1 class="m-0  text-uppercase" style="color: #FFDE59;">NMEMPC</h1>
+                    <img src="/LoanApp/SourceCode/newFolder/image/logoo.jpg"  class="" style="width: 60px; height: 60px;"alt=""><h1 class="m-0  text-uppercase" style="color: #FFDE59;">NMEMPC</h1>
                     </a>
                 </div>
                 <div class="col-lg-9">
@@ -52,11 +52,11 @@
                         <div class="col-lg-7 px-5 text-start">
                             <div class="h-100 d-inline-flex align-items-center py-2 me-4">
                                 <i class="fa fa-envelope text-primary me-2"></i>
-                                <p class="mb-0">nmempc@example.com</p>
+                                <p class="mb-0">nmempc@gmail.com</p>
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
                                 <i class="fa fa-phone-alt text-primary me-2"></i>
-                                <p class="mb-0">+012 345 6789</p>
+                                <p class="mb-0">09151532463</p>
                             </div>
                         </div>
                         <div class="col-lg-5 px-5 text-end">
@@ -92,6 +92,7 @@
                             </div>
                                 <!-- <div class="nav-item dropdown"> -->
                                     <a href="#" class="nav-item nav-link">Services</a>
+                                    <a href="" class="nav-item nav-link">Contact Us</a>
                                     <!-- <div class="dropdown-menu rounded-0 m-0">
                                         <a href="booking.html" class="dropdown-item">Booking</a>
                                         <a href="team.html" class="dropdown-item">Our Team</a>
@@ -237,49 +238,44 @@ button:hover {
     }
 
     </style>
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" >
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="2000">
-                <img src="/SourceCode/images/Discover_Nas.jpg" class="d-block w-100 c-img" alt="..." >
-                <!-- <div class="carousel-caption top-0 mt-4">
-                  <h5 class="display-1 fw-bolder text-capitalize" style="margin-top: 14%; font-size: 48px;">E-Learning</h5>
-                  <p class="fs-3 mt-5" style="color: #fff;">Planting pattern for plants</p>
-                </div> -->
-                <!-- <div class="carousel-caption top-0 mt-4">
-                    <h1 style="margin-top: 20%;">NMEMPC </h1>
-                    
-                    <div>
-                        <button class="signup-btn" type="button"><span class="cover"></span>SIGN UP</button>
-                        <button class="login-btn" type="button"><span class="cover"></span>LOG IN</button>
-                    </div>
-                </div> -->
-              </div>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" >
+            <ol class="carousel-indicators">
+            <?php
+        // Array of image filenames (update these with your image filenames)
+        $imageFilenames = array("bg1.jpg", "Discover_Nas.jpg", "arc.jpg");
         
-              <div class="carousel-item"  data-mdb-interval="2000">
-                <img src="/SourceCode/images/bg1.jpeg" class="d-block w-100 c-img" alt="..." >
-                <div class="carousel-caption top-0 mt-4">
+        for ($i = 0; $i < count($imageFilenames); $i++) {
+            $activeClass = ($i === 0) ? 'active' : '';
+            echo '<li data-target="#myCarousel" data-slide-to="' . $i . '" class="' . $activeClass . '"></li>';
+            }
+            
+        ?>
+</ol>
+            <div class="carousel-inner">
+                    <?php
+                    for ($i = 0; $i < count($imageFilenames); $i++) {
+                        $activeClass = ($i === 0) ? 'active' : '';
+                        echo '<div class="carousel-item ' . $activeClass . '">';
+                        echo '<img src="/LoanApp/SourceCode/newFolder/image/' . $imageFilenames[$i] . '" class="d-block w-100 c-img" alt="Image ' . ($i + 1) . '">';
+                        echo '</div>';
+                    }
+                    ?>
                 </div>
-              </div>
-              <div class="carousel-item">
-                <img src="/SourceCode/images/bg1.jpeg" class="d-block w-100 c-img" alt="...">
-                <div class="carousel-caption top-0 mt-4">
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+
+             <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+      
+          <!-- Include Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
      
           
       
@@ -379,7 +375,7 @@ button:hover {
                             <p>Loan application has<br> been
                                 made easier.</p>
                         </div>
-                        <a href="loanApplicationForm.html"></a>
+                        <a href="Policy_eLoan.php"></a>
                     </div>
                    
                 </div>
@@ -393,7 +389,7 @@ button:hover {
                             <h4>E-Membership</h4>
                             <p>  Become a member now!<br> Anytime. Anywhere.</p>
                         </div>
-                        <a href="e-membership.html"></a>
+                        <a href="Policy_EMember.php"></a>
                     </div>
                    
                 </div>
@@ -542,7 +538,7 @@ button:hover {
                 <div class="col-lg-4 col-md-6 col-sm-8 col-10">
                     <h3 class="w-100" style="margin-left: 10%; margin-top: 5%;">Hear from our members!</h3>
                     <p style="margin-top: 5%; margin-left: 10%;color: gray;">Providing Member Excellent Experience is our Passion.</p>
-                    <a href="testimonial.html" class="mt-4 button button1 w-100" style="margin-left: 10%; margin-bottom: 3%;">Click Here to Discover</a>
+                    <a href="testimonial.php" class="mt-4 button button1 w-100" style="margin-left: 10%; margin-bottom: 3%;">Click Here to Discover</a>
                 </div>
             </div>
             </div>
@@ -551,7 +547,7 @@ button:hover {
 
     <style>
         .appointment_wrapper {
-    background-image: url('/SourceCode/images/bg3.jpg');
+    background-image: url('/LoanApp/SourceCode/newFolder/image/bg3.jpg');
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
@@ -639,10 +635,17 @@ button:hover {
     </style> -->
     
     <style>
-        .card{
+        #newsCarousel {
             background-color: white;
         }
-        .container .news{
+
+        /* Set the background color of the carousel items (cards) */
+        .carousel-item.news {
+            background-color: white;
+        }
+
+        /* Set the background color of the card body */
+        .card-body {
             background-color: white;
         }
     </style>
@@ -654,7 +657,7 @@ button:hover {
               <div class="row">
                 <div class="col">
                   <div class="card news" style="width: 50vh; margin-right: 2%;">
-                    <img src="/SourceCode/images/news1.png" class="card-img-top" alt="News 1" >
+                    <img src="/LoanApp/SourceCode/newFolder/image/news1.png" class="card-img-top" alt="News 1" >
                     <div class="card-body" >
                       <h5 class="card-title" style="font-size: 18px;">News 1</h5>
                       <p class="card-text" style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur</p>
@@ -663,7 +666,7 @@ button:hover {
                 </div>
                 <div class="col">
                   <div class="card" style="width:50vh;">
-                    <img src="/SourceCode/images/news1.png" class="card-img-top" alt="News 2" >
+                    <img src="/LoanApp/SourceCode/newFolder/image/news1.png" class="card-img-top" alt="News 2" >
                     <div class="card-body">
                       <h5 class="card-title"  style="font-size: 18px;">News 2</h5>
                       <p class="card-text"  style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur .</p>
@@ -672,7 +675,7 @@ button:hover {
                 </div>
                 <div class="col">
                   <div class="card" style="width: 50vh;">
-                    <img src="/SourceCode/images/news1.png"  class="card-img-top" alt="News 3">
+                    <img src="/LoanApp/SourceCode/newFolder/image/news1.png"  class="card-img-top" alt="News 3">
                     <div class="card-body">
                       <h5 class="card-title"  style="font-size: 18px;">News 3</h5>
                       <p class="card-text"  style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur.</p>
@@ -687,7 +690,7 @@ button:hover {
               <div class="row">
                 <div class="col">
                   <div class="card" style="width:50vh;">
-                    <img src="/SourceCode/images/news1.png" class="card-img-top" alt="News 4">
+                    <img src="/LoanApp/SourceCode/newFolder/image/news1.png" class="card-img-top" alt="News 4">
                     <div class="card-body">
                       <h5 class="card-title" style="font-size: 18px;">News 4</h5>
                       <p class="card-text" style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur</p>
@@ -696,7 +699,7 @@ button:hover {
                 </div>
                 <div class="col">
                   <div class="card" style="width: 50vh;">
-                    <img src="/SourceCode/images/news1.png" class="card-img-top" alt="News 5">
+                    <img src="/LoanApp/SourceCode/newFolder/image/news1.png" class="card-img-top" alt="News 5">
                     <div class="card-body">
                       <h5 class="card-title" style="font-size: 18px;">News 5</h5>
                       <p class="card-text" style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur </p>
@@ -705,7 +708,7 @@ button:hover {
                 </div>
                 <div class="col">
                   <div class="card" style="width: 50vh;">
-                    <img src="/SourceCode/images/news1.png" class="card-img-top" alt="News 6">
+                    <img src="/LoanApp/SourceCode/newFolder/image/news1.png" class="card-img-top" alt="News 6">
                     <div class="card-body">
                       <h5 class="card-title" style="font-size: 18px;">News 6</h5>
                       <p class="card-text" style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur</p>
@@ -734,40 +737,35 @@ button:hover {
         <div class="container pb-3">
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Clinic Location</h5>
-                    <p class="ps-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim erat ut
-                        laoreet
-                        pharetra....</p>
+                    <h5>NMEMPC</h5>
+                    <p class="ps-0">Nasugbu Municipal Employees Multi-Purpose Cooperative </p>
                     <div class="contact-info">
                         <ul class="list-unstyled p-0">
-                            <li><a href="#"><i class="fa fa-home me-3"></i> No. 96, South City, London</a></li>
-                            <li><a href="#"><i class="fa fa-phone me-3"></i>+1 222 3333</a></li>
-                            <li><a href="#"><i class="fa fa-envelope me-3"></i>info@example.com</a></li>
+                            <li><a href="#"><i class="fa fa-home me-3"></i> Nasugbu, Batangas</a></li>
+                            <li><a href="#"><i class="fa fa-phone me-3"></i>09151532463</a></li>
+                            <li><a href="#"><i class="fa fa-envelope me-3"></i>nmempc@example.com</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>More Links</h5>
+                    <h5>Quick Links</h5>
                     <ul class="link-widget p-0">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Office</a></li>
-                        <li><a href="#">Delivery</a></li>
-                        <li><a href="#">Our Store</a></li>
-                        <li><a href="#">Guarantee</a></li>
-                        <li><a href="#">Buy Gift Card</a></li>
-                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">E-Loan Application</a></li>
+                        <li><a href="#">E-Membership</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Loan Amortization Calculator</a></li>
+                    
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5>More Links</h5>
                     <ul class="link-widget p-0">
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Office</a></li>
-                        <li><a href="#">Delivery</a></li>
-                        <li><a href="#">Our Store</a></li>
-                        <li><a href="#">Guarantee</a></li>
-                        <li><a href="#">Buy Gift Card</a></li>
-                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Online PMO</a></li>
+                        <li><a href="#">Regular Membership</a></li>
+                        <li><a href="#">Online Membership</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                     
                     </ul>
                 </div>
 
@@ -775,7 +773,7 @@ button:hover {
                     <h5>Newsletter</h5>
                     <div class="form-group mb-4">
                         <input type="email" class="form-control bg-transparent text-white" placeholder="Enter Your Email Here" >
-                        <button type="submit" class="main-btn rounded-2 mt-3 border-white text-white">Subscribe</button>
+                        <button type="submit" class="main-btn rounded-2 mt-3 border-white text-dark">Subscribe</button>
                     </div>
                     <h5>Stay Connected</h5>
                     <ul class="social-network d-flex align-items-center p-0 ">
@@ -787,9 +785,9 @@ button:hover {
                 </div>
             </div>
         </div>
-        <div class="container-fluid copyright-section">
+        <!-- <div class="container-fluid copyright-section">
             <p class="p-0">Copyright <a href="#">© CODE4EDUCATION.</a> All Rights Reserved</p>
-        </div>
+        </div> -->
     </section> 
 <style>
     .footer_wrapper{
